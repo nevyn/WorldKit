@@ -1,0 +1,12 @@
+[submodule "Libraries/AsyncSocket"]
+	path = Libraries/AsyncSocket
+	url = https://github.com/robbiehanson/CocoaAsyncSocket.git
+[submodule "Libraries/MAObjCRuntime"]
+	path = Libraries/MAObjCRuntime
+	url = https://github.com/mikeash/MAObjCRuntime.git
+[submodule "Libraries/SPSuccinct"]
+	path = Libraries/SPSuccinct
+	url = https://github.com/nevyn/SPSuccinct.git
+[submodule "Libraries/TCHashProto"]
+	path = Libraries/TCHashProto
+	url = https://github.com/nevyn/TCAsyncHashProtocol.git

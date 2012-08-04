@@ -1,0 +1,515 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		059BCBC815BADD01006DD9DC /* WorldGameClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBC715BADD01006DD9DC /* WorldGameClient.m */; };
+		059BCBCC15BADD0A006DD9DC /* WorldGameServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBCB15BADD0A006DD9DC /* WorldGameServer.m */; };
+		059BCBD715BADE22006DD9DC /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBD415BADE22006DD9DC /* NSString+UUID.m */; };
+		059BCBD815BADE22006DD9DC /* TCAsyncHashProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBD615BADE22006DD9DC /* TCAsyncHashProtocol.m */; };
+		059BCBDD15BADEC8006DD9DC /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBDA15BADEC8006DD9DC /* AsyncSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		059BCBDE15BADEC8006DD9DC /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBDC15BADEC8006DD9DC /* AsyncUdpSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		059BCC1015C04771006DD9DC /* WorldMasterServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC0F15C04771006DD9DC /* WorldMasterServer.m */; };
+		059BCC1E15C0485D006DD9DC /* SPDepends.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC1415C0485D006DD9DC /* SPDepends.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		059BCC1F15C0485D006DD9DC /* SPFunctional.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC1615C0485D006DD9DC /* SPFunctional.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		059BCC2015C0485D006DD9DC /* SPKVONotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC1815C0485D006DD9DC /* SPKVONotificationCenter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		059BCC2115C0485D006DD9DC /* SPLowVerbosity.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC1A15C0485D006DD9DC /* SPLowVerbosity.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		059BCC2515C04F46006DD9DC /* WorldGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC2415C04F46006DD9DC /* WorldGame.m */; };
+		059BCC2C15C053F0006DD9DC /* WorldGamePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC2B15C053F0006DD9DC /* WorldGamePlayer.m */; };
+		059BCC3015C0838D006DD9DC /* WorldServerTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC2F15C0838D006DD9DC /* WorldServerTypes.m */; };
+		059BCC4515C08589006DD9DC /* WorldContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC4415C08589006DD9DC /* WorldContainer.m */; };
+		059BCCA015C959CE006DD9DC /* MARTNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC9415C959CE006DD9DC /* MARTNSObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		059BCCA115C959CE006DD9DC /* RTIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC9615C959CE006DD9DC /* RTIvar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		059BCCA215C959CE006DD9DC /* RTMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC9815C959CE006DD9DC /* RTMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		059BCCA315C959CE006DD9DC /* RTProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC9A15C959CE006DD9DC /* RTProperty.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-shorten-64-to-32"; }; };
+		059BCCA415C959CE006DD9DC /* RTProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC9C15C959CE006DD9DC /* RTProtocol.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		059BCCA515C959CE006DD9DC /* RTUnregisteredClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC9E15C959CE006DD9DC /* RTUnregisteredClass.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		059BCCAA15C98908006DD9DC /* ExampleEgg.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCCA915C98908006DD9DC /* ExampleEgg.m */; };
+		059BCCAD15C98917006DD9DC /* ExampleBasket.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCCAC15C98917006DD9DC /* ExampleBasket.m */; };
+		059BCCB015C989D1006DD9DC /* ExampleGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCCAF15C989D1006DD9DC /* ExampleGame.m */; };
+		05F779E715B84D320059B13A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F779E615B84D320059B13A /* Cocoa.framework */; };
+		05F779F115B84D320059B13A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05F779EF15B84D320059B13A /* InfoPlist.strings */; };
+		05F779F315B84D320059B13A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F779F215B84D320059B13A /* main.m */; };
+		05F779F715B84D320059B13A /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 05F779F515B84D320059B13A /* Credits.rtf */; };
+		05F779FA15B84D320059B13A /* WorldAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F779F915B84D320059B13A /* WorldAppDelegate.m */; };
+		05F779FD15B84D320059B13A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05F779FB15B84D320059B13A /* MainMenu.xib */; };
+		05F77A1015B84E180059B13A /* WorldEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F77A0F15B84E180059B13A /* WorldEntity.m */; };
+		05F77A2615BA06830059B13A /* WorldServerPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F77A2515BA06830059B13A /* WorldServerPlayer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		059BCBC615BADD01006DD9DC /* WorldGameClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldGameClient.h; sourceTree = "<group>"; };
+		059BCBC715BADD01006DD9DC /* WorldGameClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldGameClient.m; sourceTree = "<group>"; };
+		059BCBCA15BADD0A006DD9DC /* WorldGameServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldGameServer.h; sourceTree = "<group>"; };
+		059BCBCB15BADD0A006DD9DC /* WorldGameServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldGameServer.m; sourceTree = "<group>"; };
+		059BCBD315BADE22006DD9DC /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+UUID.h"; path = "Libraries/TCHashProto/NSString+UUID.h"; sourceTree = SOURCE_ROOT; };
+		059BCBD415BADE22006DD9DC /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+UUID.m"; path = "Libraries/TCHashProto/NSString+UUID.m"; sourceTree = SOURCE_ROOT; };
+		059BCBD515BADE22006DD9DC /* TCAsyncHashProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCAsyncHashProtocol.h; path = Libraries/TCHashProto/TCAsyncHashProtocol.h; sourceTree = SOURCE_ROOT; };
+		059BCBD615BADE22006DD9DC /* TCAsyncHashProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TCAsyncHashProtocol.m; path = Libraries/TCHashProto/TCAsyncHashProtocol.m; sourceTree = SOURCE_ROOT; };
+		059BCBD915BADEC8006DD9DC /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = Libraries/AsyncSocket/RunLoop/AsyncSocket.h; sourceTree = SOURCE_ROOT; };
+		059BCBDA15BADEC8006DD9DC /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = Libraries/AsyncSocket/RunLoop/AsyncSocket.m; sourceTree = SOURCE_ROOT; };
+		059BCBDB15BADEC8006DD9DC /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncUdpSocket.h; path = Libraries/AsyncSocket/RunLoop/AsyncUdpSocket.h; sourceTree = SOURCE_ROOT; };
+		059BCBDC15BADEC8006DD9DC /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncUdpSocket.m; path = Libraries/AsyncSocket/RunLoop/AsyncUdpSocket.m; sourceTree = SOURCE_ROOT; };
+		059BCC0E15C04771006DD9DC /* WorldMasterServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldMasterServer.h; sourceTree = "<group>"; };
+		059BCC0F15C04771006DD9DC /* WorldMasterServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldMasterServer.m; sourceTree = "<group>"; };
+		059BCC1315C0485D006DD9DC /* SPDepends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPDepends.h; sourceTree = "<group>"; };
+		059BCC1415C0485D006DD9DC /* SPDepends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPDepends.m; sourceTree = "<group>"; };
+		059BCC1515C0485D006DD9DC /* SPFunctional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPFunctional.h; sourceTree = "<group>"; };
+		059BCC1615C0485D006DD9DC /* SPFunctional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFunctional.m; sourceTree = "<group>"; };
+		059BCC1715C0485D006DD9DC /* SPKVONotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPKVONotificationCenter.h; sourceTree = "<group>"; };
+		059BCC1815C0485D006DD9DC /* SPKVONotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPKVONotificationCenter.m; sourceTree = "<group>"; };
+		059BCC1915C0485D006DD9DC /* SPLowVerbosity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLowVerbosity.h; sourceTree = "<group>"; };
+		059BCC1A15C0485D006DD9DC /* SPLowVerbosity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLowVerbosity.m; sourceTree = "<group>"; };
+		059BCC2315C04F46006DD9DC /* WorldGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldGame.h; sourceTree = "<group>"; };
+		059BCC2415C04F46006DD9DC /* WorldGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldGame.m; sourceTree = "<group>"; };
+		059BCC2A15C053F0006DD9DC /* WorldGamePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldGamePlayer.h; sourceTree = "<group>"; };
+		059BCC2B15C053F0006DD9DC /* WorldGamePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldGamePlayer.m; sourceTree = "<group>"; };
+		059BCC2E15C0838D006DD9DC /* WorldServerTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldServerTypes.h; sourceTree = "<group>"; };
+		059BCC2F15C0838D006DD9DC /* WorldServerTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldServerTypes.m; sourceTree = "<group>"; };
+		059BCC4315C08589006DD9DC /* WorldContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldContainer.h; sourceTree = "<group>"; };
+		059BCC4415C08589006DD9DC /* WorldContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldContainer.m; sourceTree = "<group>"; };
+		059BCC9315C959CE006DD9DC /* MARTNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MARTNSObject.h; sourceTree = "<group>"; };
+		059BCC9415C959CE006DD9DC /* MARTNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MARTNSObject.m; sourceTree = "<group>"; };
+		059BCC9515C959CE006DD9DC /* RTIvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTIvar.h; sourceTree = "<group>"; };
+		059BCC9615C959CE006DD9DC /* RTIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTIvar.m; sourceTree = "<group>"; };
+		059BCC9715C959CE006DD9DC /* RTMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMethod.h; sourceTree = "<group>"; };
+		059BCC9815C959CE006DD9DC /* RTMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTMethod.m; sourceTree = "<group>"; };
+		059BCC9915C959CE006DD9DC /* RTProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTProperty.h; sourceTree = "<group>"; };
+		059BCC9A15C959CE006DD9DC /* RTProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTProperty.m; sourceTree = "<group>"; };
+		059BCC9B15C959CE006DD9DC /* RTProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTProtocol.h; sourceTree = "<group>"; };
+		059BCC9C15C959CE006DD9DC /* RTProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTProtocol.m; sourceTree = "<group>"; };
+		059BCC9D15C959CE006DD9DC /* RTUnregisteredClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUnregisteredClass.h; sourceTree = "<group>"; };
+		059BCC9E15C959CE006DD9DC /* RTUnregisteredClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUnregisteredClass.m; sourceTree = "<group>"; };
+		059BCCA815C98908006DD9DC /* ExampleEgg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleEgg.h; sourceTree = "<group>"; };
+		059BCCA915C98908006DD9DC /* ExampleEgg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleEgg.m; sourceTree = "<group>"; };
+		059BCCAB15C98916006DD9DC /* ExampleBasket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleBasket.h; sourceTree = "<group>"; };
+		059BCCAC15C98917006DD9DC /* ExampleBasket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleBasket.m; sourceTree = "<group>"; };
+		059BCCAE15C989D1006DD9DC /* ExampleGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleGame.h; sourceTree = "<group>"; };
+		059BCCAF15C989D1006DD9DC /* ExampleGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleGame.m; sourceTree = "<group>"; };
+		059BCCB115C98C31006DD9DC /* WorldKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldKit.h; sourceTree = "<group>"; };
+		05F779E215B84D320059B13A /* WorldKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05F779E615B84D320059B13A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		05F779EE15B84D320059B13A /* WorldKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WorldKit-Info.plist"; sourceTree = "<group>"; };
+		05F779F015B84D320059B13A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		05F779F215B84D320059B13A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		05F779F415B84D320059B13A /* WorldKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WorldKit-Prefix.pch"; sourceTree = "<group>"; };
+		05F779F615B84D320059B13A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		05F779F815B84D320059B13A /* WorldAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorldAppDelegate.h; sourceTree = "<group>"; };
+		05F779F915B84D320059B13A /* WorldAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorldAppDelegate.m; sourceTree = "<group>"; };
+		05F779FC15B84D320059B13A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		05F77A0E15B84E180059B13A /* WorldEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldEntity.h; sourceTree = "<group>"; };
+		05F77A0F15B84E180059B13A /* WorldEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldEntity.m; sourceTree = "<group>"; };
+		05F77A2415BA06830059B13A /* WorldServerPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldServerPlayer.h; sourceTree = "<group>"; };
+		05F77A2515BA06830059B13A /* WorldServerPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldServerPlayer.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05F779DF15B84D320059B13A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05F779E715B84D320059B13A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		059BCC1115C0485D006DD9DC /* SPSuccinct */ = {
+			isa = PBXGroup;
+			children = (
+				059BCC1315C0485D006DD9DC /* SPDepends.h */,
+				059BCC1415C0485D006DD9DC /* SPDepends.m */,
+				059BCC1515C0485D006DD9DC /* SPFunctional.h */,
+				059BCC1615C0485D006DD9DC /* SPFunctional.m */,
+				059BCC1715C0485D006DD9DC /* SPKVONotificationCenter.h */,
+				059BCC1815C0485D006DD9DC /* SPKVONotificationCenter.m */,
+				059BCC1915C0485D006DD9DC /* SPLowVerbosity.h */,
+				059BCC1A15C0485D006DD9DC /* SPLowVerbosity.m */,
+			);
+			name = SPSuccinct;
+			path = Libraries/SPSuccinct/SPSuccinct;
+			sourceTree = "<group>";
+		};
+		059BCC9115C959CD006DD9DC /* MAObjCRuntime */ = {
+			isa = PBXGroup;
+			children = (
+				059BCC9315C959CE006DD9DC /* MARTNSObject.h */,
+				059BCC9415C959CE006DD9DC /* MARTNSObject.m */,
+				059BCC9515C959CE006DD9DC /* RTIvar.h */,
+				059BCC9615C959CE006DD9DC /* RTIvar.m */,
+				059BCC9715C959CE006DD9DC /* RTMethod.h */,
+				059BCC9815C959CE006DD9DC /* RTMethod.m */,
+				059BCC9915C959CE006DD9DC /* RTProperty.h */,
+				059BCC9A15C959CE006DD9DC /* RTProperty.m */,
+				059BCC9B15C959CE006DD9DC /* RTProtocol.h */,
+				059BCC9C15C959CE006DD9DC /* RTProtocol.m */,
+				059BCC9D15C959CE006DD9DC /* RTUnregisteredClass.h */,
+				059BCC9E15C959CE006DD9DC /* RTUnregisteredClass.m */,
+			);
+			name = MAObjCRuntime;
+			path = Libraries/MAObjCRuntime;
+			sourceTree = "<group>";
+		};
+		059BCCA715C988EE006DD9DC /* World */ = {
+			isa = PBXGroup;
+			children = (
+				059BCCA815C98908006DD9DC /* ExampleEgg.h */,
+				059BCCA915C98908006DD9DC /* ExampleEgg.m */,
+				059BCCAB15C98916006DD9DC /* ExampleBasket.h */,
+				059BCCAC15C98917006DD9DC /* ExampleBasket.m */,
+				059BCCAE15C989D1006DD9DC /* ExampleGame.h */,
+				059BCCAF15C989D1006DD9DC /* ExampleGame.m */,
+			);
+			path = World;
+			sourceTree = "<group>";
+		};
+		05F779D715B84D320059B13A = {
+			isa = PBXGroup;
+			children = (
+				05F77A0915B84DCF0059B13A /* WorldKit */,
+				05F779EC15B84D320059B13A /* Example app */,
+				05F779E515B84D320059B13A /* Frameworks */,
+				05F779E315B84D320059B13A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		05F779E315B84D320059B13A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05F779E215B84D320059B13A /* WorldKit.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05F779E515B84D320059B13A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				059BCC9115C959CD006DD9DC /* MAObjCRuntime */,
+				059BCC1115C0485D006DD9DC /* SPSuccinct */,
+				05F779E615B84D320059B13A /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		05F779EC15B84D320059B13A /* Example app */ = {
+			isa = PBXGroup;
+			children = (
+				059BCCA715C988EE006DD9DC /* World */,
+				05F779F815B84D320059B13A /* WorldAppDelegate.h */,
+				05F779F915B84D320059B13A /* WorldAppDelegate.m */,
+				05F779FB15B84D320059B13A /* MainMenu.xib */,
+				05F779ED15B84D320059B13A /* Supporting Files */,
+			);
+			name = "Example app";
+			path = ExampleApp;
+			sourceTree = "<group>";
+		};
+		05F779ED15B84D320059B13A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05F779EE15B84D320059B13A /* WorldKit-Info.plist */,
+				05F779EF15B84D320059B13A /* InfoPlist.strings */,
+				05F779F215B84D320059B13A /* main.m */,
+				05F779F415B84D320059B13A /* WorldKit-Prefix.pch */,
+				05F779F515B84D320059B13A /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05F77A0915B84DCF0059B13A /* WorldKit */ = {
+			isa = PBXGroup;
+			children = (
+				05F77A0C15B84DCF0059B13A /* Shared */,
+				05F77A0A15B84DCF0059B13A /* Client */,
+				05F77A0B15B84DCF0059B13A /* Server */,
+				05F77A2715BA07F10059B13A /* Network */,
+				059BCCB115C98C31006DD9DC /* WorldKit.h */,
+			);
+			path = WorldKit;
+			sourceTree = "<group>";
+		};
+		05F77A0A15B84DCF0059B13A /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				059BCBC615BADD01006DD9DC /* WorldGameClient.h */,
+				059BCBC715BADD01006DD9DC /* WorldGameClient.m */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		05F77A0B15B84DCF0059B13A /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				059BCC2E15C0838D006DD9DC /* WorldServerTypes.h */,
+				059BCC2F15C0838D006DD9DC /* WorldServerTypes.m */,
+				05F77A2415BA06830059B13A /* WorldServerPlayer.h */,
+				05F77A2515BA06830059B13A /* WorldServerPlayer.m */,
+				059BCBCA15BADD0A006DD9DC /* WorldGameServer.h */,
+				059BCBCB15BADD0A006DD9DC /* WorldGameServer.m */,
+				059BCC0E15C04771006DD9DC /* WorldMasterServer.h */,
+				059BCC0F15C04771006DD9DC /* WorldMasterServer.m */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		05F77A0C15B84DCF0059B13A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				05F77A0E15B84E180059B13A /* WorldEntity.h */,
+				05F77A0F15B84E180059B13A /* WorldEntity.m */,
+				059BCC2315C04F46006DD9DC /* WorldGame.h */,
+				059BCC2415C04F46006DD9DC /* WorldGame.m */,
+				059BCC2A15C053F0006DD9DC /* WorldGamePlayer.h */,
+				059BCC2B15C053F0006DD9DC /* WorldGamePlayer.m */,
+				059BCC4315C08589006DD9DC /* WorldContainer.h */,
+				059BCC4415C08589006DD9DC /* WorldContainer.m */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		05F77A2715BA07F10059B13A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				059BCBD915BADEC8006DD9DC /* AsyncSocket.h */,
+				059BCBDA15BADEC8006DD9DC /* AsyncSocket.m */,
+				059BCBDB15BADEC8006DD9DC /* AsyncUdpSocket.h */,
+				059BCBDC15BADEC8006DD9DC /* AsyncUdpSocket.m */,
+				059BCBD315BADE22006DD9DC /* NSString+UUID.h */,
+				059BCBD415BADE22006DD9DC /* NSString+UUID.m */,
+				059BCBD515BADE22006DD9DC /* TCAsyncHashProtocol.h */,
+				059BCBD615BADE22006DD9DC /* TCAsyncHashProtocol.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05F779E115B84D320059B13A /* WorldKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05F77A0015B84D320059B13A /* Build configuration list for PBXNativeTarget "WorldKit" */;
+			buildPhases = (
+				05F779DE15B84D320059B13A /* Sources */,
+				05F779DF15B84D320059B13A /* Frameworks */,
+				05F779E015B84D320059B13A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WorldKit;
+			productName = WorldKit;
+			productReference = 05F779E215B84D320059B13A /* WorldKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05F779D915B84D320059B13A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = World;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = ThirdCog;
+			};
+			buildConfigurationList = 05F779DC15B84D320059B13A /* Build configuration list for PBXProject "WorldKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 05F779D715B84D320059B13A;
+			productRefGroup = 05F779E315B84D320059B13A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05F779E115B84D320059B13A /* WorldKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05F779E015B84D320059B13A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05F779F115B84D320059B13A /* InfoPlist.strings in Resources */,
+				05F779F715B84D320059B13A /* Credits.rtf in Resources */,
+				05F779FD15B84D320059B13A /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05F779DE15B84D320059B13A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05F779F315B84D320059B13A /* main.m in Sources */,
+				05F779FA15B84D320059B13A /* WorldAppDelegate.m in Sources */,
+				05F77A1015B84E180059B13A /* WorldEntity.m in Sources */,
+				05F77A2615BA06830059B13A /* WorldServerPlayer.m in Sources */,
+				059BCBC815BADD01006DD9DC /* WorldGameClient.m in Sources */,
+				059BCBCC15BADD0A006DD9DC /* WorldGameServer.m in Sources */,
+				059BCBD715BADE22006DD9DC /* NSString+UUID.m in Sources */,
+				059BCBD815BADE22006DD9DC /* TCAsyncHashProtocol.m in Sources */,
+				059BCBDD15BADEC8006DD9DC /* AsyncSocket.m in Sources */,
+				059BCBDE15BADEC8006DD9DC /* AsyncUdpSocket.m in Sources */,
+				059BCC1015C04771006DD9DC /* WorldMasterServer.m in Sources */,
+				059BCC1E15C0485D006DD9DC /* SPDepends.m in Sources */,
+				059BCC1F15C0485D006DD9DC /* SPFunctional.m in Sources */,
+				059BCC2015C0485D006DD9DC /* SPKVONotificationCenter.m in Sources */,
+				059BCC2115C0485D006DD9DC /* SPLowVerbosity.m in Sources */,
+				059BCC2515C04F46006DD9DC /* WorldGame.m in Sources */,
+				059BCC2C15C053F0006DD9DC /* WorldGamePlayer.m in Sources */,
+				059BCC3015C0838D006DD9DC /* WorldServerTypes.m in Sources */,
+				059BCC4515C08589006DD9DC /* WorldContainer.m in Sources */,
+				059BCCA015C959CE006DD9DC /* MARTNSObject.m in Sources */,
+				059BCCA115C959CE006DD9DC /* RTIvar.m in Sources */,
+				059BCCA215C959CE006DD9DC /* RTMethod.m in Sources */,
+				059BCCA315C959CE006DD9DC /* RTProperty.m in Sources */,
+				059BCCA415C959CE006DD9DC /* RTProtocol.m in Sources */,
+				059BCCA515C959CE006DD9DC /* RTUnregisteredClass.m in Sources */,
+				059BCCAA15C98908006DD9DC /* ExampleEgg.m in Sources */,
+				059BCCAD15C98917006DD9DC /* ExampleBasket.m in Sources */,
+				059BCCB015C989D1006DD9DC /* ExampleGame.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		05F779EF15B84D320059B13A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05F779F015B84D320059B13A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		05F779F515B84D320059B13A /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05F779F615B84D320059B13A /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		05F779FB15B84D320059B13A /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05F779FC15B84D320059B13A /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		05F779FE15B84D320059B13A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		05F779FF15B84D320059B13A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		05F77A0115B84D320059B13A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ExampleApp/WorldKit-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}\"";
+				INFOPLIST_FILE = "ExampleApp/WorldKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		05F77A0215B84D320059B13A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ExampleApp/WorldKit-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}\"";
+				INFOPLIST_FILE = "ExampleApp/WorldKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05F779DC15B84D320059B13A /* Build configuration list for PBXProject "WorldKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05F779FE15B84D320059B13A /* Debug */,
+				05F779FF15B84D320059B13A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05F77A0015B84D320059B13A /* Build configuration list for PBXNativeTarget "WorldKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05F77A0115B84D320059B13A /* Debug */,
+				05F77A0215B84D320059B13A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 05F779D915B84D320059B13A /* Project object */;
+}
