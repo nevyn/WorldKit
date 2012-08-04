@@ -6,16 +6,15 @@
 //  Copyright (c) 2012 ThirdCog. All rights reserved.
 //
 
-#import "WorldAppDelegate.h"
+#import "ExampleAppDelegate.h"
 #import "MARTNSObject.h"
 #import <WorldKit/WorldKit.h>
+#import "ExampleWorld/ExampleGame.h"
 
-#import "World/ExampleGame.h"
-
-@interface WorldAppDelegate () <WorldMasterServerDelegate>
+@interface ExampleAppDelegate () <WorldMasterServerDelegate>
 @end
 
-@implementation WorldAppDelegate {
+@implementation ExampleAppDelegate {
     WorldMasterServer *_master;
     WorldGameServer *_gameServer;
 }
