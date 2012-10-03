@@ -22,7 +22,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [self willChangeValueForKey:@"gameServer"];
-    _master = [[WorldMasterServer alloc] initListeningOnPort:12345];
+    _master = [[WorldMasterServer alloc] initListeningOnPort:kExampleServerPort];
     _master.delegate = self;
     NSError *err = nil;
     _gameServer = [_master createGameServerWithParameters:@{WorldMasterServerParamGameName: @"Test game"} error:&err];

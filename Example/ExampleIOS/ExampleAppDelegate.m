@@ -9,53 +9,69 @@
 #import "ExampleAppDelegate.h"
 
 #import "ExampleMasterViewController.h"
+#import "ExampleGameChooserViewController.h"
 #import <WorldKit/WorldKit.h>
 #import "ExampleWorld/ExampleGame.h"
+
+@interface ExampleAppDelegate () <WorldMasterClientDelegate> {
+    WorldMasterClient *_master;
+}
+@end
 
 @implementation ExampleAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    id foo = [[WorldGame alloc] init];
-    NSLog(@"Totally a game: %@", foo);
+    
+    _master = [[WorldMasterClient alloc] init];
+    _master.delegate = self;
 
-    ExampleMasterViewController *masterViewController = [[ExampleMasterViewController alloc] initWithNibName:@"ExampleMasterViewController" bundle:nil];
+    ExampleGameChooserViewController *masterViewController = [[ExampleGameChooserViewController alloc] initWithMaster:_master];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     
-    
-    
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
+#pragma mark Master client delegate
+- (NSString*)nextMasterHostForMasterClient:(WorldMasterClient*)mc port:(int*)port
 {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    *port = kExampleServerPort;
+    return @"localhost";
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
+-(void)masterClient:(WorldMasterClient*)mc wasDisconnectedWithReason:(NSString*)reason redirect:(NSURL*)url
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Disconnected!" message:reason delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    // TODO: Navigate to 'url'
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
+-(void)masterClient:(WorldMasterClient *)mc failedGameCreationWithReason:(NSString*)reason
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to create game" message:reason delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
+-(void)masterClient:(WorldMasterClient *)mc failedGameJoinWithReason:(NSString*)reason
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to join game" message:reason delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application
+
+-(void)masterClient:(WorldMasterClient *)mc isNowInGame:(WorldGameClient*)gameClient
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    ExampleMasterViewController *vc = [[ExampleMasterViewController alloc] initWithGame:gameClient];
+    [self.navigationController pushViewController:vc animated:YES];
 }
+
+-(void)masterClientLeftCurrentGame:(WorldMasterClient *)mc
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 
 @end

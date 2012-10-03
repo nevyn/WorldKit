@@ -48,13 +48,17 @@
 		058DE9C515CD42DF002F07A3 /* ExampleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 058DE9C415CD42DF002F07A3 /* ExampleDetailViewController.m */; };
 		058DE9C815CD42DF002F07A3 /* ExampleMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 058DE9C615CD42DF002F07A3 /* ExampleMasterViewController.xib */; };
 		058DE9CB15CD42DF002F07A3 /* ExampleDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 058DE9C915CD42DF002F07A3 /* ExampleDetailViewController.xib */; };
-		059BCBC815BADD01006DD9DC /* WorldGameClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBC715BADD01006DD9DC /* WorldGameClient.m */; };
 		059BCBCC15BADD0A006DD9DC /* WorldGameServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBCB15BADD0A006DD9DC /* WorldGameServer.m */; };
 		059BCC1015C04771006DD9DC /* WorldMasterServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC0F15C04771006DD9DC /* WorldMasterServer.m */; };
 		059BCC3015C0838D006DD9DC /* WorldServerTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC2F15C0838D006DD9DC /* WorldServerTypes.m */; };
 		059BCCAA15C98908006DD9DC /* ExampleEgg.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCCA915C98908006DD9DC /* ExampleEgg.m */; };
 		059BCCAD15C98917006DD9DC /* ExampleBasket.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCCAC15C98917006DD9DC /* ExampleBasket.m */; };
 		059BCCB015C989D1006DD9DC /* ExampleGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCCAF15C989D1006DD9DC /* ExampleGame.m */; };
+		05BAE7F4161C89D700F370BA /* SPLifetimeGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BAE7F3161C89D700F370BA /* SPLifetimeGlue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		05BAE80B161C8D4200F370BA /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05BAE80A161C8D4200F370BA /* GameKit.framework */; };
+		05BAE80C161C8D7B00F370BA /* WorldGameClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBC715BADD01006DD9DC /* WorldGameClient.m */; };
+		05BB831F161C7FE400EA4DE3 /* WorldMasterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BB831E161C7FE400EA4DE3 /* WorldMasterClient.m */; };
+		05BB8323161C81B500EA4DE3 /* ExampleGameChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BB8322161C81B500EA4DE3 /* ExampleGameChooserViewController.m */; };
 		05F779E715B84D320059B13A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F779E615B84D320059B13A /* Cocoa.framework */; };
 		05F779F115B84D320059B13A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05F779EF15B84D320059B13A /* InfoPlist.strings */; };
 		05F779F315B84D320059B13A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F779F215B84D320059B13A /* main.m */; };
@@ -188,6 +192,14 @@
 		059BCCAE15C989D1006DD9DC /* ExampleGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleGame.h; sourceTree = "<group>"; };
 		059BCCAF15C989D1006DD9DC /* ExampleGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleGame.m; sourceTree = "<group>"; };
 		059BCCB115C98C31006DD9DC /* WorldKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldKit.h; sourceTree = "<group>"; };
+		05BAE7F2161C89D700F370BA /* SPLifetimeGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLifetimeGlue.h; sourceTree = "<group>"; };
+		05BAE7F3161C89D700F370BA /* SPLifetimeGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLifetimeGlue.m; sourceTree = "<group>"; };
+		05BAE809161C8BAD00F370BA /* SPSuccinct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSuccinct.h; sourceTree = "<group>"; };
+		05BAE80A161C8D4200F370BA /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
+		05BB831D161C7FE300EA4DE3 /* WorldMasterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldMasterClient.h; sourceTree = "<group>"; };
+		05BB831E161C7FE400EA4DE3 /* WorldMasterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldMasterClient.m; sourceTree = "<group>"; };
+		05BB8321161C81B400EA4DE3 /* ExampleGameChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleGameChooserViewController.h; sourceTree = "<group>"; };
+		05BB8322161C81B500EA4DE3 /* ExampleGameChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleGameChooserViewController.m; sourceTree = "<group>"; };
 		05F779E215B84D320059B13A /* ExampleMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05F779E615B84D320059B13A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		05F779EE15B84D320059B13A /* WorldKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WorldKit-Info.plist"; sourceTree = "<group>"; };
@@ -236,6 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05BAE80B161C8D4200F370BA /* GameKit.framework in Frameworks */,
 				055A81A515CD49950033FA0C /* CFNetwork.framework in Frameworks */,
 				055A81A315CD49550033FA0C /* libWorldKitCommon.a in Frameworks */,
 				058DE9AF15CD42DE002F07A3 /* UIKit.framework in Frameworks */,
@@ -320,6 +333,8 @@
 			children = (
 				058DE9BD15CD42DE002F07A3 /* ExampleAppDelegate.h */,
 				058DE9BE15CD42DE002F07A3 /* ExampleAppDelegate.m */,
+				05BB8321161C81B400EA4DE3 /* ExampleGameChooserViewController.h */,
+				05BB8322161C81B500EA4DE3 /* ExampleGameChooserViewController.m */,
 				058DE9C015CD42DE002F07A3 /* ExampleMasterViewController.h */,
 				058DE9C115CD42DE002F07A3 /* ExampleMasterViewController.m */,
 				058DE9C315CD42DE002F07A3 /* ExampleDetailViewController.h */,
@@ -346,6 +361,7 @@
 		059BCC1115C0485D006DD9DC /* SPSuccinct */ = {
 			isa = PBXGroup;
 			children = (
+				05BAE809161C8BAD00F370BA /* SPSuccinct.h */,
 				059BCC1315C0485D006DD9DC /* SPDepends.h */,
 				059BCC1415C0485D006DD9DC /* SPDepends.m */,
 				059BCC1515C0485D006DD9DC /* SPFunctional.h */,
@@ -354,6 +370,8 @@
 				059BCC1815C0485D006DD9DC /* SPKVONotificationCenter.m */,
 				059BCC1915C0485D006DD9DC /* SPLowVerbosity.h */,
 				059BCC1A15C0485D006DD9DC /* SPLowVerbosity.m */,
+				05BAE7F2161C89D700F370BA /* SPLifetimeGlue.h */,
+				05BAE7F3161C89D700F370BA /* SPLifetimeGlue.m */,
 			);
 			name = SPSuccinct;
 			path = Libraries/SPSuccinct/SPSuccinct;
@@ -425,6 +443,7 @@
 				058DE9AE15CD42DE002F07A3 /* UIKit.framework */,
 				058DE9B015CD42DE002F07A3 /* Foundation.framework */,
 				058DE9B215CD42DE002F07A3 /* CoreGraphics.framework */,
+				05BAE80A161C8D4200F370BA /* GameKit.framework */,
 				055A816B15CD45D00033FA0C /* SenTestingKit.framework */,
 				055A81A415CD49950033FA0C /* CFNetwork.framework */,
 			);
@@ -471,6 +490,8 @@
 			children = (
 				059BCBC615BADD01006DD9DC /* WorldGameClient.h */,
 				059BCBC715BADD01006DD9DC /* WorldGameClient.m */,
+				05BB831D161C7FE300EA4DE3 /* WorldMasterClient.h */,
+				05BB831E161C7FE400EA4DE3 /* WorldMasterClient.m */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -721,6 +742,7 @@
 				055A818C15CD46620033FA0C /* WorldGame.m in Sources */,
 				055A818E15CD46620033FA0C /* WorldGamePlayer.m in Sources */,
 				055A819015CD46620033FA0C /* WorldContainer.m in Sources */,
+				05BAE7F4161C89D700F370BA /* SPLifetimeGlue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,6 +762,9 @@
 				058DE9BF15CD42DE002F07A3 /* ExampleAppDelegate.m in Sources */,
 				058DE9C215CD42DE002F07A3 /* ExampleMasterViewController.m in Sources */,
 				058DE9C515CD42DF002F07A3 /* ExampleDetailViewController.m in Sources */,
+				05BB831F161C7FE400EA4DE3 /* WorldMasterClient.m in Sources */,
+				05BB8323161C81B500EA4DE3 /* ExampleGameChooserViewController.m in Sources */,
+				05BAE80C161C8D7B00F370BA /* WorldGameClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,7 +775,6 @@
 				05F779F315B84D320059B13A /* main.m in Sources */,
 				05F779FA15B84D320059B13A /* ExampleAppDelegate.m in Sources */,
 				05F77A2615BA06830059B13A /* WorldServerPlayer.m in Sources */,
-				059BCBC815BADD01006DD9DC /* WorldGameClient.m in Sources */,
 				059BCBCC15BADD0A006DD9DC /* WorldGameServer.m in Sources */,
 				059BCC1015C04771006DD9DC /* WorldMasterServer.m in Sources */,
 				059BCC3015C0838D006DD9DC /* WorldServerTypes.m in Sources */,
@@ -952,10 +976,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode45-DP2.app/Contents/Developer/Library/Frameworks\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/ExampleIOS/ExampleIOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -975,10 +995,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode45-DP2.app/Contents/Developer/Library/Frameworks\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/ExampleIOS/ExampleIOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1018,7 +1034,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "\"${SRCROOT}\"";
+				HEADER_SEARCH_PATHS = (
+					"\"${SRCROOT}\"",
+					"\"${SRCROOT}\"/Libraries/SPSuccinct",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1042,7 +1061,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "\"${SRCROOT}\"";
+				HEADER_SEARCH_PATHS = (
+					"\"${SRCROOT}\"",
+					"\"${SRCROOT}\"/Libraries/SPSuccinct",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
@@ -1093,6 +1115,7 @@
 				055A815515CD452E0033FA0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		055A817B15CD45D00033FA0C /* Build configuration list for PBXNativeTarget "WorldKitCommon" */ = {
 			isa = XCConfigurationList;
@@ -1101,6 +1124,7 @@
 				055A817D15CD45D00033FA0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		055A817E15CD45D00033FA0C /* Build configuration list for PBXNativeTarget "WorldKitCommonTests" */ = {
 			isa = XCConfigurationList;
@@ -1109,6 +1133,7 @@
 				055A818015CD45D00033FA0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		058DE9CC15CD42DF002F07A3 /* Build configuration list for PBXNativeTarget "ExampleIOS" */ = {
 			isa = XCConfigurationList;

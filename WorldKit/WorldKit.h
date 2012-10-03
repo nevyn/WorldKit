@@ -4,6 +4,7 @@
 #import <WorldKit/Shared/WorldContainer.h>
 
 #import <WorldKit/Client/WorldGameClient.h>
+#import <WorldKit/Client/WorldMasterClient.h>
 
 #import <WorldKit/Server/WorldServerTypes.h>
 #import <WorldKit/Server/WorldServerPlayer.h>

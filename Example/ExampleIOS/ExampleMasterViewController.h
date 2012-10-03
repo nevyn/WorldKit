@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class ExampleDetailViewController;
+@class WorldGameClient;
 
 @interface ExampleMasterViewController : UITableViewController
-
-@property (strong, nonatomic) ExampleDetailViewController *detailViewController;
-
+- (id)initWithGame:(WorldGameClient*)gameClient;
 @end
