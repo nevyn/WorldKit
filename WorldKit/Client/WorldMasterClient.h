@@ -5,7 +5,7 @@
 
 @interface WorldMasterClient : NSObject
 /// Connects to the master server. Designated initializer.
--(id)init;
+-(id)initWithDelegate:(id<WorldMasterClientDelegate>)delegate;
 
 /** @property connected
 	Whether a link (incl handshake) has been established to the MasterServer.

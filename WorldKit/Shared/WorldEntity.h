@@ -9,6 +9,8 @@
 #define WORLD_ARRAY NSArray
 #endif
 
+/// Type of block that can get an existing entity from a world container, without a direct connection to it.
+typedef id (^WorldEntityFetcher)(NSString *identifier, Class expectedClass, BOOL allowNil);
 
 /** Root class for any denizen in your world: an entity that
     should be synchronized across your clients. */
@@ -25,10 +27,13 @@
     that will be sent from server to client whenever this object updates. Be sure to include
     the key-values from calling [super rep]. */
 - (NSDictionary*)rep;
+
+#if WORLD_WRITABLE_MODEL
 /** Update entity's internal state based on the values in 'rep'. 'rep'  might have been been
     filtered, and some keys may be missing, if World already knows that you don't need to update their values.
     Note: you must call -[super updateFromRep:] */
-- (void)updateFromRep:(NSDictionary*)rep;
+- (void)updateFromRep:(NSDictionary*)rep fetcher:(WorldEntityFetcher)fetcher;
+#endif
 
 /** Keys of the things you put in 'rep'. If the values for these keys are WorldEntities, they will be published. Automatically populated if not overridden.*/
 - (NSSet*)observableAttributes;

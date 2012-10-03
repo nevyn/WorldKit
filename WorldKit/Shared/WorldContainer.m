@@ -1,9 +1,11 @@
+#define WORLD_WRITABLE_MODEL 1
 #import "WorldContainer.h"
 #import "SPLowVerbosity.h"
 #import "SPFunctional.h"
 #import "SPKVONotificationCenter.h"
 
 #import <objc/runtime.h>
+#import <MAObjCRuntime/MARTNSObject.h>
 
 @interface WorldPublishedEntity : NSObject
 @property(nonatomic,strong) WorldEntity *entity;
@@ -68,7 +70,7 @@
 }
 - (void)unpublishEntity:(WorldEntity*)entity
 {
-    
+    // TODO
 }
 
 - (NSDictionary*)rep;
@@ -88,6 +90,92 @@
         }]
     };
 }
+- (NSDictionary*)diffRep:(NSDictionary*)newRep fromRep:(NSDictionary*)oldRep
+{
+    // TODO
+    return newRep;
+}
+- (void)updateFromDeltaRep:(NSDictionary*)rep
+{
+    NSDictionary *entities = rep[@"entities"];
+    for(NSString *uuid in entities) {
+        NSDictionary *definition = entities[uuid];
+        NSString *className = definition[@"class"];
+        
+        WorldEntity *entity = [_entities objectForKey:uuid];
+        if(!entity) {
+            Class klass = [[WorldEntity rt_subclasses] sp_any:^BOOL(id obj) {
+                return [NSStringFromClass(obj) isEqual:className];
+            }];
+            if(!klass) {
+                [self handleError:[NSString stringWithFormat:@"WARNING!! Remote tried to instantiate %@, which is not an entity.", className] file:__FILE__ line:__LINE__];
+                continue;
+            }
+            entity = [klass new];
+            entity.identifier = uuid;
+            [self updateEntity:entity fromDefinition:definition];
+            [self publishEntity:entity];
+        } else {
+            [self updateEntity:entity fromDefinition:definition];
+        }
+    }
+}
+
+- (void)updateEntity:(WorldEntity*)entity fromDefinition:(NSDictionary*)definition
+{
+    // TODO: Add error handling to the unpacking of 'definition'
+    
+    WorldEntityFetcher fetcher = ^ id (NSString *identifier, Class expectedClass, BOOL allowNil) {
+        WorldPublishedEntity *fetched = [_entities objectForKey:identifier];
+        if(!fetched && allowNil) return nil;
+        
+        if(expectedClass && ![fetched.entity isKindOfClass:expectedClass]) {
+            [self handleError:[NSString stringWithFormat:@"Unexpected class %@ for identifier %@", fetched.entity.class, entity.identifier] file:__FILE__ line:__LINE__];
+            return nil;
+        }
+        
+        return fetched.entity;
+    };
+    
+    // UPDATE ATTRIBUTES
+    NSDictionary *attributes = definition[@"attributes"];
+    [entity updateFromRep:attributes fetcher:fetcher];
+
+    // UPDATE TO-MANY RELATIONSHIPS
+    NSDictionary *relationships = definition[@"relationships"];
+    
+	WorldPublishedEntity *published = _entities[entity.identifier];
+    for(NSString *key in relationships) {
+        if(![published.entity respondsToSelector:NSSelectorFromString(key)]) {
+            [self handleError:[NSString stringWithFormat:@"Expected %@ to have attribute %@", published.entity.class, key] file:__FILE__ line:__LINE__];
+            return;
+        }
+        if(![[published.entity valueForKey:key] isKindOfClass:[NSArray class]]) {
+            [self handleError:[NSString stringWithFormat:@"Expected %@'s %@ attribute to be to-many", published.entity.class, key] file:__FILE__ line:__LINE__];
+            return;
+        }
+        if(![relationships[key] sp_all:^BOOL(id obj) { return [obj isKindOfClass:[NSString class]]; }]) {
+            [self handleError:@"Unexpected class in list of identifiers" file:__FILE__ line:__LINE__];
+            return;
+        }
+        NSArray *newRelationship = [relationships[key] sp_map:^id(id obj) {
+            WorldEntity *e = [[_entities objectForKey:obj] entity];
+            if(!e) {
+                [self handleError:@"Missing local entity" file:__FILE__ line:__LINE__];
+                return nil;
+            }
+            return e;
+        }];
+        [published.entity setValue:newRelationship forKey:key];
+    }
+}
+
+- (void)handleError:(NSString*)reason file:(const char*)file line:(int)line
+{
+    // TODO!! Must handle errors here with disconnections!
+    NSLog(@"%s:%d FATAL ERROR: %@ (Should disconnect this player!)", file, line, reason);
+}
+
 
 @end
 

@@ -24,8 +24,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    _master = [[WorldMasterClient alloc] init];
-    _master.delegate = self;
+    _master = [[WorldMasterClient alloc] initWithDelegate:self];
 
     ExampleGameChooserViewController *masterViewController = [[ExampleGameChooserViewController alloc] initWithMaster:_master];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];

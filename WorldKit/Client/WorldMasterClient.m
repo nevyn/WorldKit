@@ -3,7 +3,7 @@
 #import <SPSuccinct/SPSuccinct.h>
 
 // set to 0 to debug without Internet connection
-#define HC_WITH_GAMEKIT 1
+#define HC_WITH_GAMEKIT 0
 
 @interface WorldMasterClient () <TCAsyncHashProtocolDelegate>
 // only one of these will be set
@@ -44,9 +44,11 @@
 @synthesize authenticatedPlayerId = _authenticatedPlayerId;
 @synthesize currentGame = _currentGame;
 
--(id)init;
+-(id)initWithDelegate:(id<WorldMasterClientDelegate>)delegate;
 {
 	if(!(self = [super init])) return nil;
+    
+    self.delegate = delegate;
 	
 	_retryDelay = .5; // short delay until we've iterated all the servers
 	_publicGames = [NSMutableArray new];
@@ -100,7 +102,7 @@
         [self performSelector:@selector(connect) withObject:nil afterDelay:_retryDelay];
     }); }];
 #else
-    HCMockLocalPlayer *player = [[HCMockLocalPlayer new] autorelease]; player.alias = [UIDevice currentDevice].name; player.playerID = [[UIDevice currentDevice] performSelector:@selector(uniqueIdentifier)];
+    HCMockLocalPlayer *player = [HCMockLocalPlayer new]; player.alias = [UIDevice currentDevice].name; player.playerID = [[UIDevice currentDevice] performSelector:@selector(uniqueIdentifier)];
     self.authenticatedPlayer = (id)player;
     self.authenticatedPlayerId = player.playerID;
     [self connect];

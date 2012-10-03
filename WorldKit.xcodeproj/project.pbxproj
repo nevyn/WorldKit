@@ -1037,6 +1037,7 @@
 				HEADER_SEARCH_PATHS = (
 					"\"${SRCROOT}\"",
 					"\"${SRCROOT}\"/Libraries/SPSuccinct",
+					"\"${SRCROOT}/Libraries\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
@@ -1064,6 +1065,7 @@
 				HEADER_SEARCH_PATHS = (
 					"\"${SRCROOT}\"",
 					"\"${SRCROOT}\"/Libraries/SPSuccinct",
+					"\"${SRCROOT}/Libraries\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
