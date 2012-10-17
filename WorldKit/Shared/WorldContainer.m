@@ -98,6 +98,9 @@
 - (void)updateFromDeltaRep:(NSDictionary*)rep
 {
     NSDictionary *entities = rep[@"entities"];
+    
+    // 1. Create all the entities we need. In case they reference each other,
+    //    they need to be in the list of published entities.
     for(NSString *uuid in entities) {
         NSDictionary *definition = entities[uuid];
         NSString *className = definition[@"class"];
@@ -113,11 +116,15 @@
             }
             entity = [klass new];
             entity.identifier = uuid;
-            [self updateEntity:entity fromDefinition:definition];
             [self publishEntity:entity];
-        } else {
-            [self updateEntity:entity fromDefinition:definition];
         }
+    }
+    
+    // 2. Setup attributes and relationships
+    for(NSString *uuid in entities) {
+        WorldEntity *entity = [[_entities objectForKey:uuid] entity];
+        NSDictionary *definition = entities[uuid];
+        [self updateEntity:entity fromDefinition:definition];
     }
 }
 
