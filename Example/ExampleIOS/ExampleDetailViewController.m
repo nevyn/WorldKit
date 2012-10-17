@@ -9,6 +9,7 @@
 #import "ExampleDetailViewController.h"
 
 #import "ExampleBasket.h"
+#import "ExampleEgg.h"
 #import <WorldKit/WorldKit.h>
 #import <SPSuccinct/SPSuccinct.h>
 
@@ -24,6 +25,7 @@
         return nil;
     
     _basket = basket;
+    self.title = basket.name;
     
     [self sp_addDependency:@"Refresh table view when eggs come in" on:@[SPD_PAIR(_basket, eggs)] target:self action:@selector(reload)];
     
@@ -50,7 +52,7 @@
     if(!cell)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ident];
     
-    cell.textLabel.text = [_basket.eggs[indexPath.row] name];
+    cell.textLabel.text = [_basket.eggs[indexPath.row] shape];
     
     return cell;
 }
