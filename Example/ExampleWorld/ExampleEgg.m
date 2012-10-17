@@ -15,9 +15,9 @@
         @"shape": self.shape
     });
 }
-- (void)updateFromRep:(NSDictionary *)rep
+- (void)updateFromRep:(NSDictionary*)rep fetcher:(WorldEntityFetcher)fetcher
 {
-    [super updateFromRep:rep];
+    [super updateFromRep:rep fetcher:fetcher];
     WorldIf(rep, @"shape", ^(id o) { self.shape = o; });
 }
 @end

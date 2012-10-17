@@ -102,7 +102,7 @@
         NSDictionary *definition = entities[uuid];
         NSString *className = definition[@"class"];
         
-        WorldEntity *entity = [_entities objectForKey:uuid];
+        WorldEntity *entity = [[_entities objectForKey:uuid] entity];
         if(!entity) {
             Class klass = [[WorldEntity rt_subclasses] sp_any:^BOOL(id obj) {
                 return [NSStringFromClass(obj) isEqual:className];

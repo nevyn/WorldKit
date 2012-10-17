@@ -8,58 +8,55 @@
 
 #import "ExampleDetailViewController.h"
 
-@interface ExampleDetailViewController ()
-- (void)configureView;
+#import "ExampleBasket.h"
+#import <WorldKit/WorldKit.h>
+#import <SPSuccinct/SPSuccinct.h>
+
+@interface ExampleDetailViewController () {
+    ExampleBasket *_basket;
+}
 @end
 
 @implementation ExampleDetailViewController
-
-#pragma mark - Managing the detail item
-
-- (void)setDetailItem:(id)newDetailItem
+- (id)initWithBasket:(ExampleBasket*)basket;
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
-    }
-}
-
-- (void)configureView
-{
-    // Update the user interface for the detail item.
-
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
-    }
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.title = NSLocalizedString(@"Detail", @"Detail");
-    }
+    if (!(self = [super initWithStyle:UITableViewStylePlain]))
+        return nil;
+    
+    _basket = basket;
+    
+    [self sp_addDependency:@"Refresh table view when eggs come in" on:@[SPD_PAIR(_basket, eggs)] target:self action:@selector(reload)];
+    
     return self;
 }
-							
+
+- (void)reload
+{
+    [self.tableView reloadData];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _basket.eggs.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *const ident = @"BasketCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ident];
+    if(!cell)
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ident];
+    
+    cell.textLabel.text = [_basket.eggs[indexPath.row] name];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+}
+
 @end

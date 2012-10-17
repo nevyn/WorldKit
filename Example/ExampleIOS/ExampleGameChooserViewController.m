@@ -7,9 +7,7 @@
 //
 
 #import "ExampleGameChooserViewController.h"
-#import <SPSuccinct/SPKVONotificationCenter.h>
-#import <SPSuccinct/SPDepends.h>
-#import <SPSuccinct/SPFunctional.h>
+#import <SPSuccinct/SPSuccinct.h>
 
 @interface ExampleGameChooserViewController () {
     WorldMasterClient *_master;
@@ -67,9 +65,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(_master.connected)
-        return;
-    
+    // Should show a loading UI while we are waiting to be told to enter the game
     [_master joinGameWithIdentifier:[_master.publicGames[indexPath.row] identifier]];
 }
 

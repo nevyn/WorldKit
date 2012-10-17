@@ -61,21 +61,31 @@
 {
     return @{};
 }
-- (void)updateFromRep:(NSDictionary*)rep
+- (void)updateFromRep:(NSDictionary*)rep fetcher:(WorldEntityFetcher)fetcher;
 {
     // nop
 }
 
 #pragma mark Enumerating attributes
+- (NSMutableArray*)_allProperties
+{
+    NSMutableArray *props = [NSMutableArray array];
+    Class klass = [self class];
+    while(klass != nil) {
+        [props addObjectsFromArray:[klass rt_properties]];
+        klass = [klass superclass];
+    }
+    return props;
+}
 - (NSSet*)observableAttributes
 {
-    return [NSSet setWithArray:[[[[self class] rt_properties] sp_filter:^BOOL(id obj) {
+    return [NSSet setWithArray:[[[self _allProperties] sp_filter:^BOOL(id obj) {
         return [[obj typeEncoding] rangeOfString:@"Array"].location == NSNotFound;
     }] valueForKeyPath:@"name"]];
 }
 - (NSSet*)observableToManyAttributes
 {
-    return [NSSet setWithArray:[[[[self class] rt_properties] sp_filter:^BOOL(id obj) {
+    return [NSSet setWithArray:[[[self _allProperties] sp_filter:^BOOL(id obj) {
         return [[obj typeEncoding] rangeOfString:@"Array"].location != NSNotFound;
     }] valueForKeyPath:@"name"]];
 }

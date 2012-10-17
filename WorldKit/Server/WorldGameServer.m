@@ -5,6 +5,7 @@
 #import <WorldKit/Shared/WorldContainer.h>
 #import <WorldKit/Shared/WorldGame.h>
 #import <WorldKit/Shared/WorldGamePlayer.h>
+#import <SPSuccinct/SPSuccinct.h>
 #import "TCAsyncHashProtocol.h"
 
 @implementation WorldGameServer {
@@ -13,6 +14,7 @@
     WorldGamePlayer *_owner;
     NSMutableArray *_splayers;
     WorldContainer *_entities;
+    NSTimer *_tickTimer;
 }
 - (id)initWithGameClass:(Class)gameClass playerClass:(Class)playerClass
 {
@@ -23,8 +25,14 @@
     _splayers = [NSMutableArray array];
     _entities = [[WorldContainer alloc] initWithEntityClassSuffix:@"Server"];
     [_entities publishEntity:_game];
-    
+    _tickTimer = [NSTimer scheduledTimerWithTimeInterval:1/10. target:self selector:@selector(tick) userInfo:nil repeats:YES];
     return self;
+}
+
+- (void)stop
+{
+    [_tickTimer invalidate];
+    _tickTimer = nil;
 }
 
 - (WorldGame*)game
@@ -36,16 +44,19 @@
     return _owner;
 }
 
+#pragma mark - Join/leave
+
 /// Takes ownership of the player and its socket.
 -(void)join:(WorldServerPlayer*)splayer leaver:(dispatch_block_t)leaver
 {
     ProtoAssert(splayer.connection.socket, ![_splayers containsObject:splayer], @"A player already in the game cannot join");
     splayer.leaver = leaver;
+    [_splayers addObject:splayer];
     
     WorldGamePlayer *gplayer = [_playerClass new];
     gplayer.name = splayer.name;
     gplayer.identifier = splayer.gameCenterIdentifier;
-    [_game.players addObject:gplayer];
+    [[_game mutableArrayValueForKey:@"players" ] addObject:gplayer];
     
     splayer.representation = gplayer;
     
@@ -60,7 +71,7 @@
 		@"identifier": self.game.identifier
 	}];
     
-    [self sendChanges:_entities.rep toUser:splayer];
+    [self sendWorld:_entities.rep toUserIfNeeded:splayer];
     
     [splayer.connection sendHash:@{
         @"command": @"thisIsYou",
@@ -80,12 +91,35 @@
     [splayer leave];
 }
 
-- (void)sendChanges:(NSDictionary*)rep toUser:(WorldServerPlayer*)splayer
+- (WorldServerPlayer*)splayerForConnection:(TCAsyncHashProtocol*)proto
 {
-    NSDictionary *newRep = [_entities rep];
+    return [_splayers sp_any:^BOOL(WorldServerPlayer *potential) {
+        return potential.connection == proto;
+    }];
+}
+
+-(void)command:(TCAsyncHashProtocol*)proto leaveGame:(NSDictionary*)hash;
+{
+    [self leave:[self splayerForConnection:proto]];
+}
+
+#pragma mark - Game contents
+
+- (void)tick
+{
+    NSDictionary *now = [_entities rep];
+    for(WorldServerPlayer *player in _splayers)
+        [self sendWorld:now toUserIfNeeded:player];
+}
+
+- (void)sendWorld:(NSDictionary*)newRep toUserIfNeeded:(WorldServerPlayer*)splayer
+{
     NSDictionary *oldRep = [splayer latestAckedSnapshot].rep;
-    WorldServerSnapshot *snapshot = [splayer addSnapshot:newRep];
     NSDictionary *diff = [_entities diffRep:newRep fromRep:oldRep];
+    if(!diff)
+        return;
+    
+    WorldServerSnapshot *snapshot = [splayer addSnapshot:newRep];
     
     [splayer.connection sendHash:@{
         @"command": @"applyDiff",
@@ -97,5 +131,6 @@
     // Until we get UDP...
     [splayer ackSnapshotIdentified:snapshot.identifier];
 }
+
 
 @end

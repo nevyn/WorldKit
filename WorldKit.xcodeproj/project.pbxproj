@@ -46,8 +46,9 @@
 		058DE9BF15CD42DE002F07A3 /* ExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 058DE9BE15CD42DE002F07A3 /* ExampleAppDelegate.m */; };
 		058DE9C215CD42DE002F07A3 /* ExampleMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 058DE9C115CD42DE002F07A3 /* ExampleMasterViewController.m */; };
 		058DE9C515CD42DF002F07A3 /* ExampleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 058DE9C415CD42DF002F07A3 /* ExampleDetailViewController.m */; };
-		058DE9C815CD42DF002F07A3 /* ExampleMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 058DE9C615CD42DF002F07A3 /* ExampleMasterViewController.xib */; };
-		058DE9CB15CD42DF002F07A3 /* ExampleDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 058DE9C915CD42DF002F07A3 /* ExampleDetailViewController.xib */; };
+		059B89F3162F370A0060DF1E /* ExampleEgg.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCCA915C98908006DD9DC /* ExampleEgg.m */; };
+		059B89F4162F370C0060DF1E /* ExampleBasket.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCCAC15C98917006DD9DC /* ExampleBasket.m */; };
+		059B89F5162F370E0060DF1E /* ExampleGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCCAF15C989D1006DD9DC /* ExampleGame.m */; };
 		059BCBCC15BADD0A006DD9DC /* WorldGameServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBCB15BADD0A006DD9DC /* WorldGameServer.m */; };
 		059BCC1015C04771006DD9DC /* WorldMasterServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC0F15C04771006DD9DC /* WorldMasterServer.m */; };
 		059BCC3015C0838D006DD9DC /* WorldServerTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC2F15C0838D006DD9DC /* WorldServerTypes.m */; };
@@ -141,8 +142,6 @@
 		058DE9C115CD42DE002F07A3 /* ExampleMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleMasterViewController.m; sourceTree = "<group>"; };
 		058DE9C315CD42DE002F07A3 /* ExampleDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleDetailViewController.h; sourceTree = "<group>"; };
 		058DE9C415CD42DF002F07A3 /* ExampleDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleDetailViewController.m; sourceTree = "<group>"; };
-		058DE9C715CD42DF002F07A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ExampleMasterViewController.xib; sourceTree = "<group>"; };
-		058DE9CA15CD42DF002F07A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ExampleDetailViewController.xib; sourceTree = "<group>"; };
 		059BCBC615BADD01006DD9DC /* WorldGameClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldGameClient.h; sourceTree = "<group>"; };
 		059BCBC715BADD01006DD9DC /* WorldGameClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldGameClient.m; sourceTree = "<group>"; };
 		059BCBCA15BADD0A006DD9DC /* WorldGameServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldGameServer.h; sourceTree = "<group>"; };
@@ -339,8 +338,6 @@
 				058DE9C115CD42DE002F07A3 /* ExampleMasterViewController.m */,
 				058DE9C315CD42DE002F07A3 /* ExampleDetailViewController.h */,
 				058DE9C415CD42DF002F07A3 /* ExampleDetailViewController.m */,
-				058DE9C615CD42DF002F07A3 /* ExampleMasterViewController.xib */,
-				058DE9C915CD42DF002F07A3 /* ExampleDetailViewController.xib */,
 				058DE9B515CD42DE002F07A3 /* Supporting Files */,
 			);
 			name = iOS;
@@ -678,8 +675,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				058DE9B915CD42DE002F07A3 /* InfoPlist.strings in Resources */,
-				058DE9C815CD42DF002F07A3 /* ExampleMasterViewController.xib in Resources */,
-				058DE9CB15CD42DF002F07A3 /* ExampleDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,6 +760,9 @@
 				05BB831F161C7FE400EA4DE3 /* WorldMasterClient.m in Sources */,
 				05BB8323161C81B500EA4DE3 /* ExampleGameChooserViewController.m in Sources */,
 				05BAE80C161C8D7B00F370BA /* WorldGameClient.m in Sources */,
+				059B89F3162F370A0060DF1E /* ExampleEgg.m in Sources */,
+				059B89F4162F370C0060DF1E /* ExampleBasket.m in Sources */,
+				059B89F5162F370E0060DF1E /* ExampleGame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -819,22 +817,6 @@
 				058DE9B815CD42DE002F07A3 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		058DE9C615CD42DF002F07A3 /* ExampleMasterViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				058DE9C715CD42DF002F07A3 /* en */,
-			);
-			name = ExampleMasterViewController.xib;
-			sourceTree = "<group>";
-		};
-		058DE9C915CD42DF002F07A3 /* ExampleDetailViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				058DE9CA15CD42DF002F07A3 /* en */,
-			);
-			name = ExampleDetailViewController.xib;
 			sourceTree = "<group>";
 		};
 		05F779EF15B84D320059B13A /* InfoPlist.strings */ = {

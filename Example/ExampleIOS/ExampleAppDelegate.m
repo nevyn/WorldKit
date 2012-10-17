@@ -64,12 +64,13 @@
 -(void)masterClient:(WorldMasterClient *)mc isNowInGame:(WorldGameClient*)gameClient
 {
     ExampleMasterViewController *vc = [[ExampleMasterViewController alloc] initWithGame:gameClient];
-    [self.navigationController pushViewController:vc animated:YES];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self.navigationController presentViewController:nav animated:YES completion:nil];
 }
 
 -(void)masterClientLeftCurrentGame:(WorldMasterClient *)mc
 {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 

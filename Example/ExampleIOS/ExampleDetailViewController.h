@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ExampleBasket;
 
-@interface ExampleDetailViewController : UIViewController
-
-@property (strong, nonatomic) id detailItem;
-
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@interface ExampleDetailViewController : UITableViewController
+- (id)initWithBasket:(ExampleBasket*)basket;
 @end

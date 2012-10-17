@@ -15,9 +15,9 @@
         @"name": self.name
     });
 }
-- (void)updateFromRep:(NSDictionary *)rep
+- (void)updateFromRep:(NSDictionary*)rep fetcher:(WorldEntityFetcher)fetcher
 {
-    [super updateFromRep:rep];
+    [super updateFromRep:rep fetcher:fetcher];
     WorldIf(rep, @"name", ^(id o) { self.name = o; });
 }
 @end

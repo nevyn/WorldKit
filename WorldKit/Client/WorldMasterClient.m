@@ -252,7 +252,8 @@
 		@"command", @"createGame",
 		@"gameName", gameName
 	) response:^(NSDictionary *response) {
-		if([[response objectForKey:@"success"] boolValue]) return;
+		if ([[response objectForKey:@"success"] boolValue])
+            return;
 		
 		[_delegate masterClient:self failedGameCreationWithReason:[response objectForKey:@"reason"]];
 	}];
@@ -263,7 +264,8 @@
 		@"command", @"joinGame",
 		@"identifier", identifier
 	) response:^(NSDictionary *response) {
-		if([[response objectForKey:@"success"] boolValue]) return;
+		if ([[response objectForKey:@"success"] boolValue])
+            return;
 		
 		[_delegate masterClient:self failedGameJoinWithReason:[response objectForKey:@"reason"]];
 	}];
