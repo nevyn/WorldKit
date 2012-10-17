@@ -27,7 +27,6 @@
     _entities = [[WorldContainer alloc] initWithEntityClassSuffix:@"Client"];
     
     _proto = proto;
-    _proto.delegate = (id)self;
     
     return self;
 }

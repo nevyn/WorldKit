@@ -52,6 +52,7 @@
     ProtoAssert(splayer.connection.socket, ![_splayers containsObject:splayer], @"A player already in the game cannot join");
     splayer.leaver = leaver;
     [_splayers addObject:splayer];
+    splayer.connection.delegate = (id)self;
     
     WorldGamePlayer *gplayer = [_playerClass new];
     gplayer.name = splayer.name;
