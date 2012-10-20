@@ -883,6 +883,11 @@
 		055A817C15CD45D00033FA0C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_64_BIT)",
+					armv7,
+					armv7s,
+				);
 				DSTROOT = /tmp/WorldKitCommon.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -902,6 +907,11 @@
 		055A817D15CD45D00033FA0C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_64_BIT)",
+					armv7,
+					armv7s,
+				);
 				DSTROOT = /tmp/WorldKitCommon.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -957,6 +967,7 @@
 		058DE9CD15CD42DF002F07A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/ExampleIOS/ExampleIOS-Prefix.pch";
@@ -976,6 +987,7 @@
 		058DE9CE15CD42DF002F07A3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/ExampleIOS/ExampleIOS-Prefix.pch";
