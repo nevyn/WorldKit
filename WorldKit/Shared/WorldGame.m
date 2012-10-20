@@ -2,5 +2,8 @@
 #import "WorldGame.h"
 
 @implementation WorldGame
-
++ (BOOL)isRootEntity
+{
+    return YES;
+}
 @end

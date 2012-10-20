@@ -24,4 +24,8 @@
 - (NSDictionary*)diffRep:(NSDictionary*)newRep fromRep:(NSDictionary*)oldRep;
 
 - (void)updateFromDeltaRep:(NSDictionary*)rep;
+
+/// Find entities that are unreferenced. If you just stop referencing an entity in a relation, it won't magically be collected: you need to manually call this and unpublishEntity:.
+/// @return Pruned entities
+- (NSArray*)unusedEntities;
 @end

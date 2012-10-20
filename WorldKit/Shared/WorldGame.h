@@ -8,4 +8,5 @@
 @interface WorldGame : WorldEntity
 @property(nonatomic,WORLD_WRITABLE,copy) NSString *name;
 @property(nonatomic,readonly) WORLD_ARRAY *players;
++ (BOOL)isRootEntity;
 @end

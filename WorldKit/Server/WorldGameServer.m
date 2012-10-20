@@ -108,6 +108,9 @@
 
 - (void)tick
 {
+    for(WorldEntity *destroyed in [_entities unusedEntities])
+        [_entities unpublishEntity:destroyed];
+    
     NSDictionary *now = [_entities rep];
     for(WorldServerPlayer *player in _splayers)
         [self sendWorld:now toUserIfNeeded:player];

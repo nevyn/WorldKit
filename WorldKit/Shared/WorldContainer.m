@@ -11,6 +11,7 @@
 @property(nonatomic,strong) WorldEntity *entity;
 @property(nonatomic,strong) NSMutableArray *subscriptions;
 - (id)initWithEntity:(WorldEntity*)obj;
+- (void)invalidate;
 @end
 
 
@@ -60,7 +61,7 @@
     
     // Automatically publish child entities
     __weak __typeof(self) weakSelf = self;
-    NSSet *allAttributes = [[entity observableAttributes] setByAddingObjectsFromSet:[entity observableToManyAttributes]];
+    NSSet *allAttributes = [[[entity class] observableAttributes] setByAddingObjectsFromSet:[[entity class] observableToManyAttributes]];
     [pub.subscriptions addObjectsFromArray:[allAttributes sp_map:^id(NSString *key) {
         return [entity sp_observe:key removed:nil added:^(id added) {
             if ([added isKindOfClass:[WorldEntity class]])
@@ -70,7 +71,11 @@
 }
 - (void)unpublishEntity:(WorldEntity*)entity
 {
-    // TODO
+	WorldPublishedEntity *pobj = [_entities objectForKey:entity.identifier];
+	NSAssert(pobj != nil, @"Wouldn't expect to ever reach this metod with an unpublished object!");
+	[pobj invalidate];
+    NSLog(@"Destroying %@", pobj);
+	[_entities removeObjectForKey:entity.identifier];
 }
 
 - (NSDictionary*)rep;
@@ -78,7 +83,7 @@
     return @{
         @"entities": [_entities sp_map:^id(NSString *key, WorldPublishedEntity *value) {
             NSMutableDictionary *rel = [NSMutableDictionary dictionary];
-            for(NSString *relKey in [[value entity] observableToManyAttributes])
+            for(NSString *relKey in [[[value entity] class] observableToManyAttributes])
                 [rel setObject:[[[value entity] valueForKey:relKey] valueForKeyPath:@"identifier"] forKey:relKey];
 
             return @{
@@ -93,6 +98,7 @@
 - (NSDictionary*)diffRep:(NSDictionary*)newRep fromRep:(NSDictionary*)oldRep
 {
     // TODO
+    // TODO: list which entities have been removed so they can be removed from the client
     return newRep;
 }
 - (void)updateFromDeltaRep:(NSDictionary*)rep
@@ -183,7 +189,12 @@
     NSLog(@"%s:%d FATAL ERROR: %@ (Should disconnect this player!)", file, line, reason);
 }
 
-
+- (NSArray*)unusedEntities
+{
+    return [[_entities.allValues sp_filter:^BOOL(WorldPublishedEntity *obj) {
+		return ![[[obj entity] class] isRootEntity] && [[obj entity] parent] == nil;
+	}] valueForKeyPath:@"entity"];
+}
 @end
 
 

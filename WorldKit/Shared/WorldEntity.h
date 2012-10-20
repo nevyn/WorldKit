@@ -33,14 +33,24 @@ typedef id (^WorldEntityFetcher)(NSString *identifier, Class expectedClass, BOOL
     filtered, and some keys may be missing, if World already knows that you don't need to update their values.
     Note: you must call -[super updateFromRep:] */
 - (void)updateFromRep:(NSDictionary*)rep fetcher:(WorldEntityFetcher)fetcher;
+
+// Break relationship
+- (void)removeFromParent;
 #endif
 
+/// Inverse of whatever relationship this entity is part of. Automatically populated. Content is undefined if
+/// the entity belongs to multiple relationships.
+@property(nonatomic,readonly,weak) id parent;
+
+/// An entity class that doesn't need to be owned by another entity to avoid garbage collection
++ (BOOL)isRootEntity;
+
 /** Keys of the things you put in 'rep'. If the values for these keys are WorldEntities, they will be published. Automatically populated if not overridden.*/
-- (NSSet*)observableAttributes;
++ (NSSet*)observableAttributes;
 /** Keys of to-many relations to other WorldEntities. If new entities are added or removed to/from the array
     values for these keys, they will be published/unpublished, and if they have a 'parent' attribute, it will be
     automatically set. To-many attributes are automatically synced and should not be included in 'rep'. */
-- (NSSet*)observableToManyAttributes;
++ (NSSet*)observableToManyAttributes;
 @end
 
 
