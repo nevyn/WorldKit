@@ -11,7 +11,6 @@
 		055A816C15CD45D00033FA0C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055A816B15CD45D00033FA0C /* SenTestingKit.framework */; };
 		055A816D15CD45D00033FA0C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058DE9AE15CD42DE002F07A3 /* UIKit.framework */; };
 		055A816E15CD45D00033FA0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058DE9B015CD42DE002F07A3 /* Foundation.framework */; };
-		055A817115CD45D00033FA0C /* libWorldKitCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 055A815C15CD45CF0033FA0C /* libWorldKitCommon.a */; };
 		055A817715CD45D00033FA0C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 055A817515CD45D00033FA0C /* InfoPlist.strings */; };
 		055A817A15CD45D00033FA0C /* WorldKitCommonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 055A817915CD45D00033FA0C /* WorldKitCommonTests.m */; };
 		055A818215CD46560033FA0C /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBDA15BADEC8006DD9DC /* AsyncSocket.m */; };
@@ -41,6 +40,9 @@
 		05AD0DAF16341DD300DF7452 /* WorldGameClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBC715BADD01006DD9DC /* WorldGameClient.m */; };
 		05AD0DB016341DD400DF7452 /* WorldMasterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BB831E161C7FE400EA4DE3 /* WorldMasterClient.m */; };
 		05AD0E26163429A100DF7452 /* WorldEntity+debug.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0E25163429A100DF7452 /* WorldEntity+debug.m */; };
+		05AD0E501634B21900DF7452 /* libWorldKitCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 055A815C15CD45CF0033FA0C /* libWorldKitCommon.a */; };
+		05AD0E531634B60600DF7452 /* WorldEntityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0E521634B60600DF7452 /* WorldEntityTest.m */; };
+		05AD0E541634B72400DF7452 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055A81A415CD49950033FA0C /* CFNetwork.framework */; };
 		05BAE7F4161C89D700F370BA /* SPLifetimeGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BAE7F3161C89D700F370BA /* SPLifetimeGlue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
@@ -172,6 +174,8 @@
 		05AD0E411634AF5900DF7452 /* _WorldGameServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _WorldGameServer.h; sourceTree = "<group>"; };
 		05AD0E421634AFC900DF7452 /* _WorldMasterServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _WorldMasterServer.h; sourceTree = "<group>"; };
 		05AD0E431634B08300DF7452 /* _WorldContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _WorldContainer.h; sourceTree = "<group>"; };
+		05AD0E511634B60600DF7452 /* WorldEntityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldEntityTest.h; sourceTree = "<group>"; };
+		05AD0E521634B60600DF7452 /* WorldEntityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldEntityTest.m; sourceTree = "<group>"; };
 		05BAE7F2161C89D700F370BA /* SPLifetimeGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLifetimeGlue.h; sourceTree = "<group>"; };
 		05BAE7F3161C89D700F370BA /* SPLifetimeGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLifetimeGlue.m; sourceTree = "<group>"; };
 		05BAE809161C8BAD00F370BA /* SPSuccinct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSuccinct.h; sourceTree = "<group>"; };
@@ -205,10 +209,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05AD0E541634B72400DF7452 /* CFNetwork.framework in Frameworks */,
+				05AD0E501634B21900DF7452 /* libWorldKitCommon.a in Frameworks */,
 				055A816C15CD45D00033FA0C /* SenTestingKit.framework in Frameworks */,
 				055A816D15CD45D00033FA0C /* UIKit.framework in Frameworks */,
 				055A816E15CD45D00033FA0C /* Foundation.framework in Frameworks */,
-				055A817115CD45D00033FA0C /* libWorldKitCommon.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +260,8 @@
 			children = (
 				055A817815CD45D00033FA0C /* WorldKitCommonTests.h */,
 				055A817915CD45D00033FA0C /* WorldKitCommonTests.m */,
+				05AD0E511634B60600DF7452 /* WorldEntityTest.h */,
+				05AD0E521634B60600DF7452 /* WorldEntityTest.m */,
 				055A817315CD45D00033FA0C /* Supporting Files */,
 			);
 			name = Common;
@@ -714,6 +721,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				055A817A15CD45D00033FA0C /* WorldKitCommonTests.m in Sources */,
+				05AD0E531634B60600DF7452 /* WorldEntityTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,6 +859,7 @@
 				GCC_PREFIX_HEADER = "Implementation/WorldKit/WorldKit-Prefix.pch";
 				INFOPLIST_FILE = "Tests/CommonTests/WorldKitCommonTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = octest;
@@ -868,6 +877,7 @@
 				GCC_PREFIX_HEADER = "Implementation/WorldKit/WorldKit-Prefix.pch";
 				INFOPLIST_FILE = "Tests/CommonTests/WorldKitCommonTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
