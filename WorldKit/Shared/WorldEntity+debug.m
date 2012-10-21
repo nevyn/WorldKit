@@ -1,30 +1,58 @@
 #import "WorldEntity+debug.h"
-#import <SPSuccinct/SPLowVerbosity.h>
+#import <SPSuccinct/SPSuccinct.h>
 
-@implementation WorldEntity (Debug)
+@implementation WorldEntity (WorldDebug)
 - (NSString*)dotDescription;
 {
     NSMutableString *nsm = [NSMutableString string];
-    [nsm appendFormat:@"digraph g {\n"];
-    [nsm appendString:self.dot_forSelfAndRecurse];
+    [nsm appendFormat:@"digraph g {\ncompound = true;\n"];
+    [nsm appendString:[self dot_forSelfAndRecurse:YES]];
     [nsm appendString:@"}"];
     return nsm;
 }
-- (NSString*)dot_forSelfAndRecurse
+- (NSString*)dot_forSelfAndRecurse:(BOOL)showSelf
 {
     NSMutableArray *lines = [NSMutableArray array];
-    [lines addObject:self.dot_nodeDesc];
-    [lines addObject:self.dot_relationships];
     
+    // Describe this node
+    if(showSelf)
+        [lines addObject:self.dot_nodeDesc];
+    
+    // Recurse into to-one relationships
     for(NSString *key in [[self class] observableAttributes]) {
         id val = [self valueForKey:key];
         if([val isKindOfClass:[WorldEntity class]])
-            [lines addObject:[val dot_forSelfAndRecurse]];
+            [lines addObject:[val dot_forSelfAndRecurse:YES]];
     }
     
-    for(NSString *key in [[self class] observableToManyAttributes])
-        for (WorldEntity *other in [self valueForKey:key])
-            [lines addObject:[other dot_forSelfAndRecurse]];
+    // Recurse into to-many relationships    
+    for(NSString *key in [[self class] observableToManyAttributes]) {
+        NSArray *value = [self valueForKey:key];
+        if(value.count == 0) continue;
+        NSString *clustername = $sprintf(@"cluster_%@_%@", self.identifier, key);
+        [lines addObject:$sprintf(@"subgraph \"%@\" {\n\tranksep = 0;\n", clustername)];
+
+        for (WorldEntity *other in value)
+            [lines addObject:other.dot_nodeDesc];
+
+        // setup order
+        if(value.count > 1)
+            [lines addObject:[[[value sp_map:^id(id obj) { return $sprintf(@"\"node_%@\"", [obj identifier]); }] componentsJoinedByString:@" -> "] stringByAppendingFormat:@"[style=invis];"]];
+        [lines addObject:@"}\n"];
+        
+        [lines addObject:$sprintf(@"\"node_%@\" -> \"node_%@\" [\n"
+            @"\tlabel = \"%@\"\n"
+            @"\tlhead = \"%@\"\n"
+            @" ];",
+            self.identifier, [value[0] identifier], key, clustername
+        )];
+    }
+    
+    for(NSString *key in [[self class] observableToManyAttributes]) {
+        NSArray *value = [self valueForKey:key];
+        for (WorldEntity *other in value)
+            [lines addObject:[other dot_forSelfAndRecurse:NO]];
+    }
     
     return [lines componentsJoinedByString:@"\n"];
 }
