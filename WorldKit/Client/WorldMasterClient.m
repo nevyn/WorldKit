@@ -1,6 +1,7 @@
 #import "WorldMasterClient.h"
 #import "WorldGameClient.h"
 #import <SPSuccinct/SPSuccinct.h>
+#import "TCAsyncHashProtocol.h"
 
 // set to 0 to debug without Internet connection
 #define HC_WITH_GAMEKIT 0

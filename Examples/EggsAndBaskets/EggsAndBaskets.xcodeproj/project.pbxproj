@@ -1,0 +1,671 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05AD0D0016341B5400DF7452 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AD0CFF16341B5400DF7452 /* Cocoa.framework */; };
+		05AD0D0A16341B5400DF7452 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05AD0D0816341B5400DF7452 /* InfoPlist.strings */; };
+		05AD0D0C16341B5400DF7452 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0D0B16341B5400DF7452 /* main.m */; };
+		05AD0D1016341B5400DF7452 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 05AD0D0E16341B5400DF7452 /* Credits.rtf */; };
+		05AD0D1316341B5400DF7452 /* EABAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0D1216341B5400DF7452 /* EABAppDelegate.m */; };
+		05AD0D1616341B5400DF7452 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05AD0D1416341B5400DF7452 /* MainMenu.xib */; };
+		05AD0D2316341BDC00DF7452 /* EABBasket.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0D1E16341BDC00DF7452 /* EABBasket.m */; };
+		05AD0D2416341BDC00DF7452 /* EABEgg.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0D2016341BDC00DF7452 /* EABEgg.m */; };
+		05AD0D2516341BDC00DF7452 /* EABGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0D2216341BDC00DF7452 /* EABGame.m */; };
+		05AD0D3E16341BFA00DF7452 /* libWorldKitCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AD0D3B16341BE700DF7452 /* libWorldKitCommon.a */; };
+		05AD0DB716341E1C00DF7452 /* libWorldKitServer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AD0DB416341E1C00DF7452 /* libWorldKitServer.a */; };
+		05AD0DC316341EDC00DF7452 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AD0DC216341EDC00DF7452 /* UIKit.framework */; };
+		05AD0DC516341EDC00DF7452 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AD0DC416341EDC00DF7452 /* Foundation.framework */; };
+		05AD0DC716341EDC00DF7452 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AD0DC616341EDC00DF7452 /* CoreGraphics.framework */; };
+		05AD0DCD16341EDC00DF7452 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05AD0DCB16341EDC00DF7452 /* InfoPlist.strings */; };
+		05AD0DCF16341EDC00DF7452 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0DCE16341EDC00DF7452 /* main.m */; };
+		05AD0DD316341EDC00DF7452 /* EABAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0DD216341EDC00DF7452 /* EABAppDelegate.m */; };
+		05AD0DD516341EDC00DF7452 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 05AD0DD416341EDC00DF7452 /* Default.png */; };
+		05AD0DD716341EDC00DF7452 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05AD0DD616341EDC00DF7452 /* Default@2x.png */; };
+		05AD0DD916341EDC00DF7452 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05AD0DD816341EDC00DF7452 /* Default-568h@2x.png */; };
+		05AD0DEB16341FCE00DF7452 /* EABGameChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0DEA16341FCE00DF7452 /* EABGameChooser.m */; };
+		05AD0DF01634202F00DF7452 /* EABBasketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0DED1634202F00DF7452 /* EABBasketViewController.m */; };
+		05AD0DF11634202F00DF7452 /* EABGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0DEF1634202F00DF7452 /* EABGameViewController.m */; };
+		05AD0DF21634212300DF7452 /* libWorldKitClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AD0DB616341E1C00DF7452 /* libWorldKitClient.a */; };
+		05AD0DF31634212300DF7452 /* libWorldKitCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AD0D3B16341BE700DF7452 /* libWorldKitCommon.a */; };
+		05AD0E0C163421B600DF7452 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AD0E0B163421B600DF7452 /* CFNetwork.framework */; };
+		05AD0E0D163421E300DF7452 /* EABBasket.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0D1E16341BDC00DF7452 /* EABBasket.m */; };
+		05AD0E0E163421E500DF7452 /* EABEgg.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0D2016341BDC00DF7452 /* EABEgg.m */; };
+		05AD0E0F163421E800DF7452 /* EABGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0D2216341BDC00DF7452 /* EABGame.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		05AD0D3A16341BE700DF7452 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05AD0D2616341BE700DF7452 /* WorldKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 055A815C15CD45CF0033FA0C;
+			remoteInfo = WorldKitCommon;
+		};
+		05AD0D3C16341BE700DF7452 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05AD0D2616341BE700DF7452 /* WorldKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 055A816A15CD45D00033FA0C;
+			remoteInfo = WorldKitCommonTests;
+		};
+		05AD0DB316341E1C00DF7452 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05AD0D2616341BE700DF7452 /* WorldKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05AD0D8D16341D9500DF7452;
+			remoteInfo = WorldKitServer;
+		};
+		05AD0DB516341E1C00DF7452 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05AD0D2616341BE700DF7452 /* WorldKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05AD0DAA16341D9E00DF7452;
+			remoteInfo = WorldKitClient;
+		};
+		05AD0DB816341E3000DF7452 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05AD0D2616341BE700DF7452 /* WorldKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 055A815B15CD45CF0033FA0C;
+			remoteInfo = WorldKitCommon;
+		};
+		05AD0DBA16341E3000DF7452 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05AD0D2616341BE700DF7452 /* WorldKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 05AD0D7216341D9500DF7452;
+			remoteInfo = WorldKitServer;
+		};
+		05AD0DF41634212A00DF7452 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05AD0D2616341BE700DF7452 /* WorldKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 055A815B15CD45CF0033FA0C;
+			remoteInfo = WorldKitCommon;
+		};
+		05AD0DF61634212A00DF7452 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05AD0D2616341BE700DF7452 /* WorldKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 05AD0D8F16341D9E00DF7452;
+			remoteInfo = WorldKitClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05AD0CFB16341B5400DF7452 /* MacServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MacServer.app; path = BasketsMacServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05AD0CFF16341B5400DF7452 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		05AD0D0216341B5400DF7452 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		05AD0D0316341B5400DF7452 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		05AD0D0416341B5400DF7452 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		05AD0D0716341B5400DF7452 /* EggsAndBaskets-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EggsAndBaskets-Info.plist"; sourceTree = "<group>"; };
+		05AD0D0916341B5400DF7452 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		05AD0D0B16341B5400DF7452 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		05AD0D0D16341B5400DF7452 /* EggsAndBaskets-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EggsAndBaskets-Prefix.pch"; sourceTree = "<group>"; };
+		05AD0D0F16341B5400DF7452 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		05AD0D1116341B5400DF7452 /* EABAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EABAppDelegate.h; sourceTree = "<group>"; };
+		05AD0D1216341B5400DF7452 /* EABAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EABAppDelegate.m; sourceTree = "<group>"; };
+		05AD0D1516341B5400DF7452 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		05AD0D1D16341BDC00DF7452 /* EABBasket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EABBasket.h; sourceTree = "<group>"; };
+		05AD0D1E16341BDC00DF7452 /* EABBasket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EABBasket.m; sourceTree = "<group>"; };
+		05AD0D1F16341BDC00DF7452 /* EABEgg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EABEgg.h; sourceTree = "<group>"; };
+		05AD0D2016341BDC00DF7452 /* EABEgg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EABEgg.m; sourceTree = "<group>"; };
+		05AD0D2116341BDC00DF7452 /* EABGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EABGame.h; sourceTree = "<group>"; };
+		05AD0D2216341BDC00DF7452 /* EABGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EABGame.m; sourceTree = "<group>"; };
+		05AD0D2616341BE700DF7452 /* WorldKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WorldKit.xcodeproj; path = ../../WorldKit.xcodeproj; sourceTree = "<group>"; };
+		05AD0DC016341EDC00DF7452 /* BasketsIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasketsIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05AD0DC216341EDC00DF7452 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		05AD0DC416341EDC00DF7452 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		05AD0DC616341EDC00DF7452 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		05AD0DCA16341EDC00DF7452 /* BasketsIOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BasketsIOS-Info.plist"; sourceTree = "<group>"; };
+		05AD0DCC16341EDC00DF7452 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		05AD0DCE16341EDC00DF7452 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		05AD0DD016341EDC00DF7452 /* BasketsIOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BasketsIOS-Prefix.pch"; sourceTree = "<group>"; };
+		05AD0DD116341EDC00DF7452 /* EABAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EABAppDelegate.h; sourceTree = "<group>"; };
+		05AD0DD216341EDC00DF7452 /* EABAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EABAppDelegate.m; sourceTree = "<group>"; };
+		05AD0DD416341EDC00DF7452 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		05AD0DD616341EDC00DF7452 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		05AD0DD816341EDC00DF7452 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		05AD0DE916341FCE00DF7452 /* EABGameChooser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EABGameChooser.h; sourceTree = "<group>"; };
+		05AD0DEA16341FCE00DF7452 /* EABGameChooser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EABGameChooser.m; sourceTree = "<group>"; };
+		05AD0DEC1634202F00DF7452 /* EABBasketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EABBasketViewController.h; sourceTree = "<group>"; };
+		05AD0DED1634202F00DF7452 /* EABBasketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EABBasketViewController.m; sourceTree = "<group>"; };
+		05AD0DEE1634202F00DF7452 /* EABGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EABGameViewController.h; sourceTree = "<group>"; };
+		05AD0DEF1634202F00DF7452 /* EABGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EABGameViewController.m; sourceTree = "<group>"; };
+		05AD0E0B163421B600DF7452 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05AD0CF816341B5400DF7452 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05AD0DB716341E1C00DF7452 /* libWorldKitServer.a in Frameworks */,
+				05AD0D3E16341BFA00DF7452 /* libWorldKitCommon.a in Frameworks */,
+				05AD0D0016341B5400DF7452 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AD0DBD16341EDC00DF7452 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05AD0E0C163421B600DF7452 /* CFNetwork.framework in Frameworks */,
+				05AD0DF21634212300DF7452 /* libWorldKitClient.a in Frameworks */,
+				05AD0DF31634212300DF7452 /* libWorldKitCommon.a in Frameworks */,
+				05AD0DC316341EDC00DF7452 /* UIKit.framework in Frameworks */,
+				05AD0DC516341EDC00DF7452 /* Foundation.framework in Frameworks */,
+				05AD0DC716341EDC00DF7452 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05AD0CF016341B5400DF7452 = {
+			isa = PBXGroup;
+			children = (
+				05AD0D2616341BE700DF7452 /* WorldKit.xcodeproj */,
+				05AD0D1C16341BDC00DF7452 /* World */,
+				05AD0D0516341B5400DF7452 /* MacServer */,
+				05AD0DC816341EDC00DF7452 /* BasketsIOS */,
+				05AD0CFE16341B5400DF7452 /* Frameworks */,
+				05AD0CFC16341B5400DF7452 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		05AD0CFC16341B5400DF7452 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05AD0CFB16341B5400DF7452 /* MacServer.app */,
+				05AD0DC016341EDC00DF7452 /* BasketsIOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05AD0CFE16341B5400DF7452 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05AD0E0B163421B600DF7452 /* CFNetwork.framework */,
+				05AD0CFF16341B5400DF7452 /* Cocoa.framework */,
+				05AD0DC216341EDC00DF7452 /* UIKit.framework */,
+				05AD0DC416341EDC00DF7452 /* Foundation.framework */,
+				05AD0DC616341EDC00DF7452 /* CoreGraphics.framework */,
+				05AD0D0116341B5400DF7452 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		05AD0D0116341B5400DF7452 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05AD0D0216341B5400DF7452 /* AppKit.framework */,
+				05AD0D0316341B5400DF7452 /* CoreData.framework */,
+				05AD0D0416341B5400DF7452 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		05AD0D0516341B5400DF7452 /* MacServer */ = {
+			isa = PBXGroup;
+			children = (
+				05AD0D1116341B5400DF7452 /* EABAppDelegate.h */,
+				05AD0D1216341B5400DF7452 /* EABAppDelegate.m */,
+				05AD0D1416341B5400DF7452 /* MainMenu.xib */,
+				05AD0D0616341B5400DF7452 /* Supporting Files */,
+			);
+			path = MacServer;
+			sourceTree = "<group>";
+		};
+		05AD0D0616341B5400DF7452 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05AD0D0716341B5400DF7452 /* EggsAndBaskets-Info.plist */,
+				05AD0D0816341B5400DF7452 /* InfoPlist.strings */,
+				05AD0D0B16341B5400DF7452 /* main.m */,
+				05AD0D0D16341B5400DF7452 /* EggsAndBaskets-Prefix.pch */,
+				05AD0D0E16341B5400DF7452 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05AD0D1C16341BDC00DF7452 /* World */ = {
+			isa = PBXGroup;
+			children = (
+				05AD0D1D16341BDC00DF7452 /* EABBasket.h */,
+				05AD0D1E16341BDC00DF7452 /* EABBasket.m */,
+				05AD0D1F16341BDC00DF7452 /* EABEgg.h */,
+				05AD0D2016341BDC00DF7452 /* EABEgg.m */,
+				05AD0D2116341BDC00DF7452 /* EABGame.h */,
+				05AD0D2216341BDC00DF7452 /* EABGame.m */,
+			);
+			name = World;
+			path = EABWorld;
+			sourceTree = "<group>";
+		};
+		05AD0D2716341BE700DF7452 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05AD0D3B16341BE700DF7452 /* libWorldKitCommon.a */,
+				05AD0D3D16341BE700DF7452 /* WorldKitCommonTests.octest */,
+				05AD0DB416341E1C00DF7452 /* libWorldKitServer.a */,
+				05AD0DB616341E1C00DF7452 /* libWorldKitClient.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05AD0DC816341EDC00DF7452 /* BasketsIOS */ = {
+			isa = PBXGroup;
+			children = (
+				05AD0DD116341EDC00DF7452 /* EABAppDelegate.h */,
+				05AD0DD216341EDC00DF7452 /* EABAppDelegate.m */,
+				05AD0DE916341FCE00DF7452 /* EABGameChooser.h */,
+				05AD0DEA16341FCE00DF7452 /* EABGameChooser.m */,
+				05AD0DEE1634202F00DF7452 /* EABGameViewController.h */,
+				05AD0DEF1634202F00DF7452 /* EABGameViewController.m */,
+				05AD0DEC1634202F00DF7452 /* EABBasketViewController.h */,
+				05AD0DED1634202F00DF7452 /* EABBasketViewController.m */,
+				05AD0DC916341EDC00DF7452 /* Supporting Files */,
+			);
+			path = BasketsIOS;
+			sourceTree = "<group>";
+		};
+		05AD0DC916341EDC00DF7452 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05AD0DCA16341EDC00DF7452 /* BasketsIOS-Info.plist */,
+				05AD0DCB16341EDC00DF7452 /* InfoPlist.strings */,
+				05AD0DCE16341EDC00DF7452 /* main.m */,
+				05AD0DD016341EDC00DF7452 /* BasketsIOS-Prefix.pch */,
+				05AD0DD416341EDC00DF7452 /* Default.png */,
+				05AD0DD616341EDC00DF7452 /* Default@2x.png */,
+				05AD0DD816341EDC00DF7452 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05AD0CFA16341B5400DF7452 /* BasketsMacServer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05AD0D1916341B5400DF7452 /* Build configuration list for PBXNativeTarget "BasketsMacServer" */;
+			buildPhases = (
+				05AD0CF716341B5400DF7452 /* Sources */,
+				05AD0CF816341B5400DF7452 /* Frameworks */,
+				05AD0CF916341B5400DF7452 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05AD0DB916341E3000DF7452 /* PBXTargetDependency */,
+				05AD0DBB16341E3000DF7452 /* PBXTargetDependency */,
+			);
+			name = BasketsMacServer;
+			productName = EggsAndBaskets;
+			productReference = 05AD0CFB16341B5400DF7452 /* MacServer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		05AD0DBF16341EDC00DF7452 /* BasketsIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05AD0DE616341EDC00DF7452 /* Build configuration list for PBXNativeTarget "BasketsIOS" */;
+			buildPhases = (
+				05AD0DBC16341EDC00DF7452 /* Sources */,
+				05AD0DBD16341EDC00DF7452 /* Frameworks */,
+				05AD0DBE16341EDC00DF7452 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05AD0DF51634212A00DF7452 /* PBXTargetDependency */,
+				05AD0DF71634212A00DF7452 /* PBXTargetDependency */,
+			);
+			name = BasketsIOS;
+			productName = BasketsIOS;
+			productReference = 05AD0DC016341EDC00DF7452 /* BasketsIOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05AD0CF216341B5400DF7452 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EAB;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = ThirdCog;
+			};
+			buildConfigurationList = 05AD0CF516341B5400DF7452 /* Build configuration list for PBXProject "EggsAndBaskets" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 05AD0CF016341B5400DF7452;
+			productRefGroup = 05AD0CFC16341B5400DF7452 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 05AD0D2716341BE700DF7452 /* Products */;
+					ProjectRef = 05AD0D2616341BE700DF7452 /* WorldKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				05AD0CFA16341B5400DF7452 /* BasketsMacServer */,
+				05AD0DBF16341EDC00DF7452 /* BasketsIOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		05AD0D3B16341BE700DF7452 /* libWorldKitCommon.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libWorldKitCommon.a;
+			remoteRef = 05AD0D3A16341BE700DF7452 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		05AD0D3D16341BE700DF7452 /* WorldKitCommonTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = WorldKitCommonTests.octest;
+			remoteRef = 05AD0D3C16341BE700DF7452 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		05AD0DB416341E1C00DF7452 /* libWorldKitServer.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libWorldKitServer.a;
+			remoteRef = 05AD0DB316341E1C00DF7452 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		05AD0DB616341E1C00DF7452 /* libWorldKitClient.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libWorldKitClient.a;
+			remoteRef = 05AD0DB516341E1C00DF7452 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05AD0CF916341B5400DF7452 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05AD0D0A16341B5400DF7452 /* InfoPlist.strings in Resources */,
+				05AD0D1016341B5400DF7452 /* Credits.rtf in Resources */,
+				05AD0D1616341B5400DF7452 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AD0DBE16341EDC00DF7452 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05AD0DCD16341EDC00DF7452 /* InfoPlist.strings in Resources */,
+				05AD0DD516341EDC00DF7452 /* Default.png in Resources */,
+				05AD0DD716341EDC00DF7452 /* Default@2x.png in Resources */,
+				05AD0DD916341EDC00DF7452 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05AD0CF716341B5400DF7452 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05AD0D0C16341B5400DF7452 /* main.m in Sources */,
+				05AD0D1316341B5400DF7452 /* EABAppDelegate.m in Sources */,
+				05AD0D2316341BDC00DF7452 /* EABBasket.m in Sources */,
+				05AD0D2416341BDC00DF7452 /* EABEgg.m in Sources */,
+				05AD0D2516341BDC00DF7452 /* EABGame.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AD0DBC16341EDC00DF7452 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05AD0DCF16341EDC00DF7452 /* main.m in Sources */,
+				05AD0DD316341EDC00DF7452 /* EABAppDelegate.m in Sources */,
+				05AD0DEB16341FCE00DF7452 /* EABGameChooser.m in Sources */,
+				05AD0DF01634202F00DF7452 /* EABBasketViewController.m in Sources */,
+				05AD0DF11634202F00DF7452 /* EABGameViewController.m in Sources */,
+				05AD0E0D163421E300DF7452 /* EABBasket.m in Sources */,
+				05AD0E0E163421E500DF7452 /* EABEgg.m in Sources */,
+				05AD0E0F163421E800DF7452 /* EABGame.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05AD0DB916341E3000DF7452 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WorldKitCommon;
+			targetProxy = 05AD0DB816341E3000DF7452 /* PBXContainerItemProxy */;
+		};
+		05AD0DBB16341E3000DF7452 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WorldKitServer;
+			targetProxy = 05AD0DBA16341E3000DF7452 /* PBXContainerItemProxy */;
+		};
+		05AD0DF51634212A00DF7452 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WorldKitCommon;
+			targetProxy = 05AD0DF41634212A00DF7452 /* PBXContainerItemProxy */;
+		};
+		05AD0DF71634212A00DF7452 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WorldKitClient;
+			targetProxy = 05AD0DF61634212A00DF7452 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		05AD0D0816341B5400DF7452 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05AD0D0916341B5400DF7452 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		05AD0D0E16341B5400DF7452 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05AD0D0F16341B5400DF7452 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		05AD0D1416341B5400DF7452 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05AD0D1516341B5400DF7452 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		05AD0DCB16341EDC00DF7452 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05AD0DCC16341EDC00DF7452 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		05AD0D1716341B5400DF7452 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		05AD0D1816341B5400DF7452 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		05AD0D1A16341B5400DF7452 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MacServer/EggsAndBaskets-Prefix.pch";
+				INFOPLIST_FILE = "MacServer/EggsAndBaskets-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		05AD0D1B16341B5400DF7452 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MacServer/EggsAndBaskets-Prefix.pch";
+				INFOPLIST_FILE = "MacServer/EggsAndBaskets-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		05AD0DE716341EDC00DF7452 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BasketsIOS/BasketsIOS-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../Libraries/SPSuccinct",
+					"$(SRCROOT)/../../",
+				);
+				INFOPLIST_FILE = "BasketsIOS/BasketsIOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		05AD0DE816341EDC00DF7452 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BasketsIOS/BasketsIOS-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../Libraries/SPSuccinct",
+					"$(SRCROOT)/../../",
+				);
+				INFOPLIST_FILE = "BasketsIOS/BasketsIOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05AD0CF516341B5400DF7452 /* Build configuration list for PBXProject "EggsAndBaskets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05AD0D1716341B5400DF7452 /* Debug */,
+				05AD0D1816341B5400DF7452 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05AD0D1916341B5400DF7452 /* Build configuration list for PBXNativeTarget "BasketsMacServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05AD0D1A16341B5400DF7452 /* Debug */,
+				05AD0D1B16341B5400DF7452 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05AD0DE616341EDC00DF7452 /* Build configuration list for PBXNativeTarget "BasketsIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05AD0DE716341EDC00DF7452 /* Debug */,
+				05AD0DE816341EDC00DF7452 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 05AD0CF216341B5400DF7452 /* Project object */;
+}

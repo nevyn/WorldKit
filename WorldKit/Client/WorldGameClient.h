@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "TCAsyncHashProtocol.h"
+@class TCAsyncHashProtocol;
 @class WorldGame, WorldGamePlayer;
 
 /**

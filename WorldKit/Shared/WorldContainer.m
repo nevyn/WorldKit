@@ -26,7 +26,7 @@
     _entities = [NSMutableDictionary dictionaryWithCapacity:1000];
     _entityClassSuffix = suffix;
     
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(dumpStats) userInfo:0 repeats:YES];
+    //[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(dumpStats) userInfo:0 repeats:YES];
     return self;
 }
 - (void)dumpStats

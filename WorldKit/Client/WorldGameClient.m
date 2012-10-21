@@ -1,6 +1,7 @@
 #import "WorldGameClient.h"
 #import "WorldContainer.h"
 #import "WorldGamePlayer.h"
+#import "TCAsyncHashProtocol.h"
 #import <SPSuccinct/SPLowVerbosity.h>
 
 @interface WorldGameClient ()
