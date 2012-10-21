@@ -1,5 +1,5 @@
 #define WORLD_WRITABLE_MODEL 1
-#import "WorldContainer.h"
+#import "_WorldContainer.h"
 #import "SPLowVerbosity.h"
 #import "SPFunctional.h"
 #import "SPKVONotificationCenter.h"

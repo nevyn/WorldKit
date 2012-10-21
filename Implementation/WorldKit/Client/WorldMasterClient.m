@@ -1,5 +1,5 @@
 #import "WorldMasterClient.h"
-#import "WorldGameClient.h"
+#import "_WorldGameClient.h"
 #import <SPSuccinct/SPSuccinct.h>
 #import "TCAsyncHashProtocol.h"
 

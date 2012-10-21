@@ -16,8 +16,4 @@
 
 // Ends the game and stops its timers. Must be called before it can be deallocated.
 - (void)stop;
-
-/// Takes ownership of the player and its socket. First player to join owns the game.
-/// @param leaver When player leaves the game, use this callback to re-add player to lobby
--(void)join:(WorldServerPlayer*)player leaver:(dispatch_block_t)leaver;
 @end

@@ -13,9 +13,6 @@
 
 - (WorldGameServer*)createGameServerWithParameters:(NSDictionary*)parameters error:(NSError**)err;
 - (void)serveOnlyGame:(WorldGameServer*)server;
-
-/// Takes ownership of the player and its socket.
--(void)join:(WorldServerPlayer*)player;
 @end
 
 @protocol WorldMasterServerDelegate <NSObject>

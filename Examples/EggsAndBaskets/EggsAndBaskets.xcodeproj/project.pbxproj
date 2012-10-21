@@ -532,7 +532,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../Interface",
+					"$(SRCROOT)/../../Libraries/SPSuccinct",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -558,7 +561,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../Interface",
+					"$(SRCROOT)/../../Libraries/SPSuccinct",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = macosx;
@@ -599,10 +605,6 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BasketsIOS/BasketsIOS-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../../Libraries/SPSuccinct",
-					"$(SRCROOT)/../../",
-				);
 				INFOPLIST_FILE = "BasketsIOS/BasketsIOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -621,10 +623,6 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BasketsIOS/BasketsIOS-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../../Libraries/SPSuccinct",
-					"$(SRCROOT)/../../",
-				);
 				INFOPLIST_FILE = "BasketsIOS/BasketsIOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";

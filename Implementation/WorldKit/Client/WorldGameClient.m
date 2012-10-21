@@ -1,5 +1,5 @@
-#import "WorldGameClient.h"
-#import "WorldContainer.h"
+#import "_WorldGameClient.h"
+#import "_WorldContainer.h"
 #import "WorldGamePlayer.h"
 #import "TCAsyncHashProtocol.h"
 #import <SPSuccinct/SPLowVerbosity.h>

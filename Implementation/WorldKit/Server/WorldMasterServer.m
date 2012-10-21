@@ -1,6 +1,6 @@
 #define WORLD_WRITABLE_MODEL 1
-#import "WorldMasterServer.h"
-#import "WorldGameServer.h"
+#import "_WorldMasterServer.h"
+#import "_WorldGameServer.h"
 #import "WorldServerPlayer.h"
 #import "WorldServerTypes.h"
 

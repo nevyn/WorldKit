@@ -1,4 +1,4 @@
-#import <WorldKit/WorldKit.h>
+#import <WorldKit/Shared/Shared.h>
 
 @interface EABGame : WorldGame
 @property(nonatomic,readonly) WORLD_ARRAY *baskets;
