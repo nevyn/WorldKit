@@ -30,7 +30,7 @@
         NSArray *value = [self valueForKey:key];
         if(value.count == 0) continue;
         NSString *clustername = $sprintf(@"cluster_%@_%@", self.identifier, key);
-        [lines addObject:$sprintf(@"subgraph \"%@\" {\n\tranksep = 0;\n", clustername)];
+        [lines addObject:$sprintf(@"subgraph \"%@\" {\n\tranksep = 0; label=\"%@\"\n", clustername, key)];
 
         for (WorldEntity *other in value)
             [lines addObject:other.dot_nodeDesc];
@@ -41,10 +41,9 @@
         [lines addObject:@"}\n"];
         
         [lines addObject:$sprintf(@"\"node_%@\" -> \"node_%@\" [\n"
-            @"\tlabel = \"%@\"\n"
             @"\tlhead = \"%@\"\n"
             @" ];",
-            self.identifier, [value[0] identifier], key, clustername
+            self.identifier, [value[0] identifier], clustername
         )];
     }
     
