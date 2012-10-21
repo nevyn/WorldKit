@@ -10,12 +10,14 @@
 #import "ExampleDetailViewController.h"
 
 #import "ExampleGame.h"
+#import "ExampleBasket.h"
 
 #import <WorldKit/WorldKit.h>
 #import <SPSuccinct/SPSuccinct.h>
 
 @interface ExampleMasterViewController () {
     WorldGameClient *_gameClient;
+    NSMutableDictionary *_listeners;
 }
 @end
 
@@ -28,7 +30,26 @@
     _gameClient = gameClient;
     self.title = gameClient.name;
     
-    [self sp_addDependency:@"Refresh table view when new games or baskets come in" on:@[gameClient, @"game.baskets"] target:self action:@selector(reload)];
+    // Listen to changes in the number of baskets, and when there's a new basket, for the contents of the basket.
+    _listeners = [NSMutableDictionary dictionary];
+    __weak typeof(self) weakSelf = self;
+    [gameClient sp_observe:@"game.baskets" removed:^(ExampleBasket *basket) {
+        if (!basket) return;
+        
+        // Stop listening to this basket's contents
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf->_listeners removeObjectForKey:basket.identifier];
+        [weakSelf.tableView reloadData];
+    } added:^(ExampleBasket *basket) {
+        if (!basket) return;
+        
+        // Start listening to changes in the name of the basket
+        id listener = [weakSelf sp_addDependency:nil on:@[basket, @"name"] changed:^(id change){
+            [weakSelf.tableView reloadData];
+        }];
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf->_listeners setObject:listener forKey:basket.identifier];
+    } initial:YES];
     
     UIBarButtonItem *leave = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(leaveGame)];
     self.navigationItem.leftBarButtonItem = leave;
@@ -45,11 +66,6 @@
 - (ExampleGame*)game
 {
     return (ExampleGame*)[_gameClient game];
-}
-
-- (void)reload
-{
-    [self.tableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

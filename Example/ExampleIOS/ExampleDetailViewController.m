@@ -15,6 +15,7 @@
 
 @interface ExampleDetailViewController () {
     ExampleBasket *_basket;
+    NSMutableDictionary *_listeners;
 }
 @end
 
@@ -27,14 +28,29 @@
     _basket = basket;
     self.title = basket.name;
     
-    [self sp_addDependency:@"Refresh table view when eggs come in" on:@[SPD_PAIR(_basket, eggs)] target:self action:@selector(reload)];
+    // Listen to changes in the number of eggs, and on the shape of eggs
+    _listeners = [NSMutableDictionary dictionary];
+    __weak typeof(self) weakSelf = self;
+    [_basket sp_observe:@"eggs" removed:^(ExampleEgg *egg) {
+        if (!egg) return;
+        
+        // Stop listening to this basket's contents
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf->_listeners removeObjectForKey:egg.identifier];
+        [weakSelf.tableView reloadData];
+    } added:^(ExampleEgg *egg) {
+        if (!egg) return;
+        
+        // Start listening to changes in the name of the basket
+        id listener = [weakSelf sp_addDependency:nil on:@[egg, @"shape"] changed:^(id change){
+            [weakSelf.tableView reloadData];
+        }];
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf->_listeners setObject:listener forKey:egg.identifier];
+    } initial:YES];
+
     
     return self;
-}
-
-- (void)reload
-{
-    [self.tableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
