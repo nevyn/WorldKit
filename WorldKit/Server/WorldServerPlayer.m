@@ -22,7 +22,7 @@
 }
 - (WorldServerSnapshot*)latestAckedSnapshot;
 {
-    for(WorldServerSnapshot *snapshot in [_snapshots reverseObjectEnumerator]) {
+    for(WorldServerSnapshot *snapshot in _snapshots) {
         if (snapshot.acked)
             return snapshot;
     }
@@ -51,4 +51,8 @@
 
 
 @implementation WorldServerSnapshot
+- (NSString*)description
+{
+    return [NSString stringWithFormat:@"<WorldServerSnapshot@%p sent %@ id %@ %@>", self, [NSDate dateWithTimeIntervalSinceReferenceDate:_timestamp], _identifier, _acked?@"ACK":@"NAK"];
+}
 @end

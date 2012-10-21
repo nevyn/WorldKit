@@ -97,9 +97,27 @@
 }
 - (NSDictionary*)diffRep:(NSDictionary*)newRep fromRep:(NSDictionary*)oldRep
 {
-    // TODO
-    // TODO: list which entities have been removed so they can be removed from the client
-    return newRep;
+    NSMutableDictionary *newOrChangedEntities = [NSMutableDictionary dictionaryWithCapacity:[newRep[@"entities"] count]];
+    for(NSString *uuid in newRep[@"entities"]) {
+        NSDictionary *oldEntRep = oldRep[@"entities"][uuid];
+        NSDictionary *newEntRep = newRep[@"entities"][uuid];
+        if([newEntRep isEqualToDictionary:oldEntRep])
+            continue;
+        // TODO: make a smaller delta with just the changes in newEntRep
+        [newOrChangedEntities setObject:newEntRep forKey:uuid];
+    }
+
+    NSArray *removedEntityIdentifiers = [[oldRep[@"entities"] allKeys] sp_filter:^BOOL(NSString *uuid) {
+        return newRep[@"entities"][uuid] == nil;
+    }];
+    
+    if (newOrChangedEntities.count == 0 && removedEntityIdentifiers.count == 0)
+        return nil;
+    
+    return @{
+        @"entities": newOrChangedEntities,
+        @"removedEntityIdentifiers": removedEntityIdentifiers ?: @[]
+    };
 }
 - (void)updateFromDeltaRep:(NSDictionary*)rep
 {
@@ -132,6 +150,10 @@
         NSDictionary *definition = entities[uuid];
         [self updateEntity:entity fromDefinition:definition];
     }
+    
+    // 3. Remove killed entities
+    for (NSString *uuid in rep[@"removedEntityIdentifiers"])
+        [self unpublishEntity:[_entities[uuid] entity]];
 }
 
 - (void)updateEntity:(WorldEntity*)entity fromDefinition:(NSDictionary*)definition
