@@ -40,6 +40,7 @@
 		05AD0DAE16341DCA00DF7452 /* WorldMasterServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC0F15C04771006DD9DC /* WorldMasterServer.m */; };
 		05AD0DAF16341DD300DF7452 /* WorldGameClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBC715BADD01006DD9DC /* WorldGameClient.m */; };
 		05AD0DB016341DD400DF7452 /* WorldMasterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BB831E161C7FE400EA4DE3 /* WorldMasterClient.m */; };
+		05AD0E26163429A100DF7452 /* WorldEntity+debug.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0E25163429A100DF7452 /* WorldEntity+debug.m */; };
 		05BAE7F4161C89D700F370BA /* SPLifetimeGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BAE7F3161C89D700F370BA /* SPLifetimeGlue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
@@ -159,6 +160,8 @@
 		059BCCB115C98C31006DD9DC /* WorldKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldKit.h; sourceTree = "<group>"; };
 		05AD0D8D16341D9500DF7452 /* libWorldKitServer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWorldKitServer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AD0DAA16341D9E00DF7452 /* libWorldKitClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWorldKitClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		05AD0E24163429A100DF7452 /* WorldEntity+debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WorldEntity+debug.h"; sourceTree = "<group>"; };
+		05AD0E25163429A100DF7452 /* WorldEntity+debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WorldEntity+debug.m"; sourceTree = "<group>"; };
 		05BAE7F2161C89D700F370BA /* SPLifetimeGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLifetimeGlue.h; sourceTree = "<group>"; };
 		05BAE7F3161C89D700F370BA /* SPLifetimeGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLifetimeGlue.m; sourceTree = "<group>"; };
 		05BAE809161C8BAD00F370BA /* SPSuccinct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSuccinct.h; sourceTree = "<group>"; };
@@ -471,6 +474,8 @@
 				059BCC2B15C053F0006DD9DC /* WorldGamePlayer.m */,
 				059BCC4315C08589006DD9DC /* WorldContainer.h */,
 				059BCC4415C08589006DD9DC /* WorldContainer.m */,
+				05AD0E24163429A100DF7452 /* WorldEntity+debug.h */,
+				05AD0E25163429A100DF7452 /* WorldEntity+debug.m */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -644,6 +649,7 @@
 				055A818E15CD46620033FA0C /* WorldGamePlayer.m in Sources */,
 				055A819015CD46620033FA0C /* WorldContainer.m in Sources */,
 				05BAE7F4161C89D700F370BA /* SPLifetimeGlue.m in Sources */,
+				05AD0E26163429A100DF7452 /* WorldEntity+debug.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -99,7 +99,7 @@
 + (NSSet*)observableAttributes
 {
     return [NSSet setWithArray:[[[self _allProperties] sp_filter:^BOOL(id obj) {
-        return [[obj typeEncoding] rangeOfString:@"Array"].location == NSNotFound;
+        return [[obj typeEncoding] rangeOfString:@"Array"].location == NSNotFound && ![[obj name] isEqual:@"parent"];
     }] valueForKeyPath:@"name"]];
 }
 + (NSSet*)observableToManyAttributes
