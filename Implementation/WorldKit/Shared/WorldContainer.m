@@ -70,7 +70,7 @@
         return [entity sp_observe:key removed:nil added:^(id added) {
             if ([added isKindOfClass:[WorldEntity class]])
                 [weakSelf publishEntity:added];
-        }];
+        } initial:YES];
     }].allObjects];
 }
 - (void)unpublishEntity:(WorldEntity*)entity
@@ -169,7 +169,7 @@
         if(!fetched && allowNil) return nil;
         
         if(expectedClass && ![fetched.entity isKindOfClass:expectedClass]) {
-            [self handleError:[NSString stringWithFormat:@"Unexpected class %@ for identifier %@", fetched.entity.class, entity.identifier] file:__FILE__ line:__LINE__];
+            [self handleError:[NSString stringWithFormat:@"Unexpected class %@ for identifier %@ (asked for by %@)", fetched.entity.class, identifier, entity.identifier] file:__FILE__ line:__LINE__];
             return nil;
         }
         

@@ -6,4 +6,17 @@
 {
     return YES;
 }
+
+- (NSDictionary*)rep
+{
+    return WorldDictAppend([super rep], @{
+        @"name": self.name
+    });
+}
+- (void)updateFromRep:(NSDictionary*)rep fetcher:(WorldEntityFetcher)fetcher
+{
+    [super updateFromRep:rep fetcher:fetcher];
+    WorldIf(rep, @"name", ^(id o) { self.name = o; });
+}
+
 @end

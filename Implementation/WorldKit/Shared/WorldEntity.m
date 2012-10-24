@@ -60,6 +60,7 @@
                     [[weakSelf mutableArrayValueForKey:keyPath] removeObject:weakAdded];
                 };
             }
+            initial: YES
         ];
     }];
 }
