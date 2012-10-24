@@ -60,10 +60,13 @@
     [_splayers addObject:splayer];
     splayer.connection.delegate = (id)self;
     
-    WorldGamePlayer *gplayer = [_playerClass new];
-    gplayer.name = splayer.name;
-    gplayer.identifier = splayer.gameCenterIdentifier;
-    [[_game mutableArrayValueForKey:@"players" ] addObject:gplayer];
+    WorldGamePlayer *gplayer = $cast(WorldGamePlayer,[_entities entityForIdentifier:splayer.gameCenterIdentifier]);
+    if(!gplayer) {
+        gplayer = [_playerClass new];
+        gplayer.name = splayer.name;
+        gplayer.identifier = splayer.gameCenterIdentifier;
+    }
+    [[_game mutableArrayValueForKey:@"players"] addObject:gplayer];
     
     splayer.representation = gplayer;
     
@@ -93,7 +96,7 @@
 		@"command": @"leaveGame"
 	}];
 	[_splayers removeObject:splayer];
-	[self.game.players removeObject:splayer.representation];
+	[[_game mutableArrayValueForKey:@"players"] removeObject:splayer.representation];
     
     [splayer leave];
 }
