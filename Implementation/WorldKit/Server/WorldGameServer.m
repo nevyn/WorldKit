@@ -8,6 +8,7 @@
 #import <WorldKit/Shared/WorldGamePlayer.h>
 #import <SPSuccinct/SPSuccinct.h>
 #import "TCAsyncHashProtocol.h"
+#import "WorldContainerDebugDumper.h"
 
 @implementation WorldGameServer {
     WorldGame *_game;
@@ -15,6 +16,7 @@
     WorldGamePlayer *_owner;
     NSMutableArray *_splayers;
     WorldContainer *_entities;
+    WorldContainerDebugDumper *_dumper;
     NSTimer *_tickTimer;
 }
 - (id)initWithGameClass:(Class)gameClass playerClass:(Class)playerClass
@@ -25,6 +27,8 @@
     _playerClass = playerClass;
     _splayers = [NSMutableArray array];
     _entities = [[WorldContainer alloc] initWithEntityClassSuffix:@"Server"];
+    _dumper = [[WorldContainerDebugDumper alloc] initWithContainer:_entities to:[NSURL fileURLWithPath:@"/tmp/server.dot"]];
+    
     [_entities publishEntity:_game];
     _tickTimer = [NSTimer scheduledTimerWithTimeInterval:1/10. target:self selector:@selector(tick) userInfo:nil repeats:YES];
     return self;
@@ -32,6 +36,7 @@
 
 - (void)stop
 {
+    [_dumper stop];
     [_tickTimer invalidate];
     _tickTimer = nil;
 }

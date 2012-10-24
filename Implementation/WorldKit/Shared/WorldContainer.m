@@ -3,7 +3,6 @@
 #import "SPLowVerbosity.h"
 #import "SPFunctional.h"
 #import "SPKVONotificationCenter.h"
-#import "WorldEntity+debug.h"
 
 #import <objc/runtime.h>
 #import <MAObjCRuntime/MARTNSObject.h>
@@ -27,15 +26,7 @@
     _entities = [NSMutableDictionary dictionaryWithCapacity:1000];
     _entityClassSuffix = suffix;
     
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(dumpStats) userInfo:0 repeats:YES];
     return self;
-}
-- (void)dumpStats
-{
-    WorldPublishedEntity *root = [_entities.allValues sp_any:^BOOL(id obj) {
-        return [[[obj entity] class] isRootEntity];
-    }];
-    [root.entity.dotDescription writeToFile:@"/tmp/worldkit.dot" atomically:NO encoding:NSUTF8StringEncoding error:NULL];
 }
 
 - (WorldEntity*)entityForIdentifier:(NSString*)identifier

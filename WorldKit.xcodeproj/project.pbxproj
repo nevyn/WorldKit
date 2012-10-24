@@ -31,6 +31,7 @@
 		055A819E15CD48F70033FA0C /* SPFunctional.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC1615C0485D006DD9DC /* SPFunctional.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		055A819F15CD48F70033FA0C /* SPKVONotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC1815C0485D006DD9DC /* SPKVONotificationCenter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		055A81A015CD48F70033FA0C /* SPLowVerbosity.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC1A15C0485D006DD9DC /* SPLowVerbosity.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		058D88C81638318B00B97810 /* WorldContainerDebugDumper.m in Sources */ = {isa = PBXBuildFile; fileRef = 058D88C71638318A00B97810 /* WorldContainerDebugDumper.m */; };
 		05AD0D8816341D9500DF7452 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058DE9B015CD42DE002F07A3 /* Foundation.framework */; };
 		05AD0DA516341D9E00DF7452 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058DE9B015CD42DE002F07A3 /* Foundation.framework */; };
 		05AD0DAB16341DC400DF7452 /* WorldServerTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC2F15C0838D006DD9DC /* WorldServerTypes.m */; };
@@ -98,6 +99,8 @@
 		055A817815CD45D00033FA0C /* WorldKitCommonTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorldKitCommonTests.h; sourceTree = "<group>"; };
 		055A817915CD45D00033FA0C /* WorldKitCommonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorldKitCommonTests.m; sourceTree = "<group>"; };
 		055A81A415CD49950033FA0C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		058D88C61638318A00B97810 /* WorldContainerDebugDumper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldContainerDebugDumper.h; sourceTree = "<group>"; };
+		058D88C71638318A00B97810 /* WorldContainerDebugDumper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldContainerDebugDumper.m; sourceTree = "<group>"; };
 		058DE9AE15CD42DE002F07A3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		058DE9B015CD42DE002F07A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		058DE9B215CD42DE002F07A3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
@@ -539,6 +542,8 @@
 				05AD0E431634B08300DF7452 /* _WorldContainer.h */,
 				059BCC4415C08589006DD9DC /* WorldContainer.m */,
 				05AD0E25163429A100DF7452 /* WorldEntity+debug.m */,
+				058D88C61638318A00B97810 /* WorldContainerDebugDumper.h */,
+				058D88C71638318A00B97810 /* WorldContainerDebugDumper.m */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -713,6 +718,7 @@
 				055A819015CD46620033FA0C /* WorldContainer.m in Sources */,
 				05BAE7F4161C89D700F370BA /* SPLifetimeGlue.m in Sources */,
 				05AD0E26163429A100DF7452 /* WorldEntity+debug.m in Sources */,
+				058D88C81638318B00B97810 /* WorldContainerDebugDumper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

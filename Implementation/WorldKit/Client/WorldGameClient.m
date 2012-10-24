@@ -3,6 +3,7 @@
 #import "WorldGamePlayer.h"
 #import "TCAsyncHashProtocol.h"
 #import <SPSuccinct/SPLowVerbosity.h>
+#import "WorldContainerDebugDumper.h"
 
 @interface WorldGameClient ()
 @property(nonatomic,readwrite,copy) NSString *name;
@@ -13,6 +14,7 @@
 @implementation WorldGameClient {
     WorldContainer *_entities;
     TCAsyncHashProtocol *_proto;
+    WorldContainerDebugDumper *_dumper;
     
     // needed to know the future game root entity
     NSString *_gameIdentifier;
@@ -26,7 +28,7 @@
     self.name = name;
     _gameIdentifier = ident;
     _entities = [[WorldContainer alloc] initWithEntityClassSuffix:@"Client"];
-    
+    _dumper = [[WorldContainerDebugDumper alloc] initWithContainer:_entities to:[NSURL fileURLWithPath:@"/tmp/client.dot"]];
     _proto = proto;
     
     return self;
@@ -34,6 +36,7 @@
 
 - (void)leave
 {
+    [_dumper stop];
     [_proto sendHash:@{
         @"command": @"leaveGame"
     }];
