@@ -237,6 +237,7 @@
 -(void)command:(TCAsyncHashProtocol*)proto leaveGame:(NSDictionary*)hash;
 {
 	[_delegate masterClientLeftCurrentGame:self];
+    [self.currentGame invalidate];
 	self.currentGame = nil;
 }
 

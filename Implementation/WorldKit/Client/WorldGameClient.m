@@ -34,9 +34,13 @@
     return self;
 }
 
-- (void)leave
+- (void)invalidate;
 {
     [_dumper stop];
+}
+
+- (void)leave
+{
     [_proto sendHash:@{
         @"command": @"leaveGame"
     }];

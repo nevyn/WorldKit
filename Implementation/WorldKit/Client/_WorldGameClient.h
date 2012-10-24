@@ -7,4 +7,5 @@
     @param name The name of the game
 */
 - (id)initWithControlProto:(TCAsyncHashProtocol*)proto ident:(NSString*)ident name:(NSString*)name;
+- (void)invalidate;
 @end
