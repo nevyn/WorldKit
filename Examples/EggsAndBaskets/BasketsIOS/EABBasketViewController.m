@@ -17,6 +17,7 @@
 @interface EABBasketViewController () {
     EABBasket *_basket;
     NSMutableDictionary *_listeners;
+    id _eggsObservation;
 }
 @end
 
@@ -32,7 +33,7 @@
     // Listen to changes in the number of eggs, and on the shape of eggs
     _listeners = [NSMutableDictionary dictionary];
     __weak typeof(self) weakSelf = self;
-    [_basket sp_observe:@"eggs" removed:^(EABEgg *egg) {
+    _eggsObservation = [_basket sp_observe:@"eggs" removed:^(EABEgg *egg) {
         if (!egg) return;
         
         // Stop listening to this basket's contents
@@ -52,6 +53,11 @@
 
     
     return self;
+}
+
+- (void)dealloc
+{
+    [_eggsObservation invalidate];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

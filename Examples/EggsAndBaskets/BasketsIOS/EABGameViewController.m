@@ -18,6 +18,7 @@
 @interface EABGameViewController () {
     WorldGameClient *_gameClient;
     NSMutableDictionary *_listeners;
+    id _basketsObservation;
 }
 @end
 
@@ -33,7 +34,7 @@
     // Listen to changes in the number of baskets, and when there's a new basket, for the contents of the basket.
     _listeners = [NSMutableDictionary dictionary];
     __weak typeof(self) weakSelf = self;
-    [gameClient sp_observe:@"game.baskets" removed:^(EABBasket *basket) {
+    _basketsObservation = [gameClient sp_observe:@"game.baskets" removed:^(EABBasket *basket) {
         if (!basket) return;
         
         // Stop listening to this basket's contents
@@ -55,6 +56,11 @@
     self.navigationItem.leftBarButtonItem = leave;
     
     return self;
+}
+
+- (void)dealloc
+{
+    [_basketsObservation invalidate];
 }
 
 - (void)leaveGame
