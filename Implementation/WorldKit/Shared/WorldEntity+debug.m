@@ -47,6 +47,20 @@
         )];
     }
     
+    for(NSString *key in [[self class] observableAttributes]) {
+        WorldEntity *other = [self valueForKey:key];
+        if (!other || ![other isKindOfClass:[WorldEntity class]])
+            continue;
+        
+        [lines addObject:$sprintf(@"\"node_%@\" -> \"node_%@\" [\n"
+            @"\tlabel = \"%@\"\n"
+            @" ];",
+            self.identifier, other.identifier,
+            key
+        )];
+    }
+
+    
     for(NSString *key in [[self class] observableToManyAttributes]) {
         NSArray *value = [self valueForKey:key];
         for (WorldEntity *other in value)
@@ -59,8 +73,14 @@
 {
     NSMutableArray *fields = [NSMutableArray array];
     [fields addObject:NSStringFromClass([self class])];
-    for(NSString *key in [[self class] observableAttributes])
-        [fields addObject:$sprintf(@"%@: %@", key, [self valueForKey:key])];
+    for(NSString *key in [[self class] observableAttributes]) {
+        if ([[self valueForKey:key] isKindOfClass:[WorldEntity class]])
+            continue;
+        NSString *fieldDesc = $sprintf(@"%@: %@", key, [self valueForKey:key]);
+        fieldDesc = [fieldDesc stringByReplacingOccurrencesOfString:@"{" withString:@"\\{"];
+        fieldDesc = [fieldDesc stringByReplacingOccurrencesOfString:@"}" withString:@"\\}"];
+        [fields addObject:fieldDesc];
+    }
     return [fields componentsJoinedByString:@"|"];
 }
 - (NSString*)dot_nodeDesc
@@ -70,20 +90,5 @@
         @"\tshape = record\n"
         @"];\n", self.identifier, self.dot_nodeAttrs
     );
-}
-- (NSString*)dot_relationships
-{
-    NSMutableArray *relationships = [NSMutableArray array];
-    for(NSString *key in [[self class] observableToManyAttributes]) {
-        for (WorldEntity *other in [self valueForKey:key]) {
-            [relationships addObject:$sprintf(@"\"node_%@\" -> \"node_%@\" [\n"
-                @"\tlabel = \"%@\"\n"
-                @" ];",
-                self.identifier, other.identifier,
-                key
-            )];
-        }
-    }
-    return [relationships componentsJoinedByString:@"\n"];
 }
 @end

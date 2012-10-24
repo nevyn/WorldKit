@@ -67,4 +67,12 @@ static NSMutableDictionary *WorldDictAppend(NSDictionary *parent, NSDictionary *
     return pmut;
 }
 
+#if !TARGET_OS_IPHONE
+#define NSStringFromCGPoint(p) NSStringFromPoint(NSPointFromCGPoint(p))
+#define CGPointFromString(s) NSPointToCGPoint(NSPointFromString(s))
+#define NSStringFromCGSize(sz) NSStringFromSize(NSSizeFromCGSize(sz))
+#define CGSizeFromString(s) NSSizeToCGSize(NSSizeFromString(s))
+#endif
+
+
 // TODO: Make Entity Component-based
