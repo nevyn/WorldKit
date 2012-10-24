@@ -20,7 +20,7 @@
     if (!(self = [super init]))
         return nil;
     // Setup a default UUID. Before being published, some external party may override it, but we need a sensible default
-    self.identifier = [NSString dt_uuid];
+    self.identifier = TCUUID();
     
     for(NSString *toManyKey in [[self class] observableToManyAttributes])
         [self setValue:[NSMutableArray array] forKey:toManyKey];

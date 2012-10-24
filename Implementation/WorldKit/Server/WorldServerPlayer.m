@@ -40,7 +40,7 @@
     WorldServerSnapshot *snapshot = [WorldServerSnapshot new];
     snapshot.rep = rep;
     snapshot.timestamp = [NSDate timeIntervalSinceReferenceDate];
-    snapshot.identifier = [NSString dt_uuid];
+    snapshot.identifier = TCUUID();
     [_snapshots insertObject:snapshot atIndex:0];
     
     if(_snapshots.count == 11)
