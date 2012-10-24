@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'MultiPongDedicatedServer' target in the 'MultiPongDedicatedServer' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
