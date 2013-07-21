@@ -1,5 +1,5 @@
 #define WORLD_WRITABLE_MODEL 1
-#import "WorldEntity.h"
+#import "_WorldEntity.h"
 #import "NSString+UUID.h"
 #import "MARTNSObject.h"
 #import "RTProperty.h"
@@ -110,4 +110,9 @@
     }] valueForKeyPath:@"name"]];
 }
 
+#pragma mark Counterpart communication
+- (void)sendCommandToCounterpart:(NSString*)command arguments:(NSDictionary*)args
+{
+	[self.counterpartMessaging entity:self requestsSendingCounterpartCommand:command arguments:args];
+}
 @end

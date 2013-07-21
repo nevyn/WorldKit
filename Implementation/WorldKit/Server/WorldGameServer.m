@@ -10,6 +10,9 @@
 #import "TCAsyncHashProtocol.h"
 #import "WorldContainerDebugDumper.h"
 
+@interface WorldGameServer () <WorldCounterpartMessaging>
+@end
+
 @implementation WorldGameServer {
     WorldGame *_game;
     Class _playerClass;
@@ -19,7 +22,7 @@
     WorldContainerDebugDumper *_dumper;
     NSTimer *_tickTimer;
 }
-- (id)initWithGameClass:(Class)gameClass playerClass:(Class)playerClass heartBeatRate:(CGFloat)hz;
+- (id)initWithGameClass:(Class)gameClass playerClass:(Class)playerClass heartBeatRate:(float)hz;
 {
     if (!(self = [super init]))
         return nil;
@@ -27,6 +30,7 @@
     _playerClass = playerClass;
     _splayers = [NSMutableArray array];
     _entities = [[WorldContainer alloc] initWithEntityClassSuffix:@"Server"];
+	_entities.counterpartMessaging = self;
     _dumper = [[WorldContainerDebugDumper alloc] initWithContainer:_entities to:[NSURL fileURLWithPath:@"/tmp/server.dot"]];
     
     [_entities publishEntity:_game];
@@ -48,6 +52,12 @@
 - (WorldGamePlayer*)owner
 {
     return _owner;
+}
+
+- (void)broadcast:(NSDictionary*)hash
+{
+	for(WorldServerPlayer *splayer in _splayers)
+		[splayer.connection sendHash:hash];
 }
 
 #pragma mark - Join/leave
@@ -145,5 +155,31 @@
     [splayer ackSnapshotIdentified:snapshot.identifier];
 }
 
+#pragma mark Counterpart messaging
+- (void)entity:(WorldEntity *)entity requestsSendingCounterpartCommand:(NSString *)command arguments:(NSDictionary *)args
+{
+	[self broadcast:@{
+		@"command": @"counterpartMessage",
+		@"counterpartCommand": @"command",
+		@"entity": entity.identifier,
+		@"arguments": args,
+	}];
+}
 
+- (void)command:(TCAsyncHashProtocol*)proto counterpartMessage:(NSDictionary*)hash
+{
+	NSString *identifier = $protoCast(proto.socket, NSString, hash[@"entity"]);
+	NSString *command = $protoCast(proto.socket, NSString, hash[@"counterpartCommand"]);
+	NSDictionary *args = hash[@"arguments"];
+	
+	WorldEntity *e = [_entities entityForIdentifier:identifier];
+	SEL sel = NSSelectorFromString([NSString stringWithFormat:@"command_%@:", command]);
+	
+	ProtoAssert(proto.socket, [e respondsToSelector:sel], @"Entity %@ must respond to %@", e, NSStringFromSelector(sel));
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+	[e performSelector:sel withObject:args];
+#pragma clang diagnostic pop
+}
 @end

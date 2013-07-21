@@ -88,6 +88,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		051BCBE3179CA6B80065B55D /* _WorldEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _WorldEntity.h; sourceTree = "<group>"; };
 		055A815C15CD45CF0033FA0C /* libWorldKitCommon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWorldKitCommon.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		055A816A15CD45D00033FA0C /* WorldKitCommonTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldKitCommonTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		055A816B15CD45D00033FA0C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -410,6 +411,7 @@
 		05F77A0C15B84DCF0059B13A /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				051BCBE3179CA6B80065B55D /* _WorldEntity.h */,
 				05F77A0F15B84E180059B13A /* WorldEntity.m */,
 				059BCC2415C04F46006DD9DC /* WorldGame.m */,
 				059BCC2B15C053F0006DD9DC /* WorldGamePlayer.m */,

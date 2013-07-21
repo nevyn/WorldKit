@@ -12,7 +12,7 @@
 						  compute and send the game state to all clients. If no changes have been
 						  made, no changes will be transmitted. A sensible default is 10hz.
 */
-- (id)initWithGameClass:(Class)gameClass playerClass:(Class)playerClass heartBeatRate:(CGFloat)hz;
+- (id)initWithGameClass:(Class)gameClass playerClass:(Class)playerClass heartBeatRate:(float)hz;
 - (WorldGame*)game;
 - (WorldGamePlayer*)owner;
 

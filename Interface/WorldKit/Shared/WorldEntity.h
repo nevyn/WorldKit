@@ -51,6 +51,21 @@ typedef id (^WorldEntityFetcher)(NSString *identifier, Class expectedClass, BOOL
     values for these keys, they will be published/unpublished, and if they have a 'parent' attribute, it will be
     automatically set. To-many attributes are automatically synced and should not be included in 'rep'. */
 + (NSSet*)observableToManyAttributes;
+
+/** Sends an arbitrary, named command to the same entity on "the other side" of network.
+	@discussion If called on a server-side entity, the command will be sent to the corresponding
+	client-side entity on all clients; if called on a client-side entity, it is sent to the server-side entity.
+	This is generally how you do client-to-server communication, where you signal intent, so that the server can
+	update the world representation, and signal back to clients by sending back an updated world. It can also be
+	used to trigger client-side behavior (a server entity telling a client entity that it should display a particular
+	animation, e g).
+	
+	The command is delivered by constructing a selector of the form -[command_%@:(NSDictionary*)args], where %@ is the
+	'command' parameter, and calling it on the counterpart entity object.
+	@param command Name of the command. The selector to be called is constructed from this name.
+	@param args    An NSDictionary of JSON safe objects to be sent as arguments to the other side.
+*/
+- (void)sendCommandToCounterpart:(NSString*)command arguments:(NSDictionary*)args;
 @end
 
 

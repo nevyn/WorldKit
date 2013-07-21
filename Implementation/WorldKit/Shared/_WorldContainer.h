@@ -1,6 +1,8 @@
 #import <WorldKit/Shared/WorldContainer.h>
+#import "_WorldEntity.h"
 
 @interface WorldContainer ()
+@property(nonatomic,weak) id<WorldCounterpartMessaging> counterpartMessaging;
 
 - (id)initWithEntityClassSuffix:(NSString*)suffix;
 

@@ -19,6 +19,7 @@
     NSMutableDictionary *_entities;
     NSString *_entityClassSuffix;
 }
+@synthesize counterpartMessaging = _counterpartMessaging;
 - (id)initWithEntityClassSuffix:(NSString*)suffix
 {
     if (!(self = [super init]))
@@ -46,6 +47,8 @@
     
 	WorldPublishedEntity *pub = [[WorldPublishedEntity alloc] initWithEntity:entity];
 	[_entities setObject:pub forKey:entity.identifier];
+	
+	entity.counterpartMessaging = self.counterpartMessaging;
     
     // Switch the class of the object
     NSString *substitutionClassName = [NSString stringWithFormat:@"%@%@", NSStringFromClass([entity class]), _entityClassSuffix];
