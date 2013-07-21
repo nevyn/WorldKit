@@ -88,9 +88,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		055A814E15CD452E0033FA0C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		055A815115CD452E0033FA0C /* ExampleDedicatedServer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ExampleDedicatedServer-Prefix.pch"; sourceTree = "<group>"; };
-		055A815215CD452E0033FA0C /* ExampleDedicatedServer.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ExampleDedicatedServer.1; sourceTree = "<group>"; };
 		055A815C15CD45CF0033FA0C /* libWorldKitCommon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWorldKitCommon.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		055A816A15CD45D00033FA0C /* WorldKitCommonTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldKitCommonTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		055A816B15CD45D00033FA0C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -104,16 +101,6 @@
 		058DE9AE15CD42DE002F07A3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		058DE9B015CD42DE002F07A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		058DE9B215CD42DE002F07A3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		058DE9B615CD42DE002F07A3 /* ExampleIOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExampleIOS-Info.plist"; sourceTree = "<group>"; };
-		058DE9B815CD42DE002F07A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		058DE9BA15CD42DE002F07A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		058DE9BC15CD42DE002F07A3 /* ExampleIOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ExampleIOS-Prefix.pch"; sourceTree = "<group>"; };
-		058DE9BD15CD42DE002F07A3 /* ExampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleAppDelegate.h; sourceTree = "<group>"; };
-		058DE9BE15CD42DE002F07A3 /* ExampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleAppDelegate.m; sourceTree = "<group>"; };
-		058DE9C015CD42DE002F07A3 /* ExampleMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleMasterViewController.h; sourceTree = "<group>"; };
-		058DE9C115CD42DE002F07A3 /* ExampleMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleMasterViewController.m; sourceTree = "<group>"; };
-		058DE9C315CD42DE002F07A3 /* ExampleDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleDetailViewController.h; sourceTree = "<group>"; };
-		058DE9C415CD42DF002F07A3 /* ExampleDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleDetailViewController.m; sourceTree = "<group>"; };
 		059BCBC715BADD01006DD9DC /* WorldGameClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldGameClient.m; sourceTree = "<group>"; };
 		059BCBCB15BADD0A006DD9DC /* WorldGameServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldGameServer.m; sourceTree = "<group>"; };
 		059BCBD315BADE22006DD9DC /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+UUID.h"; path = "Libraries/TCHashProto/NSString+UUID.h"; sourceTree = SOURCE_ROOT; };
@@ -150,12 +137,6 @@
 		059BCC9C15C959CE006DD9DC /* RTProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTProtocol.m; sourceTree = "<group>"; };
 		059BCC9D15C959CE006DD9DC /* RTUnregisteredClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUnregisteredClass.h; sourceTree = "<group>"; };
 		059BCC9E15C959CE006DD9DC /* RTUnregisteredClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUnregisteredClass.m; sourceTree = "<group>"; };
-		059BCCA815C98908006DD9DC /* ExampleEgg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleEgg.h; sourceTree = "<group>"; };
-		059BCCA915C98908006DD9DC /* ExampleEgg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleEgg.m; sourceTree = "<group>"; };
-		059BCCAB15C98916006DD9DC /* ExampleBasket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleBasket.h; sourceTree = "<group>"; };
-		059BCCAC15C98917006DD9DC /* ExampleBasket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleBasket.m; sourceTree = "<group>"; };
-		059BCCAE15C989D1006DD9DC /* ExampleGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleGame.h; sourceTree = "<group>"; };
-		059BCCAF15C989D1006DD9DC /* ExampleGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleGame.m; sourceTree = "<group>"; };
 		05AD0D8D16341D9500DF7452 /* libWorldKitServer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWorldKitServer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AD0DAA16341D9E00DF7452 /* libWorldKitClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWorldKitClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AD0E25163429A100DF7452 /* WorldEntity+debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WorldEntity+debug.m"; sourceTree = "<group>"; };
@@ -184,17 +165,7 @@
 		05BAE809161C8BAD00F370BA /* SPSuccinct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSuccinct.h; sourceTree = "<group>"; };
 		05BAE80A161C8D4200F370BA /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		05BB831E161C7FE400EA4DE3 /* WorldMasterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldMasterClient.m; sourceTree = "<group>"; };
-		05BB8321161C81B400EA4DE3 /* ExampleGameChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleGameChooserViewController.h; sourceTree = "<group>"; };
-		05BB8322161C81B500EA4DE3 /* ExampleGameChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleGameChooserViewController.m; sourceTree = "<group>"; };
 		05F779E615B84D320059B13A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		05F779EE15B84D320059B13A /* WorldKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WorldKit-Info.plist"; sourceTree = "<group>"; };
-		05F779F015B84D320059B13A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		05F779F215B84D320059B13A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		05F779F415B84D320059B13A /* WorldKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WorldKit-Prefix.pch"; sourceTree = "<group>"; };
-		05F779F615B84D320059B13A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		05F779F815B84D320059B13A /* ExampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleAppDelegate.h; sourceTree = "<group>"; };
-		05F779F915B84D320059B13A /* ExampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleAppDelegate.m; sourceTree = "<group>"; };
-		05F779FC15B84D320059B13A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		05F77A0F15B84E180059B13A /* WorldEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldEntity.m; sourceTree = "<group>"; };
 		05F77A2515BA06830059B13A /* WorldServerPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldServerPlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,25 +210,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		055A814D15CD452E0033FA0C /* Dedicated server */ = {
-			isa = PBXGroup;
-			children = (
-				055A814E15CD452E0033FA0C /* main.m */,
-				055A815215CD452E0033FA0C /* ExampleDedicatedServer.1 */,
-				055A815015CD452E0033FA0C /* Supporting Files */,
-			);
-			name = "Dedicated server";
-			path = ExampleDedicatedServer;
-			sourceTree = "<group>";
-		};
-		055A815015CD452E0033FA0C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				055A815115CD452E0033FA0C /* ExampleDedicatedServer-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		055A817215CD45D00033FA0C /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,46 +238,6 @@
 				055A817215CD45D00033FA0C /* Common */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		058DE9A715CD415B002F07A3 /* Mac */ = {
-			isa = PBXGroup;
-			children = (
-				05F779F815B84D320059B13A /* ExampleAppDelegate.h */,
-				05F779F915B84D320059B13A /* ExampleAppDelegate.m */,
-				05F779FB15B84D320059B13A /* MainMenu.xib */,
-				05F779ED15B84D320059B13A /* Supporting Files */,
-			);
-			name = Mac;
-			path = ExampleApp;
-			sourceTree = "<group>";
-		};
-		058DE9B415CD42DE002F07A3 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				058DE9BD15CD42DE002F07A3 /* ExampleAppDelegate.h */,
-				058DE9BE15CD42DE002F07A3 /* ExampleAppDelegate.m */,
-				05BB8321161C81B400EA4DE3 /* ExampleGameChooserViewController.h */,
-				05BB8322161C81B500EA4DE3 /* ExampleGameChooserViewController.m */,
-				058DE9C015CD42DE002F07A3 /* ExampleMasterViewController.h */,
-				058DE9C115CD42DE002F07A3 /* ExampleMasterViewController.m */,
-				058DE9C315CD42DE002F07A3 /* ExampleDetailViewController.h */,
-				058DE9C415CD42DF002F07A3 /* ExampleDetailViewController.m */,
-				058DE9B515CD42DE002F07A3 /* Supporting Files */,
-			);
-			name = iOS;
-			path = ExampleIOS;
-			sourceTree = "<group>";
-		};
-		058DE9B515CD42DE002F07A3 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				058DE9B615CD42DE002F07A3 /* ExampleIOS-Info.plist */,
-				058DE9B715CD42DE002F07A3 /* InfoPlist.strings */,
-				058DE9BA15CD42DE002F07A3 /* main.m */,
-				058DE9BC15CD42DE002F07A3 /* ExampleIOS-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		059BCC1115C0485D006DD9DC /* SPSuccinct */ = {
@@ -365,20 +277,6 @@
 			);
 			name = MAObjCRuntime;
 			path = Libraries/MAObjCRuntime;
-			sourceTree = "<group>";
-		};
-		059BCCA715C988EE006DD9DC /* World */ = {
-			isa = PBXGroup;
-			children = (
-				059BCCA815C98908006DD9DC /* ExampleEgg.h */,
-				059BCCA915C98908006DD9DC /* ExampleEgg.m */,
-				059BCCAB15C98916006DD9DC /* ExampleBasket.h */,
-				059BCCAC15C98917006DD9DC /* ExampleBasket.m */,
-				059BCCAE15C989D1006DD9DC /* ExampleGame.h */,
-				059BCCAF15C989D1006DD9DC /* ExampleGame.m */,
-			);
-			name = World;
-			path = ExampleWorld;
 			sourceTree = "<group>";
 		};
 		05AD0E2D1634AD2500DF7452 /* Interface */ = {
@@ -440,7 +338,6 @@
 			children = (
 				05AD0E2D1634AD2500DF7452 /* Interface */,
 				05F77A0915B84DCF0059B13A /* Implementation */,
-				05F779EC15B84D320059B13A /* Example */,
 				055A81A615CD4A920033FA0C /* Tests */,
 				05F779E515B84D320059B13A /* Frameworks */,
 				05F779E315B84D320059B13A /* Products */,
@@ -472,29 +369,6 @@
 				055A81A415CD49950033FA0C /* CFNetwork.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		05F779EC15B84D320059B13A /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				059BCCA715C988EE006DD9DC /* World */,
-				058DE9A715CD415B002F07A3 /* Mac */,
-				058DE9B415CD42DE002F07A3 /* iOS */,
-				055A814D15CD452E0033FA0C /* Dedicated server */,
-			);
-			path = Example;
-			sourceTree = "<group>";
-		};
-		05F779ED15B84D320059B13A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				05F779EE15B84D320059B13A /* WorldKit-Info.plist */,
-				05F779EF15B84D320059B13A /* InfoPlist.strings */,
-				05F779F215B84D320059B13A /* main.m */,
-				05F779F415B84D320059B13A /* WorldKit-Prefix.pch */,
-				05F779F515B84D320059B13A /* Credits.rtf */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		05F77A0915B84DCF0059B13A /* Implementation */ = {
@@ -768,38 +642,6 @@
 				055A817615CD45D00033FA0C /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		058DE9B715CD42DE002F07A3 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				058DE9B815CD42DE002F07A3 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		05F779EF15B84D320059B13A /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05F779F015B84D320059B13A /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		05F779F515B84D320059B13A /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05F779F615B84D320059B13A /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		05F779FB15B84D320059B13A /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05F779FC15B84D320059B13A /* en */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
