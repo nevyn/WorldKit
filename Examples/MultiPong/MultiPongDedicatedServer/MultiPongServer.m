@@ -32,7 +32,7 @@
 
 - (WorldGameServer*)masterServer:(WorldMasterServer*)master createGameForRequest:(NSDictionary*)dict error:(NSError**)err;
 {
-    WorldGameServer *newGameServer = [[WorldGameServer alloc] initWithGameClass:[MultiPongGame class] playerClass:[MultiPongPlayer class]];
+    WorldGameServer *newGameServer = [[WorldGameServer alloc] initWithGameClass:[MultiPongGame class] playerClass:[MultiPongPlayer class] heartBeatRate:60.];
     
     MultiPongGame *game = $cast(MultiPongGame,newGameServer.game);
     

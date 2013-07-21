@@ -19,7 +19,7 @@
     WorldContainerDebugDumper *_dumper;
     NSTimer *_tickTimer;
 }
-- (id)initWithGameClass:(Class)gameClass playerClass:(Class)playerClass
+- (id)initWithGameClass:(Class)gameClass playerClass:(Class)playerClass heartBeatRate:(CGFloat)hz;
 {
     if (!(self = [super init]))
         return nil;
@@ -30,7 +30,7 @@
     _dumper = [[WorldContainerDebugDumper alloc] initWithContainer:_entities to:[NSURL fileURLWithPath:@"/tmp/server.dot"]];
     
     [_entities publishEntity:_game];
-    _tickTimer = [NSTimer scheduledTimerWithTimeInterval:1/10. target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    _tickTimer = [NSTimer scheduledTimerWithTimeInterval:1./hz target:self selector:@selector(tick) userInfo:nil repeats:YES];
     return self;
 }
 
