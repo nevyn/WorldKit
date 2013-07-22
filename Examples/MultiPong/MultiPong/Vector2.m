@@ -367,6 +367,14 @@ static Vector2 *negativeYAxis;
     return acos([[self normalizedVector] dotProduct:[other normalizedVector]]);
 }
 
+-(instancetype)vectorByRotatingByRadians:(CGFloat)rotation
+{
+	NSAffineTransform *rot = [NSAffineTransform transform];
+	[rot rotateByRadians:rotation];
+	NSPoint p = [rot transformPoint:NSMakePoint(X, Y)];
+	return [Vector2 vectorWithX:p.x y:p.y];
+}
+
 
 - (NSString*)description;
 {

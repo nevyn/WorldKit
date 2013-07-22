@@ -94,6 +94,8 @@ typedef enum
 
 // Anti-clockwise, in radians, 0° being vector pointing to the right.
 -(double)angleFrom:(Vector2*)other;
+-(instancetype)vectorByRotatingByRadians:(CGFloat)rotation;
+
 
 
 - (NSString*)description;

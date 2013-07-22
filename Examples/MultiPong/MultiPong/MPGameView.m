@@ -60,8 +60,6 @@
 		.origin = [[ballPosition vectorByMultiplyingWithVector:viewScale] vectorBySubtractingScalar:ball.size/2.].point,
 		.size = {ball.size, ball.size}
 	};
-	
-	NSLog(@"Ball: %@", NSStringFromCGRect(r));
     
     [[UIColor greenColor] set];
     [[UIBezierPath bezierPathWithOvalInRect:r] fill];

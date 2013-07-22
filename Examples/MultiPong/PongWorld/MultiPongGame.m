@@ -36,19 +36,19 @@
 {
     CGFloat delta = 1/60.;
 	
-	Vector2 *oldBallPos = [Vector2 vectorWithPoint:[self.ball position]];
+	Vector2 *oldBallPos = [self.ball position];
     
 	NSArray *physicsables = [[self.players valueForKeyPath:@"paddle"] arrayByAddingObject:self.ball];
 	for(MultiPongBall *thing in physicsables) {
-		MutableVector2 *pos = [MutableVector2 vectorWithPoint:thing.position];
-		MutableVector2 *vel =[MutableVector2 vectorWithPoint:thing.velocity];
+		MutableVector2 *pos = [thing.position mutableCopy];
+		MutableVector2 *vel =[thing.velocity mutableCopy];
 		pos = [pos addVector:[vel vectorByMultiplyingWithScalar:delta]];
 		
-		thing.position = pos.point;
-		thing.velocity = vel.point;
+		thing.position = pos;
+		thing.velocity = vel;
 	}
 	
-	Vector2 *newBallPos = [Vector2 vectorWithPoint:[self.ball position]];
+	Vector2 *newBallPos = [self.ball position];
 	BNZLine *ballMovement = [BNZLine lineAt:oldBallPos to:newBallPos];
 	
 	for(MultiPongPlayer *player in self.players) {
@@ -64,11 +64,19 @@
 			Vector2 *lefty = [collisionVector vectorBySubtractingVector:mirror];
 			Vector2 *righty = [lefty invertedVector];
 			Vector2 *outgoingVector = [mirror vectorByAddingVector:[righty vectorByMultiplyingWithScalar:3]];
-			Vector2 *newPosition = [collision vectorByAddingVector:outgoingVector];
-			self.ball.position = newPosition.point;
-			self.ball.velocity = [[outgoingVector normalizedVector] vectorByMultiplyingWithScalar:[[Vector2 vectorWithPoint:self.ball.velocity] length]].point;
+			newBallPos = [collision vectorByAddingVector:outgoingVector];
+			self.ball.position = newBallPos;
+			self.ball.velocity = [[outgoingVector normalizedVector] vectorByMultiplyingWithScalar:[self.ball.velocity length]];
 			break;
 		}
+	}
+	
+	Vector2 *ballVectorFromMiddle = [newBallPos vectorBySubtractingVector:[Vector2 vectorWithX:.5 y:.5]];
+	if([ballVectorFromMiddle length] > 0.51) {
+		self.ball.position = [Vector2 vectorWithX:.5 y:.5];
+		Vector2 *newVelocity = [self.ball.velocity vectorByRotatingByRadians:((rand()%1000)/1000.)*M_PI];
+		self.ball.velocity = [Vector2 vectorWithX:0 y:0];
+		[self.ball performSelector:@selector(setVelocity:) withObject:newVelocity afterDelay:1.0];
 	}
 }
 
@@ -85,6 +93,9 @@
 - (void)commandFromPlayer:(MultiPongPlayer*)player playerMovement:(NSDictionary*)args
 {
 	MultiPongMovement movement = [args[@"movement"] intValue];
-	player.paddle.velocity = CGPointMake(movement == MultiPongMovementLeft ? -1 : movement == MultiPongMovementRight ? 1 : 0, 0);
+	player.paddle.velocity = [Vector2
+		vectorWithX:movement == MultiPongMovementLeft ? -1 : movement == MultiPongMovementRight ? 1 : 0
+		y:0
+	];
 }
 @end
