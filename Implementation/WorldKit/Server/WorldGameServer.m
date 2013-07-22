@@ -160,7 +160,7 @@
 {
 	[self broadcast:@{
 		@"command": @"counterpartMessage",
-		@"counterpartCommand": @"command",
+		@"counterpartCommand": command,
 		@"entity": entity.identifier,
 		@"arguments": args,
 	}];
@@ -171,15 +171,13 @@
 	NSString *identifier = $protoCast(proto.socket, NSString, hash[@"entity"]);
 	NSString *command = $protoCast(proto.socket, NSString, hash[@"counterpartCommand"]);
 	NSDictionary *args = hash[@"arguments"];
+	WorldServerPlayer *splayer = [self splayerForConnection:proto];
 	
 	WorldEntity *e = [_entities entityForIdentifier:identifier];
-	SEL sel = NSSelectorFromString([NSString stringWithFormat:@"command_%@:", command]);
+	SEL sel = NSSelectorFromString([NSString stringWithFormat:@"commandFromPlayer:%@:", command]);
 	
 	ProtoAssert(proto.socket, [e respondsToSelector:sel], @"Entity %@ must respond to %@", e, NSStringFromSelector(sel));
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-	[e performSelector:sel withObject:args];
-#pragma clang diagnostic pop
+	
+	((void(*)(id, SEL, WorldGamePlayer*, NSDictionary*))[e methodForSelector:sel])(e, sel, splayer.representation, args);
 }
 @end

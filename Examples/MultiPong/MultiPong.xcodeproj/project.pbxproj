@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051BCBE7179CB6E70065B55D /* Vector2.m in Sources */ = {isa = PBXBuildFile; fileRef = 051BCBE6179CB6E70065B55D /* Vector2.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		051BCBE8179CB6E70065B55D /* Vector2.m in Sources */ = {isa = PBXBuildFile; fileRef = 051BCBE6179CB6E70065B55D /* Vector2.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		051ED42C1638547700E16332 /* MPGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 051ED42B1638547700E16332 /* MPGameView.m */; };
 		051ED42E1638586D00E16332 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 051ED42D1638586D00E16332 /* QuartzCore.framework */; };
-		051ED43116385C5900E16332 /* Vector2.m in Sources */ = {isa = PBXBuildFile; fileRef = 051ED43016385C5900E16332 /* Vector2.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		058D882E16381AE600B97810 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058D882D16381AE600B97810 /* UIKit.framework */; };
 		058D883016381AE600B97810 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058D882F16381AE600B97810 /* Foundation.framework */; };
 		058D883216381AE700B97810 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058D883116381AE600B97810 /* CoreGraphics.framework */; };
@@ -114,11 +115,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		051BCBE5179CB6E70065B55D /* Vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2.h; sourceTree = "<group>"; };
+		051BCBE6179CB6E70065B55D /* Vector2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vector2.m; sourceTree = "<group>"; };
 		051ED42A1638547700E16332 /* MPGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGameView.h; sourceTree = "<group>"; };
 		051ED42B1638547700E16332 /* MPGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGameView.m; sourceTree = "<group>"; };
 		051ED42D1638586D00E16332 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		051ED42F16385C5900E16332 /* Vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2.h; sourceTree = "<group>"; };
-		051ED43016385C5900E16332 /* Vector2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vector2.m; sourceTree = "<group>"; };
 		058D882916381AE600B97810 /* MultiPong client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MultiPong client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		058D882D16381AE600B97810 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		058D882F16381AE600B97810 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -221,6 +222,8 @@
 		058D883316381AE700B97810 /* MultiPong */ = {
 			isa = PBXGroup;
 			children = (
+				051BCBE5179CB6E70065B55D /* Vector2.h */,
+				051BCBE6179CB6E70065B55D /* Vector2.m */,
 				058D883C16381AE700B97810 /* MPAppDelegate.h */,
 				058D883D16381AE700B97810 /* MPAppDelegate.m */,
 				058D88891638223600B97810 /* EABGameChooser.h */,
@@ -277,8 +280,6 @@
 		058D88961638247B00B97810 /* MultiPongDedicatedServer */ = {
 			isa = PBXGroup;
 			children = (
-				051ED42F16385C5900E16332 /* Vector2.h */,
-				051ED43016385C5900E16332 /* Vector2.m */,
 				058D88971638247C00B97810 /* main.m */,
 				058D88A61638254B00B97810 /* MultiPongServer.h */,
 				058D88A71638254B00B97810 /* MultiPongServer.m */,
@@ -428,6 +429,7 @@
 				058D88851638219600B97810 /* MultiPongPaddle.m in Sources */,
 				058D8888163821BA00B97810 /* MultiPongPlayer.m in Sources */,
 				058D888B1638223600B97810 /* EABGameChooser.m in Sources */,
+				051BCBE7179CB6E70065B55D /* Vector2.m in Sources */,
 				058D888E1638231B00B97810 /* MPGameViewController.m in Sources */,
 				051ED42C1638547700E16332 /* MPGameView.m in Sources */,
 			);
@@ -439,11 +441,11 @@
 			files = (
 				058D88981638247C00B97810 /* main.m in Sources */,
 				058D88A81638254B00B97810 /* MultiPongServer.m in Sources */,
+				051BCBE8179CB6E70065B55D /* Vector2.m in Sources */,
 				058D88A91638268A00B97810 /* MultiPongGame.m in Sources */,
 				058D88AA1638268E00B97810 /* MultiPongBall.m in Sources */,
 				058D88AB1638268E00B97810 /* MultiPongPlayer.m in Sources */,
 				058D88AC1638268E00B97810 /* MultiPongPaddle.m in Sources */,
-				051ED43116385C5900E16332 /* Vector2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

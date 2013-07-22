@@ -3,6 +3,7 @@
 
 @implementation MPGameView {
     CADisplayLink *_timer;
+	UITouch *_latest;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -47,5 +48,24 @@
     [[UIBezierPath bezierPathWithOvalInRect:r] fill];
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	_latest = [touches anyObject];
+	if([[touches anyObject] locationInView:self].x < self.frame.size.width/2.)
+		[_game moveCurrentPlayer:MultiPongMovementLeft];
+	else
+		[_game moveCurrentPlayer:MultiPongMovementRight];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	if([touches anyObject] == _latest)
+		[_game moveCurrentPlayer:MultiPongMovementStop];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	[_game moveCurrentPlayer:MultiPongMovementStop];
+}
 
 @end

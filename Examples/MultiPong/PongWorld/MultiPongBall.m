@@ -9,7 +9,7 @@
     
     self.size = 5;
     self.position = CGPointMake(100, 100);
-    self.velocity = CGPointMake(25, 50);
+    self.velocity = CGPointMake(75, 150);
     
     return self;
 }

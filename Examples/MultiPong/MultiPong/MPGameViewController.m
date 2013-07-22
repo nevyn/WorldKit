@@ -23,6 +23,11 @@
     
     UIBarButtonItem *leave = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(leaveGame)];
     self.navigationItem.leftBarButtonItem = leave;
+	
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+	if([self respondsToSelector:@selector(edgesForExtendedLayout)])
+		self.edgesForExtendedLayout = UIRectEdgeNone;
+#endif
     
     return self;
 }

@@ -60,8 +60,10 @@ typedef id (^WorldEntityFetcher)(NSString *identifier, Class expectedClass, BOOL
 	used to trigger client-side behavior (a server entity telling a client entity that it should display a particular
 	animation, e g).
 	
-	The command is delivered by constructing a selector of the form -[command_%@:(NSDictionary*)args], where %@ is the
-	'command' parameter, and calling it on the counterpart entity object.
+	The command is delivered by constructing a selector of the form -[commandFromPlayer:(WorldGamePlayer*)player %@:(NSDictionary*)args],
+	where %@ is the 'command' parameter and 'player' is the player sending the command (if client-to-server, otherwise it's nil),
+	and calling it on the counterpart entity object.
+	
 	@param command Name of the command. The selector to be called is constructed from this name.
 	@param args    An NSDictionary of JSON safe objects to be sent as arguments to the other side.
 */

@@ -3,7 +3,6 @@
 #import <WorldKit/WorldKit.h>
 #import "../PongWorld/MultiPongGame.h"
 #import <SPSuccinct/SPSuccinct.h>
-#import "Vector2.h"
 
 @interface MultiPongServer () <WorldMasterServerDelegate>
 @end
@@ -48,37 +47,9 @@
     return newGameServer;
 }
 
-#define MPRectMaxX(rect) (rect.origin.x + rect.size.width)
-#define MPRectMaxY(rect) (rect.origin.y + rect.size.height)
-
 - (void)tick
 {
-    CGFloat delta = 1/60.;
-    
-    MultiPongGame *game = $cast(MultiPongGame,_gameServer.game);
-    MultiPongBall *ball = game.ball;
-    MutableVector2 *pos = [MutableVector2 vectorWithPoint:ball.position];
-    MutableVector2 *vel =[MutableVector2 vectorWithPoint:ball.velocity];
-    pos = [pos addVector:[vel vectorByMultiplyingWithScalar:delta]];
-    
-    CGRect bounds = (CGRect){.size = game.boardSize };
-    
-    if(pos.x < bounds.origin.x) {
-        vel.x = -vel.x;
-        pos.x = bounds.origin.x;
-    } else if(pos.x > MPRectMaxX(bounds)) {
-        vel.x = -vel.x;
-        pos.x = MPRectMaxX(bounds);
-    } else if(pos.y < bounds.origin.y) {
-        vel.y = -vel.y;
-        pos.y = bounds.origin.y;
-    } else if(pos.y > MPRectMaxY(bounds)) {
-        vel.y = -vel.y;
-        pos.y = MPRectMaxY(bounds);
-    }
-    
-    ball.position = pos.point;
-    ball.velocity = vel.point;
+	[$cast(MultiPongGame, _gameServer.game) tick];
 }
 
 @end
