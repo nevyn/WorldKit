@@ -7,7 +7,7 @@
 {
     if (!(self = [super init]))
         return nil;
-    self.boardSize = CGSizeMake(320, 420);
+    self.boardSize = CGSizeMake(1, 1);
     return self;
 }
 - (NSDictionary*)rep
@@ -35,6 +35,8 @@
 - (void)tick
 {
     CGFloat delta = 1/60.;
+	
+	Vector2 *oldBallPos = [Vector2 vectorWithPoint:[self.ball position]];
     
 	NSArray *physicsables = [[self.players valueForKeyPath:@"paddle"] arrayByAddingObject:self.ball];
 	for(MultiPongBall *thing in physicsables) {
@@ -42,24 +44,31 @@
 		MutableVector2 *vel =[MutableVector2 vectorWithPoint:thing.velocity];
 		pos = [pos addVector:[vel vectorByMultiplyingWithScalar:delta]];
 		
-		CGRect bounds = (CGRect){.size = self.boardSize };
-		
-		if(pos.x < bounds.origin.x) {
-			vel.x = -vel.x;
-			pos.x = bounds.origin.x;
-		} else if(pos.x > MPRectMaxX(bounds)) {
-			vel.x = -vel.x;
-			pos.x = MPRectMaxX(bounds);
-		} else if(pos.y < bounds.origin.y) {
-			vel.y = -vel.y;
-			pos.y = bounds.origin.y;
-		} else if(pos.y > MPRectMaxY(bounds)) {
-			vel.y = -vel.y;
-			pos.y = MPRectMaxY(bounds);
-		}
-		
 		thing.position = pos.point;
 		thing.velocity = vel.point;
+	}
+	
+	Vector2 *newBallPos = [Vector2 vectorWithPoint:[self.ball position]];
+	BNZLine *ballMovement = [BNZLine lineAt:oldBallPos to:newBallPos];
+	
+	for(MultiPongPlayer *player in self.players) {
+		MultiPongPaddle *paddle = player.paddle;
+		BNZLine *paddleLine = paddle.cartesianLine;
+		
+		Vector2 *collision;
+		if([paddleLine getIntersectionPoint:&collision withLine:ballMovement] == BNZLinesIntersect) {
+			Vector2 *collisionVector = [[[BNZLine lineAt:oldBallPos to:collision] vector] invertedVector];
+			Vector2 *paddleVector = [paddleLine vector];
+			Vector2 *normal = [paddleVector rightHandNormal];
+			Vector2 *mirror = [collisionVector vectorByProjectingOnto:normal];
+			Vector2 *lefty = [collisionVector vectorBySubtractingVector:mirror];
+			Vector2 *righty = [lefty invertedVector];
+			Vector2 *outgoingVector = [mirror vectorByAddingVector:[righty vectorByMultiplyingWithScalar:3]];
+			Vector2 *newPosition = [collision vectorByAddingVector:outgoingVector];
+			self.ball.position = newPosition.point;
+			self.ball.velocity = [[outgoingVector normalizedVector] vectorByMultiplyingWithScalar:[[Vector2 vectorWithPoint:self.ball.velocity] length]].point;
+			break;
+		}
 	}
 }
 
@@ -76,6 +85,6 @@
 - (void)commandFromPlayer:(MultiPongPlayer*)player playerMovement:(NSDictionary*)args
 {
 	MultiPongMovement movement = [args[@"movement"] intValue];
-	player.paddle.velocity = CGPointMake(movement == MultiPongMovementLeft ? -250 : movement == MultiPongMovementRight ? 250 : 0, 0);
+	player.paddle.velocity = CGPointMake(movement == MultiPongMovementLeft ? -1 : movement == MultiPongMovementRight ? 1 : 0, 0);
 }
 @end

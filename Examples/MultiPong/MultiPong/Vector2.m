@@ -75,12 +75,12 @@ static Vector2 *negativeYAxis;
 	return negativeYAxis;
 }
 
-- (id)init;
+- (instancetype)init;
 {
 	return [self initWithX:0 y:0];
 }
 
-- (id)initWithX:(float)x y:(float)y;
+- (instancetype)initWithX:(float)x y:(float)y;
 {
     if(!(self = [super init])) return nil;
     
@@ -97,7 +97,7 @@ static Vector2 *negativeYAxis;
 	return self;
 }
 
-- (id)initWithMemory:(float*)vals memoryResponsibility:(Vector2MemoryResponsibility)responsibility_;
+- (instancetype)initWithMemory:(float*)vals memoryResponsibility:(Vector2MemoryResponsibility)responsibility_;
 {
 	responsibility = responsibility_;
 	
@@ -109,27 +109,27 @@ static Vector2 *negativeYAxis;
 	return self;
 }
 
-- (id)initWithVector2:(Vector2*)vector;
+- (instancetype)initWithVector2:(Vector2*)vector;
 {
 	return [self initWithX:vector->X y:vector->Y];
 }
 
-- (id)initWithVec2:(Vec2)vec;
+- (instancetype)initWithVec2:(Vec2)vec;
 {
 	return [self initWithX:vec.x y:vec.y];
 }
 
-- (id)initWithScalar:(float)scalar;
+- (instancetype)initWithScalar:(float)scalar;
 {
 	return [self initWithX:scalar y:scalar];
 }
 
-- (id)initWithPoint:(CGPoint)p;
+- (instancetype)initWithPoint:(CGPoint)p;
 {
     return [self initWithX:p.x y:p.y];
 }
 
-- (id)initWithRep:(NSDictionary*)rep;
+- (instancetype)initWithRep:(NSDictionary*)rep;
 {
     return [self initWithX:[[rep objectForKey:@"x"] floatValue] y:[[rep objectForKey:@"y"] floatValue]];
 }
@@ -146,47 +146,47 @@ static Vector2 *negativeYAxis;
 	[super dealloc];
 }
 
-+ (id)vector;
++ (instancetype)vector;
 {
 	return [[[[self class] alloc] init] autorelease];
 }
 
-+ (id)vectorWithX:(float)x y:(float)y;
++ (instancetype)vectorWithX:(float)x y:(float)y;
 {
 	return [[[[self class] alloc] initWithX:x y:y] autorelease];
 }
 
-+ (id)vectorWithMemory:(float*)vals memoryResponsibility:(Vector2MemoryResponsibility)responsibility_;
++ (instancetype)vectorWithMemory:(float*)vals memoryResponsibility:(Vector2MemoryResponsibility)responsibility_;
 {
 	return [[[[self class] alloc] initWithMemory:vals memoryResponsibility:responsibility_] autorelease];
 }
 
-+ (id)vectorWithVector2:(Vector2*)vector;
++ (instancetype)vectorWithVector2:(Vector2*)vector;
 {
 	return [[[[self class] alloc] initWithVector2:vector] autorelease];
 }
 
-+ (id)vectorWithVec2:(Vec2)vec;
++ (instancetype)vectorWithVec2:(Vec2)vec;
 {
 	return [[[[self class] alloc] initWithVec2:vec] autorelease];
 }
 
-+ (id)vectorWithScalar:(float)scalar;
++ (instancetype)vectorWithScalar:(float)scalar;
 {
 	return [[[[self class] alloc] initWithScalar:scalar] autorelease];
 }
 
-+ (id)vectorWithPoint:(CGPoint)p;
++ (instancetype)vectorWithPoint:(CGPoint)p;
 {
     return [[[[self class] alloc] initWithPoint:p] autorelease];
 }
 
-- (id)copyWithZone:(NSZone*)zone;
+- (instancetype)copyWithZone:(NSZone*)zone;
 {
 	return [self retain];
 }
 
-- (id)mutableCopyWithZone:(NSZone*)zone;
+- (instancetype)mutableCopyWithZone:(NSZone*)zone;
 {
 	return [[MutableVector2 alloc] initWithVector2:self];
 }
@@ -240,44 +240,53 @@ static Vector2 *negativeYAxis;
     return CGPointMake(self.x, self.y);
 }
 
-- (id)vectorByAddingVector:(Vector2*)rhs;
+- (instancetype)vectorByAddingVector:(Vector2*)rhs;
 {
 	return [[self class] vectorWithX:X + rhs->X y:Y + rhs->Y];
 }
 
-- (id)vectorByAddingScalar:(float)rhs;
+- (instancetype)vectorByAddingScalar:(float)rhs;
 {
 	return [[self class] vectorWithX:X + rhs y:Y + rhs];
 }
 
-- (id)vectorBySubtractingVector:(Vector2*)rhs;
+- (instancetype)vectorBySubtractingVector:(Vector2*)rhs;
 {
 	return [[self class] vectorWithX:X - rhs->X y:Y - rhs->Y];
 }
 
-- (id)vectorBySubtractingScalar:(float)rhs;
+- (instancetype)vectorBySubtractingScalar:(float)rhs;
 {
 	return [[self class] vectorWithX:X - rhs y:Y - rhs];
 }
 
-- (id)vectorByMultiplyingWithVector:(Vector2*)rhs;
+- (instancetype)vectorByMultiplyingWithVector:(Vector2*)rhs;
 {
 	return [[self class] vectorWithX:X * rhs->X y:Y * rhs->Y];
 }
 
-- (id)vectorByMultiplyingWithScalar:(float)rhs;
+- (instancetype)vectorByMultiplyingWithScalar:(float)rhs;
 {
 	return [[self class] vectorWithX:X * rhs y:Y * rhs];
 }
 
-- (id)vectorByDividingWithVector:(Vector2*)rhs;
+- (instancetype)vectorByDividingWithVector:(Vector2*)rhs;
 {
 	return [[self class] vectorWithX:X / rhs->X y:Y / rhs->Y];
 }
 
-- (id)vectorByDividingWithScalar:(float)rhs;
+- (instancetype)vectorByDividingWithScalar:(float)rhs;
 {
 	return [[self class] vectorWithX:X / rhs y:Y / rhs];
+}
+
+- (instancetype)leftHandNormal;
+{
+	return [[Vector2 vectorWithX:-[self y] y:[self x]] normalizedVector];
+}
+- (instancetype)rightHandNormal;
+{
+	return [[Vector2 vectorWithX:[self y] y:-[self x]] normalizedVector];
 }
 
 - (float)dotProduct:(Vector2*)rhs;
@@ -290,17 +299,26 @@ static Vector2 *negativeYAxis;
 	return X * rhs->Y - Y * rhs->X;
 }
 
-- (id)invertedVector;
+- (instancetype)vectorByProjectingOnto:(Vector2*)other
+{
+    return
+        [other vectorByMultiplyingWithScalar:
+            [other scalarProductWith:self]/
+            ([other length]*[other length])
+         ];
+}
+
+- (instancetype)invertedVector;
 {
 	return [[self class] vectorWithX:-X y:-Y];
 }
 
-- (id)normalizedVector;
+- (instancetype)normalizedVector;
 {
 	float invLen = 1.0 / [self length];
 	return [[self class] vectorWithX:X * invLen y:Y * invLen];
 }
-- (id)integralVector
+- (instancetype)integralVector
 {
     return [[self class] vectorWithX:floor(self.x) y:floor(self.y)];
 }
@@ -315,6 +333,15 @@ static Vector2 *negativeYAxis;
 	return X * X + Y * Y;
 }
 
+- (float)scalarProductWith:(Vector2*)other;
+{
+    float sum = 0.0;
+    for(unsigned i = 0; i < 2; i++)
+        sum += v[i]*other->v[i];
+    
+    return sum;
+}
+
 - (float)distance:(Vector2*)vector;
 {
 	return [(Vector2*)[self vectorBySubtractingVector:vector] length];
@@ -325,12 +352,12 @@ static Vector2 *negativeYAxis;
 	return [[self vectorBySubtractingVector:vector] squaredLength];
 }
 
-- (id)reflect:(Vector2*)normal;
+- (instancetype)reflect:(Vector2*)normal;
 {
 	return [self vectorBySubtractingVector:[normal vectorByMultiplyingWithScalar:([self dotProduct:normal] * 2)]];
 }
 
-- (id)midPoint:(Vector2*)vector;
+- (instancetype)midPoint:(Vector2*)vector;
 {
 	return [[self class] vectorWithX:(X + vector->X) * 0.5 y:(Y + vector->Y) * 0.5];
 }
@@ -343,7 +370,7 @@ static Vector2 *negativeYAxis;
 
 - (NSString*)description;
 {
-	return [NSString stringWithFormat:@"(%.2f, %.2f)", X, Y];
+	return [NSString stringWithFormat:@"(%.4f, %.4f)", X, Y];
 }
 
 @end
@@ -380,7 +407,7 @@ static Vector2 *negativeYAxis;
 	return v + coord;
 }
 
-- (id)addVector:(Vector2*)rhs;
+- (instancetype)addVector:(Vector2*)rhs;
 {
 	X += rhs->X;
 	Y += rhs->Y;
@@ -388,7 +415,7 @@ static Vector2 *negativeYAxis;
 	return self;
 }
 
-- (id)addScalar:(float)rhs;
+- (instancetype)addScalar:(float)rhs;
 {
 	X += rhs;
 	Y += rhs;
@@ -396,7 +423,7 @@ static Vector2 *negativeYAxis;
 	return self;
 }
 
-- (id)subtractVector:(Vector2*)rhs;
+- (instancetype)subtractVector:(Vector2*)rhs;
 {
 	X -= rhs->X;
 	Y -= rhs->Y;
@@ -404,7 +431,7 @@ static Vector2 *negativeYAxis;
 	return self;
 }
 
-- (id)subtractScalar:(float)rhs;
+- (instancetype)subtractScalar:(float)rhs;
 {
 	X -= rhs;
 	Y -= rhs;
@@ -412,7 +439,7 @@ static Vector2 *negativeYAxis;
 	return self;
 }
 
-- (id)multiplyWithVector:(Vector2*)rhs;
+- (instancetype)multiplyWithVector:(Vector2*)rhs;
 {
 	X *= rhs->X;
 	Y *= rhs->Y;
@@ -420,7 +447,7 @@ static Vector2 *negativeYAxis;
 	return self;
 }
 
-- (id)multiplyWithScalar:(float)rhs;
+- (instancetype)multiplyWithScalar:(float)rhs;
 {
 	X *= rhs;
 	Y *= rhs;
@@ -428,7 +455,7 @@ static Vector2 *negativeYAxis;
 	return self;
 }
 
-- (id)divideWithVector:(Vector2*)rhs;
+- (instancetype)divideWithVector:(Vector2*)rhs;
 {
 	X /= rhs->X;
 	Y /= rhs->Y;
@@ -436,7 +463,7 @@ static Vector2 *negativeYAxis;
 	return self;
 }
 
-- (id)divideWithScalar:(float)rhs;
+- (instancetype)divideWithScalar:(float)rhs;
 {
 	X /= rhs;
 	Y /= rhs;
@@ -444,7 +471,7 @@ static Vector2 *negativeYAxis;
 	return self;
 }
 
-- (id)invert;
+- (instancetype)invert;
 {
 	X = -X;
 	Y = -Y;
@@ -452,7 +479,7 @@ static Vector2 *negativeYAxis;
 	return self;
 }
 
-- (id)normalize;
+- (instancetype)normalize;
 {
 	float invLen = 1.0 / [self length];
 	
@@ -461,7 +488,7 @@ static Vector2 *negativeYAxis;
 	
 	return self;
 }
-- (id)makeIntegral;
+- (instancetype)makeIntegral;
 {
     X = floor(X);
     Y = floor(Y);

@@ -787,11 +787,7 @@
 		05AD0DA816341D9E00DF7452 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					"$(ARCHS_STANDARD_64_BIT)",
-					armv7,
-					armv7s,
-				);
+				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/WorldKitClient.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -811,11 +807,7 @@
 		05AD0DA916341D9E00DF7452 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					"$(ARCHS_STANDARD_64_BIT)",
-					armv7,
-					armv7s,
-				);
+				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/WorldKitClient.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

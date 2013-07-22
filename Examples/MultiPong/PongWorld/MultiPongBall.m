@@ -1,5 +1,6 @@
 #define WORLD_WRITABLE_MODEL 1
 #import "MultiPongBall.h"
+#import "Vector2.h"
 
 @implementation MultiPongBall
 - (id)init
@@ -8,8 +9,8 @@
         return nil;
     
     self.size = 5;
-    self.position = CGPointMake(100, 100);
-    self.velocity = CGPointMake(75, 150);
+    self.position = CGPointMake(0.5, 0.5);
+    self.velocity = CGPointMake(0.085, 0.1);
     
     return self;
 }
@@ -29,4 +30,5 @@
     WorldIf(rep, @"size", ^(id o) { self.size = [o floatValue]; });
     WorldIf(rep, @"velocity", ^(id o) { self.velocity = CGPointFromString(o); });
 }
+
 @end

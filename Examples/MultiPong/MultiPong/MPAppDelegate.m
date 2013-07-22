@@ -15,6 +15,7 @@
 @interface MPAppDelegate () <WorldMasterClientDelegate> {
     WorldMasterClient *_master;
     UINavigationController *_navigationController;
+	NSMutableArray *_masterHosts;
 }
 @end
 
@@ -23,6 +24,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	
+	_masterHosts = [@[@"localhost", @"TheOneill.local"] mutableCopy];
 
     _master = [[WorldMasterClient alloc] initWithDelegate:self];
 
@@ -39,7 +42,10 @@
 - (NSString*)nextMasterHostForMasterClient:(WorldMasterClient*)mc port:(int*)port
 {
     *port = kMultiPongServerPort;
-    return @"localhost";
+	NSString *host = [_masterHosts objectAtIndex:0];
+	[_masterHosts removeObjectAtIndex:0];
+	[_masterHosts addObject:host];
+    return host;
 }
 
 -(void)masterClient:(WorldMasterClient*)mc wasDisconnectedWithReason:(NSString*)reason redirect:(NSURL*)url

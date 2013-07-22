@@ -20,5 +20,8 @@
     });
     WorldIf(rep, @"score", ^(id o) { self.score = [o intValue]; });
 }
-
+- (float)hue
+{
+	return [self.identifier hash]/(float)NSUIntegerMax;
+}
 @end

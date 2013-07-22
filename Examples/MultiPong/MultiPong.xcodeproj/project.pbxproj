@@ -40,6 +40,8 @@
 		058D88B0163826A200B97810 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058D88AF163826A200B97810 /* CFNetwork.framework */; };
 		058D88C416382F9500B97810 /* libWorldKitClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 058D886A1638207E00B97810 /* libWorldKitClient.a */; };
 		058D88C516382F9500B97810 /* libWorldKitCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 058D88641638207E00B97810 /* libWorldKitCommon.a */; };
+		05C3FF1E179D659C005F6D50 /* BNZLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C3FF1D179D659C005F6D50 /* BNZLine.m */; };
+		05C3FF1F179D659C005F6D50 /* BNZLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C3FF1D179D659C005F6D50 /* BNZLine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +156,8 @@
 		058D88A71638254B00B97810 /* MultiPongServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiPongServer.m; sourceTree = "<group>"; };
 		058D88AD1638269C00B97810 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		058D88AF163826A200B97810 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		05C3FF1C179D659C005F6D50 /* BNZLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNZLine.h; sourceTree = "<group>"; };
+		05C3FF1D179D659C005F6D50 /* BNZLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNZLine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +228,8 @@
 			children = (
 				051BCBE5179CB6E70065B55D /* Vector2.h */,
 				051BCBE6179CB6E70065B55D /* Vector2.m */,
+				05C3FF1C179D659C005F6D50 /* BNZLine.h */,
+				05C3FF1D179D659C005F6D50 /* BNZLine.m */,
 				058D883C16381AE700B97810 /* MPAppDelegate.h */,
 				058D883D16381AE700B97810 /* MPAppDelegate.m */,
 				058D88891638223600B97810 /* EABGameChooser.h */,
@@ -429,6 +435,7 @@
 				058D88851638219600B97810 /* MultiPongPaddle.m in Sources */,
 				058D8888163821BA00B97810 /* MultiPongPlayer.m in Sources */,
 				058D888B1638223600B97810 /* EABGameChooser.m in Sources */,
+				05C3FF1E179D659C005F6D50 /* BNZLine.m in Sources */,
 				051BCBE7179CB6E70065B55D /* Vector2.m in Sources */,
 				058D888E1638231B00B97810 /* MPGameViewController.m in Sources */,
 				051ED42C1638547700E16332 /* MPGameView.m in Sources */,
@@ -445,6 +452,7 @@
 				058D88A91638268A00B97810 /* MultiPongGame.m in Sources */,
 				058D88AA1638268E00B97810 /* MultiPongBall.m in Sources */,
 				058D88AB1638268E00B97810 /* MultiPongPlayer.m in Sources */,
+				05C3FF1F179D659C005F6D50 /* BNZLine.m in Sources */,
 				058D88AC1638268E00B97810 /* MultiPongPaddle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,6 +558,7 @@
 		058D884816381AE700B97810 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MultiPong/MultiPong-Prefix.pch";
 				INFOPLIST_FILE = "MultiPong/MultiPong-Info.plist";
@@ -561,6 +570,7 @@
 		058D884916381AE700B97810 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MultiPong/MultiPong-Prefix.pch";
 				INFOPLIST_FILE = "MultiPong/MultiPong-Info.plist";

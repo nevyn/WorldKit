@@ -27,28 +27,28 @@ typedef enum
 + (Vector2*)negativeXAxis;
 + (Vector2*)negativeYAxis;
 
-- (id)init;
-- (id)initWithX:(float)x y:(float)y;
-- (id)initWithMemory:(float*)vals memoryResponsibility:(Vector2MemoryResponsibility)responsibility_;
-- (id)initWithVector2:(Vector2*)vector;
-- (id)initWithVec2:(Vec2)vec;
-- (id)initWithScalar:(float)scalar;
-- (id)initWithPoint:(CGPoint)p;
-- (id)initWithRep:(NSDictionary*)rep;
+- (instancetype)init;
+- (instancetype)initWithX:(float)x y:(float)y;
+- (instancetype)initWithMemory:(float*)vals memoryResponsibility:(Vector2MemoryResponsibility)responsibility_;
+- (instancetype)initWithVector2:(Vector2*)vector;
+- (instancetype)initWithVec2:(Vec2)vec;
+- (instancetype)initWithScalar:(float)scalar;
+- (instancetype)initWithPoint:(CGPoint)p;
+- (instancetype)initWithRep:(NSDictionary*)rep;
 - (NSDictionary*)rep;
 
 - (void)dealloc;
 
-+ (id)vector;
-+ (id)vectorWithX:(float)x y:(float)y;
-+ (id)vectorWithMemory:(float*)vals memoryResponsibility:(Vector2MemoryResponsibility)responsibility_;
-+ (id)vectorWithVector2:(Vector2*)vector;
-+ (id)vectorWithVec2:(Vec2)vec;
-+ (id)vectorWithScalar:(float)scalar;
-+ (id)vectorWithPoint:(CGPoint)p;
++ (instancetype)vector;
++ (instancetype)vectorWithX:(float)x y:(float)y;
++ (instancetype)vectorWithMemory:(float*)vals memoryResponsibility:(Vector2MemoryResponsibility)responsibility_;
++ (instancetype)vectorWithVector2:(Vector2*)vector;
++ (instancetype)vectorWithVec2:(Vec2)vec;
++ (instancetype)vectorWithScalar:(float)scalar;
++ (instancetype)vectorWithPoint:(CGPoint)p;
 
-- (id)copyWithZone:(NSZone*)zone;
-- (id)mutableCopyWithZone:(NSZone*)zone;
+- (instancetype)copyWithZone:(NSZone*)zone;
+- (instancetype)mutableCopyWithZone:(NSZone*)zone;
 
 
 - (BOOL)isEqual:(Vector2*)vector;
@@ -61,29 +61,36 @@ typedef enum
 - (const float*)coordsPtr:(NSUInteger)coord;
 - (CGPoint)point;
 
-- (id)vectorByAddingVector:(Vector2*)rhs;
-- (id)vectorByAddingScalar:(float)rhs;
-- (id)vectorBySubtractingVector:(Vector2*)rhs;
-- (id)vectorBySubtractingScalar:(float)rhs;
-- (id)vectorByMultiplyingWithVector:(Vector2*)rhs;
-- (id)vectorByMultiplyingWithScalar:(float)rhs;
-- (id)vectorByDividingWithVector:(Vector2*)rhs;
-- (id)vectorByDividingWithScalar:(float)rhs;
+- (instancetype)vectorByAddingVector:(Vector2*)rhs;
+- (instancetype)vectorByAddingScalar:(float)rhs;
+- (instancetype)vectorBySubtractingVector:(Vector2*)rhs;
+- (instancetype)vectorBySubtractingScalar:(float)rhs;
+- (instancetype)vectorByMultiplyingWithVector:(Vector2*)rhs;
+- (instancetype)vectorByMultiplyingWithScalar:(float)rhs;
+- (instancetype)vectorByDividingWithVector:(Vector2*)rhs;
+- (instancetype)vectorByDividingWithScalar:(float)rhs;
+
+- (instancetype)leftHandNormal;
+- (instancetype)rightHandNormal;
 
 - (float)dotProduct:(Vector2*)rhs;
 - (float)crossProduct:(Vector2*)rhs;
 
-- (id)invertedVector;
-- (id)normalizedVector;
-- (id)integralVector;
+- (instancetype)vectorByProjectingOnto:(Vector2*)other;
+
+- (instancetype)invertedVector;
+- (instancetype)normalizedVector;
+- (instancetype)integralVector;
 
 - (float)length;
 - (float)squaredLength;
+- (float)scalarProductWith:(Vector2*)other;
+
 - (float)distance:(Vector2*)vector;
 - (float)squaredDistance:(Vector2*)vector;
 
-- (id)reflect:(Vector2*)normal;
-- (id)midPoint:(Vector2*)vector;
+- (instancetype)reflect:(Vector2*)normal;
+- (instancetype)midPoint:(Vector2*)vector;
 
 // Anti-clockwise, in radians, 0° being vector pointing to the right.
 -(double)angleFrom:(Vector2*)other;
@@ -105,17 +112,17 @@ typedef enum
 - (float*)mutableCoordsPtr;
 - (float*)mutableCoordsPtr:(NSUInteger)coord;
 
-- (id)addVector:(Vector2*)rhs;
-- (id)addScalar:(float)rhs;
-- (id)subtractVector:(Vector2*)rhs;
-- (id)subtractScalar:(float)rhs;
-- (id)multiplyWithVector:(Vector2*)rhs;
-- (id)multiplyWithScalar:(float)rhs;
-- (id)divideWithVector:(Vector2*)rhs;
-- (id)divideWithScalar:(float)rhs;
+- (instancetype)addVector:(Vector2*)rhs;
+- (instancetype)addScalar:(float)rhs;
+- (instancetype)subtractVector:(Vector2*)rhs;
+- (instancetype)subtractScalar:(float)rhs;
+- (instancetype)multiplyWithVector:(Vector2*)rhs;
+- (instancetype)multiplyWithScalar:(float)rhs;
+- (instancetype)divideWithVector:(Vector2*)rhs;
+- (instancetype)divideWithScalar:(float)rhs;
 
-- (id)invert;
-- (id)normalize;
-- (id)makeIntegral;
+- (instancetype)invert;
+- (instancetype)normalize;
+- (instancetype)makeIntegral;
 
 @end
