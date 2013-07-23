@@ -14,6 +14,7 @@
 
 @interface MPAppDelegate () <WorldMasterClientDelegate> {
     WorldMasterClient *_master;
+	MPGameViewController *_currentGameVC;
     UINavigationController *_navigationController;
 	NSMutableArray *_masterHosts;
 }
@@ -70,8 +71,8 @@
 
 -(void)masterClient:(WorldMasterClient *)mc isNowInGame:(WorldGameClient*)gameClient
 {
-    MPGameViewController *vc = [[MPGameViewController alloc] initWithGameClient:gameClient];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    _currentGameVC = [[MPGameViewController alloc] initWithGameClient:gameClient];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:_currentGameVC];
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
 	if([nav respondsToSelector:@selector(interactivePopGestureRecognizer)])
 		nav.interactivePopGestureRecognizer.enabled = NO;
@@ -81,6 +82,7 @@
 
 -(void)masterClientLeftCurrentGame:(WorldMasterClient *)mc
 {
+	[_currentGameVC stopGame];
     [_navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 

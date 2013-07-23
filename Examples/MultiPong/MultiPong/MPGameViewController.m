@@ -9,6 +9,7 @@
 @interface MPGameViewController () {
     WorldGameClient *_gameClient;
     MPGameView *_gameView;
+	NSTimer *_gameTimer;
 }
 
 @end
@@ -28,18 +29,27 @@
 	if([self respondsToSelector:@selector(edgesForExtendedLayout)])
 		self.edgesForExtendedLayout = UIRectEdgeNone;
 #endif
+
+	_gameTimer = [NSTimer scheduledTimerWithTimeInterval:1/60. target:self selector:@selector(tick) userInfo:0 repeats:YES];
     
     return self;
 }
 
-- (void)dealloc
+- (void)stopGame
 {
+	[_gameTimer invalidate];
     [_gameView stop];
+}
+
+- (void)tick
+{
+	[self.game tick];
 }
 
 - (void)leaveGame
 {
     // Should show a loading UI while we are waiting to be told to return to the menu.
+	[self stopGame];
     [_gameClient leave];
 }
 
