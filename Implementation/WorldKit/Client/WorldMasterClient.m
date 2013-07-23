@@ -104,7 +104,11 @@
     }); }];
 #else
     HCMockLocalPlayer *player = [HCMockLocalPlayer new];
-	player.alias = [NSProcessInfo processInfo].hostName;
+#if TARGET_OS_IPHONE
+	player.alias = [UIDevice currentDevice].name;
+#else
+	player.alias = NSUserName();
+#endif
 	NSString *playerId = [[NSUserDefaults standardUserDefaults] objectForKey:@"worldkit.UID"];
 	if(!playerId) {
 		playerId = [[NSUUID UUID] UUIDString];
