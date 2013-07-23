@@ -72,6 +72,10 @@
 {
     MPGameViewController *vc = [[MPGameViewController alloc] initWithGameClient:gameClient];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+	if([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
+		nav.interactivePopGestureRecognizer.enabled = NO;
+#endif
     [_navigationController presentViewController:nav animated:YES completion:nil];
 }
 

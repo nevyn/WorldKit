@@ -6,7 +6,8 @@
 {
     return WorldDictAppend([super rep], @{
         @"paddle": self.paddle.identifier ?: [NSNull null],
-        @"score": @(self.score)
+        @"score": @(self.score),
+		@"scoringArc": @[@(self.scoringArc.start), @(self.scoringArc.length)],
     });
 }
 - (void)updateFromRep:(NSDictionary*)rep fetcher:(WorldEntityFetcher)fetcher
@@ -19,6 +20,7 @@
             self.paddle = fetcher(o, [MultiPongPaddle class], NO);
     });
     WorldIf(rep, @"score", ^(id o) { self.score = [o intValue]; });
+	WorldIf(rep, @"scoringArc", ^(id o) { self.scoringArc = (MPFloatRange){[o[0] floatValue], [o[1] floatValue]}; });
 }
 - (float)hue
 {

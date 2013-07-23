@@ -1,6 +1,7 @@
 #define WORLD_WRITABLE_MODEL 1
 #import "MultiPongGame.h"
 #import "Vector2.h"
+#import <SPSuccinct/SPSuccinct.h>
 
 @implementation MultiPongGame
 - (id)init
@@ -72,7 +73,17 @@
 	}
 	
 	Vector2 *ballVectorFromMiddle = [newBallPos vectorBySubtractingVector:[Vector2 vectorWithX:.5 y:.5]];
+	float scoringAngle = [[Vector2 vectorWithX:0 y:-1] angleTo:ballVectorFromMiddle];
+	if(scoringAngle < 0) scoringAngle += M_PI*2;
+	
 	if([ballVectorFromMiddle length] > 0.51) {
+		for(MultiPongPlayer *player in self.players) {
+			if(scoringAngle > player.scoringArc.start && scoringAngle <= player.scoringArc.start + player.scoringArc.length) {
+				player.score += 1;
+				break;
+			}
+		}
+		
 		self.ball.position = [Vector2 vectorWithX:.5 y:.5];
 		Vector2 *newVelocity = [self.ball.velocity vectorByRotatingByRadians:((rand()%1000)/1000.)*M_PI];
 		self.ball.velocity = [Vector2 vectorWithX:0 y:0];
@@ -90,6 +101,23 @@
 @end
 
 @implementation MultiPongGameServer
+- (void)awakeFromPublish
+{
+	[super awakeFromPublish];
+	
+    self.ball = [MultiPongBall new];
+    
+	[self sp_addObserver:self forKeyPath:@"players" options:NSKeyValueObservingOptionInitial callback:^(NSDictionary *change, id object, NSString *keyPath) {
+		MPFloatRange range = {0, (M_PI*2)/[[object players] count]};
+		for(MultiPongPlayer *player in [object players]) {
+			if (!player.paddle)
+				player.paddle = [MultiPongPaddle new];
+			player.scoringArc = range;
+			range.start += range.length;
+		}
+	}];
+}
+
 - (void)commandFromPlayer:(MultiPongPlayer*)player playerMovement:(NSDictionary*)args
 {
 	MultiPongMovement movement = [args[@"movement"] intValue];

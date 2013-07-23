@@ -362,17 +362,21 @@ static Vector2 *negativeYAxis;
 	return [[self class] vectorWithX:(X + vector->X) * 0.5 y:(Y + vector->Y) * 0.5];
 }
 
--(double)angleFrom:(Vector2*)other;
+- (double)angle
 {
-    return acos([[self normalizedVector] dotProduct:[other normalizedVector]]);
+	Vector2 *normalized = [self normalizedVector];
+	return atan2(normalized.y, normalized.x);
+}
+- (double)angleTo:(Vector2*)other
+{
+	return [other angle] - [self angle];
 }
 
 -(instancetype)vectorByRotatingByRadians:(CGFloat)rotation
 {
-	NSAffineTransform *rot = [NSAffineTransform transform];
-	[rot rotateByRadians:rotation];
-	NSPoint p = [rot transformPoint:NSMakePoint(X, Y)];
-	return [Vector2 vectorWithX:p.x y:p.y];
+	return [Vector2 vectorWithX: X * cos(rotation) - Y * sin(rotation)
+	                          y: X * sin(rotation) + Y * cos(rotation)
+	];
 }
 
 

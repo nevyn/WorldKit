@@ -33,17 +33,6 @@
 {
     WorldGameServer *newGameServer = [[WorldGameServer alloc] initWithGameClass:[MultiPongGame class] playerClass:[MultiPongPlayer class] heartBeatRate:60.];
     
-    MultiPongGame *game = $cast(MultiPongGame,newGameServer.game);
-    
-    game.ball = [MultiPongBall new];
-    
-    [newGameServer sp_observe:@"game.players" removed:^(id oldPlayer) {
-        
-    } added:^(MultiPongPlayer *newPlayer) {
-        if (!newPlayer.paddle)
-            newPlayer.paddle = [MultiPongPaddle new];
-    }];
-    
     return newGameServer;
 }
 

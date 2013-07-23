@@ -92,9 +92,10 @@ typedef enum
 - (instancetype)reflect:(Vector2*)normal;
 - (instancetype)midPoint:(Vector2*)vector;
 
-// Anti-clockwise, in radians, 0° being vector pointing to the right.
--(double)angleFrom:(Vector2*)other;
--(instancetype)vectorByRotatingByRadians:(CGFloat)rotation;
+// Radians, clockwise, 0° points to the right, positive y is downwards.
+- (double)angle;
+- (double)angleTo:(Vector2*)other;
+- (instancetype)vectorByRotatingByRadians:(CGFloat)rotation;
 
 
 
