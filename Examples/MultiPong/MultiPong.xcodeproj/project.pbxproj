@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		051BCBE7179CB6E70065B55D /* Vector2.m in Sources */ = {isa = PBXBuildFile; fileRef = 051BCBE6179CB6E70065B55D /* Vector2.m */; };
-		051BCBE8179CB6E70065B55D /* Vector2.m in Sources */ = {isa = PBXBuildFile; fileRef = 051BCBE6179CB6E70065B55D /* Vector2.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		051BCBE8179CB6E70065B55D /* Vector2.m in Sources */ = {isa = PBXBuildFile; fileRef = 051BCBE6179CB6E70065B55D /* Vector2.m */; };
 		051ED42C1638547700E16332 /* MPGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 051ED42B1638547700E16332 /* MPGameView.m */; };
 		051ED42E1638586D00E16332 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 051ED42D1638586D00E16332 /* QuartzCore.framework */; };
 		058D882E16381AE600B97810 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058D882D16381AE600B97810 /* UIKit.framework */; };
