@@ -118,6 +118,13 @@
     }];
 }
 
+- (WorldServerPlayer*)splayerForSocket:(AsyncSocket*)socket
+{
+    return [_splayers sp_any:^BOOL(WorldServerPlayer *potential) {
+        return potential.connection.socket == socket;
+    }];
+}
+
 -(void)command:(TCAsyncHashProtocol*)proto leaveGame:(NSDictionary*)hash;
 {
     [self leave:[self splayerForConnection:proto]];
@@ -179,5 +186,13 @@
 	ProtoAssert(proto.socket, [e respondsToSelector:sel], @"Entity %@ must respond to %@", e, NSStringFromSelector(sel));
 	
 	((void(*)(id, SEL, WorldGamePlayer*, NSDictionary*))[e methodForSelector:sel])(e, sel, splayer.representation, args);
+}
+
+#pragma mark Socket delegate
+- (void)onSocketDidDisconnect:(AsyncSocket *)sock
+{
+	WorldServerPlayer *splayer = [self splayerForSocket:sock];
+	if(splayer)
+		[self leave:splayer];
 }
 @end

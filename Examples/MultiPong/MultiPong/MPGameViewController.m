@@ -54,5 +54,28 @@
     _gameView.game = $cast(MultiPongGame,_gameClient.game);
 }
 
+- (MultiPongGame*)game
+{
+	return $cast(MultiPongGame, _gameClient.game);
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	if([[touches anyObject] locationInView:self.view].x < self.view.frame.size.width/2.)
+		[self.game moveCurrentPlayer:MultiPongMovementLeft];
+	else
+		[self.game moveCurrentPlayer:MultiPongMovementRight];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	[self.game moveCurrentPlayer:MultiPongMovementStop];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	[self.game moveCurrentPlayer:MultiPongMovementStop];
+}
+
 
 @end

@@ -76,22 +76,4 @@
     [[UIBezierPath bezierPathWithOvalInRect:r] fill];
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	if([[touches anyObject] locationInView:self].x < self.frame.size.width/2.)
-		[_game moveCurrentPlayer:MultiPongMovementLeft];
-	else
-		[_game moveCurrentPlayer:MultiPongMovementRight];
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	[_game moveCurrentPlayer:MultiPongMovementStop];
-}
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	[_game moveCurrentPlayer:MultiPongMovementStop];
-}
-
 @end
