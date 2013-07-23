@@ -9,7 +9,8 @@
 @interface WorldMasterServer : NSObject
 @property(nonatomic,weak) id<WorldMasterServerDelegate> delegate;
 
-- (id)initListeningOnPort:(int)port;
+- (id)initListeningOnBasePort:(int)port;
+- (int)usedListeningPort;
 
 - (WorldGameServer*)createGameServerWithParameters:(NSDictionary*)parameters error:(NSError**)err;
 - (void)serveOnlyGame:(WorldGameServer*)server;

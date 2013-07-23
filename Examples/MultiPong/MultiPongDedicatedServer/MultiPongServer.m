@@ -17,7 +17,7 @@
     if (!(self = [super init]))
         return nil;
     
-    _master = [[WorldMasterServer alloc] initListeningOnPort:kMultiPongServerPort];
+    _master = [[WorldMasterServer alloc] initListeningOnBasePort:kMultiPongServerPort];
     _master.delegate = self;
     NSError *err = nil;
     _gameServer = [_master createGameServerWithParameters:@{WorldMasterServerParamGameName: @"Test game"} error:&err];

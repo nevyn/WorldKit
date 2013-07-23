@@ -24,8 +24,9 @@
 	NSMutableSet *_gamelessPlayers;
 	NSMutableSet *_games;
     WorldGameServer *_singleGame;
+	int _listenPort;
 }
-- (id)initListeningOnPort:(int)port;
+- (id)initListeningOnBasePort:(int)port
 {
     if (!(self = [super init]))
         return nil;
@@ -35,17 +36,29 @@
 	_games = [NSMutableSet new];
     _socketsToPlayers = [NSMutableDictionary new];
 	
+	_listenPort = port;
 	NSError *err = nil;
-	NSAssert(
-		[_listen acceptOnPort:port error:&err] == YES,
-		@"Failed to listen on port %d: %@", port, err
-	);
-	NSLog(@"Listening on port %d", port);
+	while(![_listen acceptOnPort:_listenPort error:&err]) {
+		if([[err domain] isEqualToString:AsyncSocketErrorDomain] && [err code] == -1 && _listenPort - port < 20) {
+			_listenPort++;
+			NSLog(@"%s: Port %d busy, trying next...", __PRETTY_FUNCTION__, _listenPort-1);
+		} else {
+			NSAssert(NO, @"Failed to listen: %@", err);
+			return nil;
+		}
+	}
+	
+	NSLog(@"Listening on port %d", _listenPort);
 	$depends(@"broadcast games", self, @"games", (id)^{
 		[selff broadcast:selff.cmd_updateGameList];
 	});
     
     return self;
+}
+
+- (int)usedListeningPort
+{
+	return _listenPort;
 }
 
 - (WorldGameServer*)createGameServerWithParameters:(NSDictionary*)hash error:(NSError**)err
