@@ -72,12 +72,12 @@ typedef id (^WorldEntityFetcher)(NSString *identifier, Class expectedClass, BOOL
 
 
 /// Helper for updating properties based on value in 'key' only if it exists
-static void WorldIf(NSDictionary *rep, NSString *key, void(^then)(id o)) {
+static inline void WorldIf(NSDictionary *rep, NSString *key, void(^then)(id o)) {
     id o = [rep objectForKey:key];
     if(o) then(o);
 }
 
-static NSMutableDictionary *WorldDictAppend(NSDictionary *parent, NSDictionary *overrides) {
+static inline NSMutableDictionary *WorldDictAppend(NSDictionary *parent, NSDictionary *overrides) {
     NSMutableDictionary *pmut = [parent mutableCopy];
     for(id key in overrides)
         [pmut setObject:[overrides objectForKey:key] forKey:key];
