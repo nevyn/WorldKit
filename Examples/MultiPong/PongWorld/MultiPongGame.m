@@ -40,13 +40,13 @@
 	Vector2 *oldBallPos = [self.ball position];
     
 	NSArray *physicsables = [[self.players valueForKeyPath:@"paddle"] arrayByAddingObject:self.ball];
-	for(MultiPongBall *thing in physicsables) {
-		MutableVector2 *pos = [thing.position mutableCopy];
-		MutableVector2 *vel =[thing.velocity mutableCopy];
-		pos = [pos addVector:[vel vectorByMultiplyingWithScalar:delta]];
-		
-		thing.position = pos;
-		thing.velocity = vel;
+	for(MultiPongPaddle *thing in physicsables) {
+		if([thing respondsToSelector:@selector(acceleration)]) {
+			thing.velocity = [[thing.velocity vectorByAddingVector:[thing.acceleration vectorByMultiplyingWithScalar:delta]] vectorByMultiplyingWithScalar:0.9];
+			if(thing.velocity.length > 2.5)
+				thing.velocity = [[thing.velocity normalizedVector] vectorByMultiplyingWithScalar:2.5];
+		}
+		thing.position = [thing.position vectorByAddingVector:[thing.velocity vectorByMultiplyingWithScalar:delta]];
 	}
 	
 	Vector2 *newBallPos = [self.ball position];
@@ -121,8 +121,8 @@
 - (void)commandFromPlayer:(MultiPongPlayer*)player playerMovement:(NSDictionary*)args
 {
 	MultiPongMovement movement = [args[@"movement"] intValue];
-	player.paddle.velocity = [Vector2
-		vectorWithX:movement == MultiPongMovementLeft ? -1 : movement == MultiPongMovementRight ? 1 : 0
+	player.paddle.acceleration = [Vector2
+		vectorWithX:movement == MultiPongMovementLeft ? -8 : movement == MultiPongMovementRight ? 8 : 0
 		y:0
 	];
 }

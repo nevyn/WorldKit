@@ -10,7 +10,7 @@
     
     self.size = 5;
     self.position = [Vector2 vectorWithX:.5 y:.5];
-    self.velocity = [Vector2 vectorWithX:0.085 y:0.1];
+    self.velocity = [Vector2 vectorWithX:0.285 y:0.1];
     
     return self;
 }

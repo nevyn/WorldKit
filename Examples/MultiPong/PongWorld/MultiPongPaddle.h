@@ -8,4 +8,5 @@
 - (BNZLine*)cartesianLine;
 @property(nonatomic,WORLD_WRITABLE) CGSize size;
 @property(nonatomic,WORLD_WRITABLE) Vector2 *velocity;
+@property(nonatomic,WORLD_WRITABLE) Vector2 *acceleration;
 @end

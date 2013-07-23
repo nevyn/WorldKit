@@ -11,6 +11,7 @@
     self.size = (CGSize){0.1, 0.02};
 	self.position = [Vector2 vectorWithX:0 y:0];
 	self.velocity = [Vector2 vectorWithX:0 y:0];
+	self.acceleration = [Vector2 vectorWithX:0 y:0];
     
     return self;
 }
@@ -20,7 +21,8 @@
     return WorldDictAppend([super rep], @{
         @"position": NSStringFromCGPoint(self.position.point),
         @"size": NSStringFromCGSize(self.size),
-        @"velocity": NSStringFromCGPoint(self.velocity.point)
+        @"velocity": NSStringFromCGPoint(self.velocity.point),
+		@"acceleration": NSStringFromCGPoint(self.acceleration.point),
     });
 }
 - (void)updateFromRep:(NSDictionary*)rep fetcher:(WorldEntityFetcher)fetcher
@@ -29,6 +31,7 @@
     WorldIf(rep, @"position", ^(id o) { self.position = [Vector2 vectorWithPoint:CGPointFromString(o)]; });
     WorldIf(rep, @"size", ^(id o) { self.size = CGSizeFromString(o); });
     WorldIf(rep, @"velocity", ^(id o) { self.velocity = [Vector2 vectorWithPoint:CGPointFromString(o)]; });
+    WorldIf(rep, @"acceleration", ^(id o) { self.acceleration = [Vector2 vectorWithPoint:CGPointFromString(o)]; });
 }
 
 - (Vector2*)cartesianPosition
