@@ -142,48 +142,46 @@ static Vector2 *negativeYAxis;
 {
 	if (responsibility == Vector2MemoryResponsibilityFree)
 		free(v);
-	
-	[super dealloc];
 }
 
 + (instancetype)vector;
 {
-	return [[[[self class] alloc] init] autorelease];
+	return [[[self class] alloc] init];
 }
 
 + (instancetype)vectorWithX:(float)x y:(float)y;
 {
-	return [[[[self class] alloc] initWithX:x y:y] autorelease];
+	return [[[self class] alloc] initWithX:x y:y];
 }
 
 + (instancetype)vectorWithMemory:(float*)vals memoryResponsibility:(Vector2MemoryResponsibility)responsibility_;
 {
-	return [[[[self class] alloc] initWithMemory:vals memoryResponsibility:responsibility_] autorelease];
+	return [[[self class] alloc] initWithMemory:vals memoryResponsibility:responsibility_];
 }
 
 + (instancetype)vectorWithVector2:(Vector2*)vector;
 {
-	return [[[[self class] alloc] initWithVector2:vector] autorelease];
+	return [[[self class] alloc] initWithVector2:vector];
 }
 
 + (instancetype)vectorWithVec2:(Vec2)vec;
 {
-	return [[[[self class] alloc] initWithVec2:vec] autorelease];
+	return [[[self class] alloc] initWithVec2:vec];
 }
 
 + (instancetype)vectorWithScalar:(float)scalar;
 {
-	return [[[[self class] alloc] initWithScalar:scalar] autorelease];
+	return [[[self class] alloc] initWithScalar:scalar];
 }
 
 + (instancetype)vectorWithPoint:(CGPoint)p;
 {
-    return [[[[self class] alloc] initWithPoint:p] autorelease];
+    return [[[self class] alloc] initWithPoint:p];
 }
 
 - (instancetype)copyWithZone:(NSZone*)zone;
 {
-	return [self retain];
+	return self;
 }
 
 - (instancetype)mutableCopyWithZone:(NSZone*)zone;
