@@ -31,7 +31,11 @@
     _game ? [[UIColor blackColor] set] : [[UIColor redColor] set];
     UIRectFill(self.bounds);
 	
-	Vector2 *viewScale = [Vector2 vectorWithX:self.frame.size.width y:self.frame.size.height];
+	float margin = 10;
+	float s = MIN(self.frame.size.width, self.frame.size.height)-margin*2;
+	Vector2 *viewScale = [Vector2 vectorWithX:s y:s];
+	
+	CGContextTranslateCTM(UIGraphicsGetCurrentContext(), margin, margin);
 	
 	for(MultiPongPlayer *player in _game.players) {
 		UIBezierPath *bzp = [UIBezierPath bezierPathWithArcCenter:CGPointMake(.5, .5) radius:.5 startAngle:player.scoringArc.start-M_PI_2 endAngle:player.scoringArc.start+player.scoringArc.length-M_PI_2 clockwise:YES];
@@ -58,7 +62,7 @@
 			transform = CGAffineTransformScale(transform, viewScale.x, viewScale.y);
 			transform = CGAffineTransformTranslate(transform, paddleCartesianPosition.x, paddleCartesianPosition.y);
 			transform = CGAffineTransformRotate(transform, paddle.position.x + M_PI/2);
-			transform = CGAffineTransformTranslate(transform, -paddle.size.width/2, 0);
+			transform = CGAffineTransformTranslate(transform, -paddle.size.width/2, -paddle.size.height);
 
 		[bzp applyTransform:transform];
 		
