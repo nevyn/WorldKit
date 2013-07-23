@@ -103,7 +103,14 @@
         [self performSelector:@selector(connect) withObject:nil afterDelay:_retryDelay];
     }); }];
 #else
-    HCMockLocalPlayer *player = [HCMockLocalPlayer new]; player.alias = [UIDevice currentDevice].name; player.playerID = [[UIDevice currentDevice] performSelector:@selector(uniqueIdentifier)];
+    HCMockLocalPlayer *player = [HCMockLocalPlayer new];
+	player.alias = [NSProcessInfo processInfo].hostName;
+	NSString *playerId = [[NSUserDefaults standardUserDefaults] objectForKey:@"worldkit.UID"];
+	if(!playerId) {
+		playerId = [[NSUUID UUID] UUIDString];
+		[[NSUserDefaults standardUserDefaults] setObject:playerId forKey:@"worldkit.UID"];
+	}
+	player.playerID = playerId;
     self.authenticatedPlayer = (id)player;
     self.authenticatedPlayerId = player.playerID;
     [self connect];
