@@ -52,12 +52,14 @@
             {
                 if(![added respondsToSelector:@selector(setParent:)]) return;
                 if([added parent] == weakSelf) return;
-                [added removeFromParent];
+                //[added removeFromParent];
                 added.parent = weakSelf;
                 __weak typeof(added) weakAdded = added;
                 added.unparenter = ^{
-                    // XXX<nevyn>: This won't work for to-one relationships :(
-                    [[weakSelf mutableArrayValueForKey:keyPath] removeObject:weakAdded];
+					if([[weakSelf valueForKeyPath:keyPath] isKindOfClass:[NSArray class]])
+						[[weakSelf mutableArrayValueForKey:keyPath] removeObject:weakAdded];
+					else
+						[weakSelf setValue:nil forKey:keyPath];
                 };
             }
             initial: YES
