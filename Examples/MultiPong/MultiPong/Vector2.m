@@ -370,9 +370,11 @@ static Vector2 *negativeYAxis;
     float res = [other angle] - [self angle];
     
     if(res < -M_PI)
-        res += M_PI_2;
+        res += M_PI * 2;
     else if(res > M_PI)
-        res -= M_PI_2;
+        res -= M_PI * 2;
+
+//    NSLog(@"Self: %f %f, %f ... Other: %f %f, %f .. => .. %f, cor: %f", self.x, self.y, [self angle], other.x, other.y, [other angle], [other angle] - [self angle], res);
 
 	return res;
 }
