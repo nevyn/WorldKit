@@ -367,7 +367,14 @@ static Vector2 *negativeYAxis;
 }
 - (double)angleTo:(Vector2*)other
 {
-	return [other angle] - [self angle];
+    float res = [other angle] - [self angle];
+    
+    if(res < -M_PI)
+        res += M_PI_2;
+    else if(res > M_PI)
+        res -= M_PI_2;
+
+	return res;
 }
 
 -(instancetype)vectorByRotatingByRadians:(CGFloat)rotation

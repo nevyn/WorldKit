@@ -92,7 +92,8 @@ typedef enum
 - (instancetype)reflect:(Vector2*)normal;
 - (instancetype)midPoint:(Vector2*)vector;
 
-// Radians, clockwise, 0° points to the right, positive y is downwards.
+// Radians, counterclockwise, 0° points to the right, positive y is upwards.
+// Returns in range -PI to PI
 - (double)angle;
 - (double)angleTo:(Vector2*)other;
 - (instancetype)vectorByRotatingByRadians:(CGFloat)rotation;
