@@ -62,6 +62,7 @@
 }
 -(void)dealloc;
 {
+	_proto.delegate = nil;
 	_sck.delegate = nil;
 	[_sck disconnect];	
 }
@@ -152,6 +153,13 @@
     }
 }
 
+- (void)disconnect
+{
+	[NSObject cancelPreviousPerformRequestsWithTarget:self];
+	_sck.delegate = nil;
+	[_sck disconnect];
+}
+
 
 - (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port;
 {
@@ -190,15 +198,20 @@
 }
 - (void)onSocketDidDisconnect:(AsyncSocket *)sock;
 {
+	__weak __typeof(self) weakSelf = self;
 	self.sck = nil;
 	self.proto = nil;
 	self.connected = NO;
-    if(self.currentGame)
+    if(self.currentGame) // delegate might choose to kill the master client here
         [_delegate masterClientLeftCurrentGame:self];
-	self.currentGame = nil;
-	[[self mutableArrayValueForKey:@"publicGames"] removeAllObjects];
 
-	[self performSelector:@selector(connect) withObject:nil afterDelay:_retryDelay];
+	if(!weakSelf)
+		return;
+	
+	weakSelf.currentGame = nil;
+	[[weakSelf mutableArrayValueForKey:@"publicGames"] removeAllObjects];
+	
+	[weakSelf performSelector:@selector(connect) withObject:nil afterDelay:_retryDelay];
 }
 
 -(void)protocol:(TCAsyncHashProtocol*)proto receivedHash:(NSDictionary*)hash payload:(NSData*)payload;

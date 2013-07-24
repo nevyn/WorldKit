@@ -7,6 +7,9 @@
 /// Connects to the master server. Designated initializer.
 -(id)initWithDelegate:(id<WorldMasterClientDelegate>)delegate;
 
+/** Disable reconnecting and kill sockets. Must be called before deallocating. */
+- (void)disconnect;
+
 /** @property connected
 	Whether a link (incl handshake) has been established to the MasterServer.
 */
