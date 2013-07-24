@@ -5,6 +5,7 @@
 #import "RTProperty.h"
 #import "SPFunctional.h"
 #import "SPKVONotificationCenter.h"
+#import <objc/runtime.h>
 
 @interface WorldEntity ()
 - (void)removeFromParent;
@@ -101,15 +102,37 @@
 }
 + (NSSet*)observableAttributes
 {
-    return [NSSet setWithArray:[[[self _allProperties] sp_filter:^BOOL(id obj) {
-        return [[obj typeEncoding] rangeOfString:@"Array"].location == NSNotFound && ![[obj name] isEqual:@"parent"];
-    }] valueForKeyPath:@"name"]];
+	static void * key = &key;
+	NSSet *attributes = objc_getAssociatedObject(self, key);
+	if(!attributes) {
+		attributes = [NSSet setWithArray:[[[self _allProperties] sp_filter:^BOOL(id obj) {
+			if([[obj name] isEqual:@"parent"])
+				return NO;
+			NSString *typeEncoding = [obj typeEncoding];
+			if(![typeEncoding hasPrefix:@"@"])
+				return NO;
+			NSString *className = [typeEncoding substringWithRange:NSMakeRange(2, typeEncoding.length-3)];
+			Class klass = NSClassFromString(className);
+			if(!klass || ![klass isSubclassOfClass:[WorldEntity class]])
+				return NO;
+			return YES;
+		}] valueForKeyPath:@"name"]];
+		objc_setAssociatedObject(self, key, attributes, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+	}
+	return attributes;
 }
 + (NSSet*)observableToManyAttributes
 {
-    return [NSSet setWithArray:[[[self _allProperties] sp_filter:^BOOL(id obj) {
-        return [[obj typeEncoding] rangeOfString:@"Array"].location != NSNotFound;
-    }] valueForKeyPath:@"name"]];
+	static void * key = &key;
+	NSSet *attributes = objc_getAssociatedObject(self, key);
+	if(!attributes) {
+		attributes = [NSSet setWithArray:[[[self _allProperties] sp_filter:^BOOL(id obj) {
+			return [[obj typeEncoding] rangeOfString:@"Array"].location != NSNotFound;
+		}] valueForKeyPath:@"name"]];
+		objc_setAssociatedObject(self, key, attributes, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+	}
+	return attributes;
+
 }
 
 #pragma mark Counterpart communication
