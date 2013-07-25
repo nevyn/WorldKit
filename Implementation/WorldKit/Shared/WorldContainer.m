@@ -57,6 +57,8 @@
         object_setClass(entity, newClass);
     [entity awakeFromPublish];
     
+    NSLog(@"Publishing %@", pub);
+    
     // Automatically publish child entities
     __weak __typeof(self) weakSelf = self;
     NSSet *allAttributes = [[[entity class] observableAttributes] setByAddingObjectsFromSet:[[entity class] observableToManyAttributes]];

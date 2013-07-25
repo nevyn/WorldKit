@@ -51,9 +51,8 @@
             }
             added:^(WorldEntity *added)
             {
-                if(![added respondsToSelector:@selector(setParent:)]) return;
                 if([added parent] == weakSelf) return;
-                //[added removeFromParent];
+                //[added removeFromParent]; // TODO: deal with being in multiple relationships
                 added.parent = weakSelf;
                 __weak typeof(added) weakAdded = added;
                 added.unparenter = ^{

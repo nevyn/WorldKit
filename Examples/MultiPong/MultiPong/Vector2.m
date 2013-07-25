@@ -314,6 +314,7 @@ static Vector2 *negativeYAxis;
 - (instancetype)normalizedVector;
 {
 	float invLen = 1.0 / [self length];
+    NSAssert(!isnan(invLen), @"Normalizing a vector that has no length makes no sense. Stopping you before you get a NaN in your code.");
 	return [[self class] vectorWithX:X * invLen y:Y * invLen];
 }
 - (instancetype)integralVector

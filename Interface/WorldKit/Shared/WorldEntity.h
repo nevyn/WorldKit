@@ -18,8 +18,9 @@ typedef id (^WorldEntityFetcher)(NSString *identifier, Class expectedClass, BOOL
 /// designated initializer
 - (id)init;
 /** When an entity is being published (implicitly or explicitly), it will look for a class called
-    [self class]_Server or [self class]_Client. If one is found, its isa is replaced. After this
-    setup is done, -awakeFromPublish is called, and it is now safe to setup KVO. */
+    [self class]Server or [self class]Client. If one is found, its isa is replaced. After this
+    setup is done, -awakeFromPublish is called, and it is now safe to setup KVO. If you override this
+    method, don't forget to call super! */
 - (void)awakeFromPublish;
 /// A globally unique identifier for this entity.
 @property(nonatomic,WORLD_WRITABLE,copy) NSString *identifier;
