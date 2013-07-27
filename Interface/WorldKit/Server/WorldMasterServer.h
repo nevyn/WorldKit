@@ -14,6 +14,8 @@
 
 - (WorldGameServer*)createGameServerWithParameters:(NSDictionary*)parameters error:(NSError**)err;
 - (void)serveOnlyGame:(WorldGameServer*)server;
+/** Remove a game from the list of games, stop it, and release it. */
+- (void)stopGame:(WorldGameServer*)game;
 @end
 
 @protocol WorldMasterServerDelegate <NSObject>

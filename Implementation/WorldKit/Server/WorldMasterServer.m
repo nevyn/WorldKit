@@ -81,6 +81,12 @@
     _singleGame = server;
 }
 
+- (void)stopGame:(WorldGameServer*)game
+{
+    [game stop];
+    [[self mutableSetValueForKey:@"games"] removeObject:game];
+}
+
 #pragma mark Listen socket
 
 - (void)onSocket:(AsyncSocket *)sock didAcceptNewSocket:(AsyncSocket *)newSocket;
