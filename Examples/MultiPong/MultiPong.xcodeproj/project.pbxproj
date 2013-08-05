@@ -40,8 +40,12 @@
 		058D88B0163826A200B97810 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058D88AF163826A200B97810 /* CFNetwork.framework */; };
 		058D88C416382F9500B97810 /* libWorldKitClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 058D886A1638207E00B97810 /* libWorldKitClient.a */; };
 		058D88C516382F9500B97810 /* libWorldKitCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 058D88641638207E00B97810 /* libWorldKitCommon.a */; };
+		05A84C1417B064EF005F639D /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A84C1317B064EF005F639D /* libc++.dylib */; };
 		05C3FF1E179D659C005F6D50 /* BNZLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C3FF1D179D659C005F6D50 /* BNZLine.m */; };
 		05C3FF1F179D659C005F6D50 /* BNZLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C3FF1D179D659C005F6D50 /* BNZLine.m */; };
+		05C7482D17B061E0002451D4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C7482C17B061E0002451D4 /* Security.framework */; };
+		05C7482F17B061EB002451D4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C7482E17B061EB002451D4 /* Security.framework */; };
+		05C7483117B06250002451D4 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C7483017B06250002451D4 /* libc++.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,8 +160,13 @@
 		058D88A71638254B00B97810 /* MultiPongServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiPongServer.m; sourceTree = "<group>"; };
 		058D88AD1638269C00B97810 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		058D88AF163826A200B97810 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		05A84C1317B064EF005F639D /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		05C3FF1C179D659C005F6D50 /* BNZLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNZLine.h; sourceTree = "<group>"; };
 		05C3FF1D179D659C005F6D50 /* BNZLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNZLine.m; sourceTree = "<group>"; };
+		05C7482C17B061E0002451D4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		05C7482E17B061EB002451D4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		05C7483017B06250002451D4 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libc++.dylib"; sourceTree = DEVELOPER_DIR; };
+		05C7483217B0625C002451D4 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libstdc++.dylib"; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +174,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A84C1417B064EF005F639D /* libc++.dylib in Frameworks */,
+				05C7482F17B061EB002451D4 /* Security.framework in Frameworks */,
 				051ED42E1638586D00E16332 /* QuartzCore.framework in Frameworks */,
 				058D88C416382F9500B97810 /* libWorldKitClient.a in Frameworks */,
 				058D88C516382F9500B97810 /* libWorldKitCommon.a in Frameworks */,
@@ -179,6 +190,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05C7483117B06250002451D4 /* libc++.dylib in Frameworks */,
+				05C7482D17B061E0002451D4 /* Security.framework in Frameworks */,
 				058D88AE1638269C00B97810 /* CFNetwork.framework in Frameworks */,
 				058D88A4163824BA00B97810 /* libWorldKitCommon.a in Frameworks */,
 				058D88A5163824BA00B97810 /* libWorldKitServer.a in Frameworks */,
@@ -213,6 +226,11 @@
 		058D882C16381AE600B97810 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05A84C1317B064EF005F639D /* libc++.dylib */,
+				05C7483217B0625C002451D4 /* libstdc++.dylib */,
+				05C7483017B06250002451D4 /* libc++.dylib */,
+				05C7482E17B061EB002451D4 /* Security.framework */,
+				05C7482C17B061E0002451D4 /* Security.framework */,
 				051ED42D1638586D00E16332 /* QuartzCore.framework */,
 				058D88AF163826A200B97810 /* CFNetwork.framework */,
 				058D88AD1638269C00B97810 /* CFNetwork.framework */,
