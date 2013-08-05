@@ -10,3 +10,6 @@
 [submodule "Libraries/TCHashProto"]
 	path = Libraries/TCHashProto
 	url = https://github.com/nevyn/TCAsyncHashProtocol.git
+[submodule "Libraries/eminet"]
+	path = Libraries/eminet
+	url = https://github.com/pereckerdal/eminet.git
