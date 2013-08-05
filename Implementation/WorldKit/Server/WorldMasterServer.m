@@ -14,7 +14,6 @@
 
 @interface WorldMasterServer ()
 -(void)broadcast:(NSDictionary*)hash;
--(WorldServerPlayer*)playerForSocket:(AsyncSocket*)sock;
 -(NSDictionary*)cmd_updateGameList;
 @end
 
@@ -96,7 +95,7 @@
 	
 	WorldServerPlayer *splayer = [WorldServerPlayer new];
 	splayer.connection = proto;
-    [_socketsToPlayers setObject:splayer forKey:[NSValue valueWithPointer:(__bridge const void *)(proto.socket)]];
+    [_socketsToPlayers setObject:splayer forKey:[NSValue valueWithPointer:(__bridge const void *)(proto.transport)]];
 	
 	NSLog(@"Accepted new connection: %@", newSocket);
 	[self join:splayer];
@@ -108,20 +107,20 @@
 		NSLog(@"Dropped listen socket: %@", err);
 		abort();
 	}
-        WorldServerPlayer *player = [self playerForSocket:sock];
+	WorldServerPlayer *player = [self playerForSocket:sock.delegate];
 	NSLog(@"Lost connection: %@/%@: %@", sock, player, err);
 }
 
 - (void)onSocketDidDisconnect:(AsyncSocket *)sock;
 {
-	WorldServerPlayer *player = [self playerForSocket:sock];
+	WorldServerPlayer *player = [self playerForSocket:sock.delegate];
 	[_gamelessPlayers removeObject:player];
     [_socketsToPlayers removeObjectForKey:[NSValue valueWithPointer:(__bridge const void *)(sock)]];
 }
 
 
 #pragma mark Players
--(WorldServerPlayer*)playerForSocket:(AsyncSocket*)sock;
+-(WorldServerPlayer*)playerForSocket:(TCAHPTransport*)sock;
 {
 	return [_socketsToPlayers objectForKey:[NSValue valueWithPointer:(__bridge const void *)(sock)]];
 }
@@ -171,15 +170,15 @@
 #pragma mark commands & requests
 -(void)request:(TCAsyncHashProtocol*)proto clientHello:(NSDictionary*)hash responder:(TCAsyncHashProtocolResponseCallback)callback;
 {
-	WorldServerPlayer *splayer = [self playerForSocket:proto.socket];
+	WorldServerPlayer *splayer = [self playerForSocket:proto.transport];
 	
-	ProtoAssert(proto.socket, splayer.gameCenterIdentifier == nil, @"Can only receive clientHello once");
+	ProtoAssert(proto.transport, splayer.gameCenterIdentifier == nil, @"Can only receive clientHello once");
 	
 	NSString *playerName = [hash objectForKey:@"name"];
-	ProtoAssert(proto.socket, playerName != nil, @"Must have player name");
+	ProtoAssert(proto.transport, playerName != nil, @"Must have player name");
     
     NSString *playerId = [hash objectForKey:@"playerIdentifier"];
-	ProtoAssert(proto.socket, playerId != nil, @"Must have player ident");
+	ProtoAssert(proto.transport, playerId != nil, @"Must have player ident");
     
     splayer.name = playerName;
     splayer.gameCenterIdentifier = playerId;
@@ -203,8 +202,8 @@
 
 -(void)request:(TCAsyncHashProtocol*)proto createGame:(NSDictionary*)hash responder:(TCAsyncHashProtocolResponseCallback)callback;
 {
-	WorldServerPlayer *player = [self playerForSocket:proto.socket];
-	ProtoAssert(proto.socket, player.gameCenterIdentifier != nil, @"Must have gotten clientHello once");
+	WorldServerPlayer *player = [self playerForSocket:proto.transport];
+	ProtoAssert(proto.transport, player.gameCenterIdentifier != nil, @"Must have gotten clientHello once");
     
     NSError *err = nil;
 	WorldGameServer *sgame = [self createGameServerWithParameters:hash error:&err];
@@ -233,11 +232,11 @@
 
 -(void)request:(TCAsyncHashProtocol*)proto joinGame:(NSDictionary*)hash responder:(TCAsyncHashProtocolResponseCallback)callback;
 {
-	WorldServerPlayer *player = [self playerForSocket:proto.socket];
-	ProtoAssert(proto.socket, player.gameCenterIdentifier != nil, @"Must have gotten clientHello once");
+	WorldServerPlayer *player = [self playerForSocket:proto.transport];
+	ProtoAssert(proto.transport, player.gameCenterIdentifier != nil, @"Must have gotten clientHello once");
 	
 	NSString *ident = [hash objectForKey:@"identifier"];
-	ProtoAssert(proto.socket, ident != nil, @"Must have identifier of the game to join");
+	ProtoAssert(proto.transport, ident != nil, @"Must have identifier of the game to join");
 
 	WorldGameServer *sgame = [self gameForIdentifier:ident];
 	if(!sgame) {

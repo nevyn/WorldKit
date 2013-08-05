@@ -1,7 +1,6 @@
 #import "WorldServerPlayer.h"
 #import "TCAsyncHashProtocol.h"
 #import <WorldKit/Shared/WorldGamePlayer.h>
-#import "NSString+UUID.h"
 
 @implementation WorldServerPlayer
 - (id)init
@@ -15,7 +14,7 @@
 {
     [self.representation removeFromParent];
     self.representation = nil;
-    if(self.leaver && [_connection.socket isConnected])
+    if(self.leaver && [_connection.transport isConnected])
         self.leaver();
     self.leaver = nil;
     [self.snapshots removeAllObjects];
@@ -40,7 +39,9 @@
     WorldServerSnapshot *snapshot = [WorldServerSnapshot new];
     snapshot.rep = rep;
     snapshot.timestamp = [NSDate timeIntervalSinceReferenceDate];
-    snapshot.identifier = TCUUID();
+	CFUUIDRef uuid = CFUUIDCreate(NULL);
+    snapshot.identifier = CFBridgingRelease(CFUUIDCreateString(NULL, uuid));
+	CFRelease(uuid);
     [_snapshots insertObject:snapshot atIndex:0];
     
     if(_snapshots.count == 11)

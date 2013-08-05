@@ -2,6 +2,7 @@
 #import "_WorldGameClient.h"
 #import <SPSuccinct/SPSuccinct.h>
 #import "TCAsyncHashProtocol.h"
+#import "AsyncSocket.h"
 
 // set to 0 to debug without Internet connection
 #define HC_WITH_GAMEKIT 0
@@ -232,7 +233,7 @@
 		((void(*)(id, SEL, id, id, TCAsyncHashProtocolResponseCallback))[_currentGame methodForSelector:sel])(_currentGame, sel, proto, hash, responder);
 	} else {
 		NSLog(@"Unexpected server request, disconnecting: %@", hash);
-		[_proto.socket disconnect];
+		[_proto.transport disconnect];
 	}
 }
 
@@ -268,7 +269,7 @@
 -(void)command:(TCAsyncHashProtocol*)proto forceDisconnect:(NSDictionary*)hash;
 {
     [_delegate masterClient:self wasDisconnectedWithReason:[hash objectForKey:@"reason"] redirect:nil];    
-    [proto.socket disconnect];
+    [proto.transport disconnect];
 }
 
 #pragma mark Outgoing commands

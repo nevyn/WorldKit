@@ -14,8 +14,6 @@
 		055A817715CD45D00033FA0C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 055A817515CD45D00033FA0C /* InfoPlist.strings */; };
 		055A817A15CD45D00033FA0C /* WorldKitCommonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 055A817915CD45D00033FA0C /* WorldKitCommonTests.m */; };
 		055A818215CD46560033FA0C /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBDA15BADEC8006DD9DC /* AsyncSocket.m */; };
-		055A818415CD46560033FA0C /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBDC15BADEC8006DD9DC /* AsyncUdpSocket.m */; };
-		055A818615CD46560033FA0C /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBD415BADE22006DD9DC /* NSString+UUID.m */; };
 		055A818815CD46560033FA0C /* TCAsyncHashProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCBD615BADE22006DD9DC /* TCAsyncHashProtocol.m */; };
 		055A818A15CD46620033FA0C /* WorldEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F77A0F15B84E180059B13A /* WorldEntity.m */; };
 		055A818C15CD46620033FA0C /* WorldGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 059BCC2415C04F46006DD9DC /* WorldGame.m */; };
@@ -45,6 +43,8 @@
 		05AD0E531634B60600DF7452 /* WorldEntityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD0E521634B60600DF7452 /* WorldEntityTest.m */; };
 		05AD0E541634B72400DF7452 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055A81A415CD49950033FA0C /* CFNetwork.framework */; };
 		05BAE7F4161C89D700F370BA /* SPLifetimeGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BAE7F3161C89D700F370BA /* SPLifetimeGlue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		05C96CDF17B05C3E001B1CDF /* TCAHPAsyncSocketTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C96CDC17B05C3E001B1CDF /* TCAHPAsyncSocketTransport.m */; };
+		05C96CE017B05C3E001B1CDF /* TCAHPTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C96CDE17B05C3E001B1CDF /* TCAHPTransport.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,14 +104,10 @@
 		058DE9B215CD42DE002F07A3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		059BCBC715BADD01006DD9DC /* WorldGameClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldGameClient.m; sourceTree = "<group>"; };
 		059BCBCB15BADD0A006DD9DC /* WorldGameServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldGameServer.m; sourceTree = "<group>"; };
-		059BCBD315BADE22006DD9DC /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+UUID.h"; path = "Libraries/TCHashProto/NSString+UUID.h"; sourceTree = SOURCE_ROOT; };
-		059BCBD415BADE22006DD9DC /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+UUID.m"; path = "Libraries/TCHashProto/NSString+UUID.m"; sourceTree = SOURCE_ROOT; };
 		059BCBD515BADE22006DD9DC /* TCAsyncHashProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCAsyncHashProtocol.h; path = Libraries/TCHashProto/TCAsyncHashProtocol.h; sourceTree = SOURCE_ROOT; };
 		059BCBD615BADE22006DD9DC /* TCAsyncHashProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TCAsyncHashProtocol.m; path = Libraries/TCHashProto/TCAsyncHashProtocol.m; sourceTree = SOURCE_ROOT; };
 		059BCBD915BADEC8006DD9DC /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = Libraries/AsyncSocket/RunLoop/AsyncSocket.h; sourceTree = SOURCE_ROOT; };
 		059BCBDA15BADEC8006DD9DC /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = Libraries/AsyncSocket/RunLoop/AsyncSocket.m; sourceTree = SOURCE_ROOT; };
-		059BCBDB15BADEC8006DD9DC /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncUdpSocket.h; path = Libraries/AsyncSocket/RunLoop/AsyncUdpSocket.h; sourceTree = SOURCE_ROOT; };
-		059BCBDC15BADEC8006DD9DC /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncUdpSocket.m; path = Libraries/AsyncSocket/RunLoop/AsyncUdpSocket.m; sourceTree = SOURCE_ROOT; };
 		059BCC0F15C04771006DD9DC /* WorldMasterServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldMasterServer.m; sourceTree = "<group>"; };
 		059BCC1315C0485D006DD9DC /* SPDepends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPDepends.h; sourceTree = "<group>"; };
 		059BCC1415C0485D006DD9DC /* SPDepends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPDepends.m; sourceTree = "<group>"; };
@@ -166,6 +162,10 @@
 		05BAE809161C8BAD00F370BA /* SPSuccinct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSuccinct.h; sourceTree = "<group>"; };
 		05BAE80A161C8D4200F370BA /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		05BB831E161C7FE400EA4DE3 /* WorldMasterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldMasterClient.m; sourceTree = "<group>"; };
+		05C96CDB17B05C3E001B1CDF /* TCAHPAsyncSocketTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCAHPAsyncSocketTransport.h; path = Libraries/TCHashProto/TCAHPAsyncSocketTransport.h; sourceTree = SOURCE_ROOT; };
+		05C96CDC17B05C3E001B1CDF /* TCAHPAsyncSocketTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TCAHPAsyncSocketTransport.m; path = Libraries/TCHashProto/TCAHPAsyncSocketTransport.m; sourceTree = SOURCE_ROOT; };
+		05C96CDD17B05C3E001B1CDF /* TCAHPTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCAHPTransport.h; path = Libraries/TCHashProto/TCAHPTransport.h; sourceTree = SOURCE_ROOT; };
+		05C96CDE17B05C3E001B1CDF /* TCAHPTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TCAHPTransport.m; path = Libraries/TCHashProto/TCAHPTransport.m; sourceTree = SOURCE_ROOT; };
 		05F779E615B84D320059B13A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		05F77A0F15B84E180059B13A /* WorldEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldEntity.m; sourceTree = "<group>"; };
 		05F77A2515BA06830059B13A /* WorldServerPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldServerPlayer.m; sourceTree = "<group>"; };
@@ -429,12 +429,12 @@
 			children = (
 				059BCBD915BADEC8006DD9DC /* AsyncSocket.h */,
 				059BCBDA15BADEC8006DD9DC /* AsyncSocket.m */,
-				059BCBDB15BADEC8006DD9DC /* AsyncUdpSocket.h */,
-				059BCBDC15BADEC8006DD9DC /* AsyncUdpSocket.m */,
-				059BCBD315BADE22006DD9DC /* NSString+UUID.h */,
-				059BCBD415BADE22006DD9DC /* NSString+UUID.m */,
 				059BCBD515BADE22006DD9DC /* TCAsyncHashProtocol.h */,
 				059BCBD615BADE22006DD9DC /* TCAsyncHashProtocol.m */,
+				05C96CDB17B05C3E001B1CDF /* TCAHPAsyncSocketTransport.h */,
+				05C96CDC17B05C3E001B1CDF /* TCAHPAsyncSocketTransport.m */,
+				05C96CDD17B05C3E001B1CDF /* TCAHPTransport.h */,
+				05C96CDE17B05C3E001B1CDF /* TCAHPTransport.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -580,14 +580,14 @@
 				055A819A15CD48C60033FA0C /* RTProperty.m in Sources */,
 				055A819B15CD48C60033FA0C /* RTProtocol.m in Sources */,
 				055A819C15CD48C60033FA0C /* RTUnregisteredClass.m in Sources */,
+				05C96CDF17B05C3E001B1CDF /* TCAHPAsyncSocketTransport.m in Sources */,
 				055A819D15CD48F70033FA0C /* SPDepends.m in Sources */,
 				055A819E15CD48F70033FA0C /* SPFunctional.m in Sources */,
 				055A819F15CD48F70033FA0C /* SPKVONotificationCenter.m in Sources */,
 				055A81A015CD48F70033FA0C /* SPLowVerbosity.m in Sources */,
-				055A818615CD46560033FA0C /* NSString+UUID.m in Sources */,
 				055A818215CD46560033FA0C /* AsyncSocket.m in Sources */,
-				055A818415CD46560033FA0C /* AsyncUdpSocket.m in Sources */,
 				055A818815CD46560033FA0C /* TCAsyncHashProtocol.m in Sources */,
+				05C96CE017B05C3E001B1CDF /* TCAHPTransport.m in Sources */,
 				055A818A15CD46620033FA0C /* WorldEntity.m in Sources */,
 				055A818C15CD46620033FA0C /* WorldGame.m in Sources */,
 				055A818E15CD46620033FA0C /* WorldGamePlayer.m in Sources */,

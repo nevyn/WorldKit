@@ -65,7 +65,7 @@
 /// Takes ownership of the player and its socket.
 -(void)join:(WorldServerPlayer*)splayer leaver:(dispatch_block_t)leaver
 {
-    ProtoAssert(splayer.connection.socket, ![_splayers containsObject:splayer], @"A player already in the game cannot join");
+    ProtoAssert(splayer.connection.transport, ![_splayers containsObject:splayer], @"A player already in the game cannot join");
     splayer.leaver = leaver;
     [_splayers addObject:splayer];
     splayer.connection.delegate = (id)self;
@@ -100,7 +100,7 @@
 }
 -(void)leave:(WorldServerPlayer*)splayer
 {
-    ProtoAssert(splayer.connection.socket, [_splayers containsObject:splayer], @"A player not in the game cannot leave");
+    ProtoAssert(splayer.connection.transport, [_splayers containsObject:splayer], @"A player not in the game cannot leave");
     
 	[splayer.connection sendHash:@{
 		@"command": @"leaveGame"
@@ -118,10 +118,10 @@
     }];
 }
 
-- (WorldServerPlayer*)splayerForSocket:(AsyncSocket*)socket
+- (WorldServerPlayer*)splayerForSocket:(TCAHPTransport*)transport
 {
     return [_splayers sp_any:^BOOL(WorldServerPlayer *potential) {
-        return potential.connection.socket == socket;
+        return potential.connection.transport == transport;
     }];
 }
 
@@ -175,23 +175,23 @@
 
 - (void)command:(TCAsyncHashProtocol*)proto counterpartMessage:(NSDictionary*)hash
 {
-	NSString *identifier = $protoCast(proto.socket, NSString, hash[@"entity"]);
-	NSString *command = $protoCast(proto.socket, NSString, hash[@"counterpartCommand"]);
+	NSString *identifier = $protoCast(proto.transport, NSString, hash[@"entity"]);
+	NSString *command = $protoCast(proto.transport, NSString, hash[@"counterpartCommand"]);
 	NSDictionary *args = hash[@"arguments"];
 	WorldServerPlayer *splayer = [self splayerForConnection:proto];
 	
 	WorldEntity *e = [_entities entityForIdentifier:identifier];
 	SEL sel = NSSelectorFromString([NSString stringWithFormat:@"commandFromPlayer:%@:", command]);
 	
-	ProtoAssert(proto.socket, [e respondsToSelector:sel], @"Entity %@ must respond to %@", e, NSStringFromSelector(sel));
+	ProtoAssert(proto.transport, [e respondsToSelector:sel], @"Entity %@ must respond to %@", e, NSStringFromSelector(sel));
 	
 	((void(*)(id, SEL, WorldGamePlayer*, NSDictionary*))[e methodForSelector:sel])(e, sel, splayer.representation, args);
 }
 
 #pragma mark Socket delegate
-- (void)onSocketDidDisconnect:(AsyncSocket *)sock
+- (void)transportDidDisconnect:(TCAHPTransport*)transport
 {
-	WorldServerPlayer *splayer = [self splayerForSocket:sock];
+	WorldServerPlayer *splayer = [self splayerForSocket:transport];
 	if(splayer)
 		[self leave:splayer];
 }

@@ -1,6 +1,5 @@
 #define WORLD_WRITABLE_MODEL 1
 #import "_WorldEntity.h"
-#import "NSString+UUID.h"
 #import "MARTNSObject.h"
 #import "RTProperty.h"
 #import "SPFunctional.h"
@@ -21,7 +20,9 @@
     if (!(self = [super init]))
         return nil;
     // Setup a default UUID. Before being published, some external party may override it, but we need a sensible default
-    self.identifier = TCUUID();
+	CFUUIDRef uuid = CFUUIDCreate(NULL);
+    self.identifier = CFBridgingRelease(CFUUIDCreateString(NULL, uuid));
+	CFRelease(uuid);
     
     for(NSString *toManyKey in [[self class] observableToManyAttributes])
         [self setValue:[NSMutableArray array] forKey:toManyKey];
